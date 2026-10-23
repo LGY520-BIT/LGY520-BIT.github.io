@@ -2,7 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
+import vm from 'node:vm';
 const read=p=>fs.readFileSync(p,'utf8');
+test('wallpaper tolerates cold CDN loads but keeps a bounded timeout and one iframe',()=>{
+ const body=read('public/dreamscape-host.js').split('const start=()=>{')[1].split('const sync=()=>{')[0];
+ let deadline=0,callback,frames=0;
+ const ctx={state:{enabled:true,dynamic:true},frame:null,root:{querySelector:()=>({append:()=>frames++})},quiet:()=>false,failed:false,covered:false,pageSuspended:false,document:{hidden:false,createElement:()=>({setAttribute(){}})},timer:0,fail:()=>{ctx.frame=null;ctx.failed=true},setTimeout:(fn,ms)=>{callback=fn;deadline=ms;return 1}};
+ vm.runInNewContext('const start=()=>{'+body+'start();start();',ctx);
+ assert.ok(deadline>40000);assert.ok(deadline<=120000);assert.ok(ctx.frame);assert.equal(frames,1);
+ callback();assert.equal(ctx.frame,null);assert.equal(ctx.failed,true);
+});
 test('public source audit passes',()=>{const r=spawnSync(process.execPath,['scripts/audit-public.mjs','.'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr)});
 test('original comic homepage and handwritten terminal retained',()=>{const s=read('src/pages/index.astro');for(const part of ['scrap-comic','scrap-terminal','scrap-journal','scrap-rooms'])assert.ok(s.includes(part));assert.ok(!s.includes('moon-observatory'))});
 test('original wallpaper and audio instances persist across routes',()=>{assert.match(read('src/components/WallpaperBackdrop.astro'),/transition:persist="site-wallpaper"/);assert.match(read('src/layouts/Layout.astro'),/transition:persist="moon-music-session"/)});

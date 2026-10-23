@@ -43,7 +43,7 @@
    const fail=()=>{failed=true;remove();notify();};
    const start=()=>{
     if(frame||!root||!state.enabled||!state.dynamic||quiet()||failed||covered||pageSuspended||document.hidden)return;
-    frame=document.createElement('iframe');frame.title='枯梦背景';frame.tabIndex=-1;frame.setAttribute('aria-hidden','true');frame.setAttribute('sandbox','allow-scripts allow-same-origin');frame.setAttribute('allow',"autoplay 'none'; microphone 'none'; camera 'none'; display-capture 'none'");frame.referrerPolicy='no-referrer';frame.src='/wallpapers/kumeng/index.html';root.querySelector('[data-wallpaper-frame]').append(frame);timer=setTimeout(fail,35000);
+    frame=document.createElement('iframe');frame.title='枯梦背景';frame.tabIndex=-1;frame.setAttribute('aria-hidden','true');frame.setAttribute('sandbox','allow-scripts allow-same-origin');frame.setAttribute('allow',"autoplay 'none'; microphone 'none'; camera 'none'; display-capture 'none'");frame.referrerPolicy='no-referrer';frame.src='/wallpapers/kumeng/index.html';root.querySelector('[data-wallpaper-frame]').append(frame);timer=setTimeout(fail,120000);
    };
    const sync=()=>{
     pin();

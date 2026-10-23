@@ -119,8 +119,8 @@
     },
     {
       "path": "public/dreamscape-host.js",
-      "bytes": 9328,
-      "sha256": "a41506c612a6e140d3e026c7e8984f4d06631b9f0d53941feecf7f08d6ed71f3"
+      "bytes": 9329,
+      "sha256": "07646ba2d0d9bef255030b29d5502467062a619d12653d1975d788844a0d3a3c"
     },
     {
       "path": "public/dreamscape-utils.mjs",
@@ -1054,8 +1054,8 @@
     },
     {
       "path": "scripts/test-public.mjs",
-      "bytes": 2499,
-      "sha256": "1029d88ac026e5ada9575512ce61f1bfa2a5b94ab8dbf6878199696063883606"
+      "bytes": 3342,
+      "sha256": "448bd7aed547f29fb15285fbf3f8328cbc46c98082b62a39699efee8a9b2c431"
     },
     {
       "path": "src/components/CleanViewControls.astro",
