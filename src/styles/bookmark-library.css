@@ -1,0 +1,98 @@
+/* Bookmark tools live beside the collection; profile and writing layouts stay untouched. */
+.links-room .links-toolbar { align-items: stretch; gap: 12px; }
+.links-room .links-search { min-width: min(270px, 100%); flex: 1 1 300px; min-height: 44px; }
+.links-room .links-library-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
+.links-room .links-library-actions > .space-button { min-height: 44px; padding-inline: 14px; }
+.links-room .links-library-actions [hidden],.links-room [data-links-import-file][hidden] { display: none !important; }
+.links-room .links-library-bar { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; }
+.links-room .links-library-results { margin: 0; color: var(--space-muted); font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.links-room .links-library-options { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+.links-room .links-sort { display: flex; gap: 8px; align-items: center; color: var(--space-muted); font-size: 12px; }
+.links-room .links-sort select { min-height: 44px; padding: 9px 30px 9px 12px; border: 1px solid var(--space-line); border-radius: 10px; background: var(--space-paper); color: var(--space-ink); font: 600 12px/1.5 var(--sans,sans-serif); max-width: 150px; }
+.links-room .links-view-switch { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--space-line); border-radius: 12px; background: color-mix(in srgb, var(--space-paper) 75%, transparent); }
+.links-room .links-view-switch button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 70px; min-height: 44px; border: 0; border-radius: 8px; background: transparent; color: var(--space-muted); font: 650 12px/1.4 var(--sans,sans-serif); cursor: pointer; }
+.links-room .links-view-switch button[aria-pressed=true] { background: var(--space-pink); color: var(--space-accent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--space-accent) 16%, transparent); }
+.links-room .links-filters { margin-top: 18px; }
+.links-room .links-filters button { min-height: 44px; }
+.links-room :is(.links-sort select,.links-view-switch button):focus-visible { outline: 2px solid var(--space-accent); outline-offset: 3px; }
+.links-room .links-view-switch button:disabled,.links-room .links-sort select:disabled { opacity: .55; cursor: wait; }
+.links-room[data-links-layout=list] .links-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.links-room[data-links-layout=list] .link-card { display: grid; grid-template-columns: 112px minmax(0, 1fr) minmax(90px, 180px); gap: 6px 18px; min-height: 142px; padding: 18px 20px; align-items: start; }
+.links-room[data-links-layout=list] .link-card-cover { grid-column: 1; grid-row: 1 / 4; width: 112px; aspect-ratio: 1; margin: 0; align-self: center; border-radius: 10px; }
+.links-room[data-links-layout=list] .link-card-top { grid-column: 2; grid-row: 1; gap: 8px; min-width: 0; }
+.links-room[data-links-layout=list] .link-letter { width: 28px; height: 28px; font-size: 15px; border-radius: 8px; flex-shrink: 0; }
+.links-room[data-links-layout=list] .link-pin { margin-left: 2px; }
+.links-room[data-links-layout=list] .link-card h2 { grid-column: 2; grid-row: 2; margin: 0; font-size: 16px; }
+.links-room[data-links-layout=list] .link-card h2 a { justify-content: flex-start; gap: 10px; }
+.links-room[data-links-layout=list] .link-card > p { grid-column: 2; grid-row: 3; margin: 0; font-size: 12px; line-height: 1.7; }
+.links-room[data-links-layout=list] .link-card-bottom { grid-column: 3; grid-row: 1 / 4; min-width: 0; border-top: 0; border-left: 1px solid var(--space-line); padding: 8px 0 8px 16px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; align-self: stretch; }
+.links-room[data-links-layout=list] .link-card-bottom > span { max-width: 100%; }
+.links-room[data-links-layout=list] .link-card-bottom .space-text-button { min-height: 44px; padding: 8px 10px; margin-left: -10px; }
+.links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) { grid-template-columns: minmax(0, 1fr) minmax(90px, 180px); }
+.links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) :is(.link-card-top,h2,p) { grid-column: 1; }
+.links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) .link-card-bottom { grid-column: 2; }
+.link-duplicate-warning { color: var(--space-accent); background: var(--space-pink); border: 1px solid var(--space-line); padding: 10px 12px; border-radius: 10px; font-size: 12px; line-height: 1.7; margin: -4px 0 14px; overflow-wrap: anywhere; }
+.link-duplicate-warning[hidden] { display: none !important; }
+.bookmark-import-dialog { width: min(760px, calc(100vw - 32px)); }
+.bookmark-import-dialog .space-icon-button { flex-shrink: 0; width: 44px; height: 44px; }
+.bookmark-import-dialog .bookmark-import-note { margin: 0 0 14px; font-size: 13px; line-height: 1.8; color: var(--space-muted); }
+.bookmark-import-dialog .bookmark-import-summary { margin: 0 0 16px; font-size: 13px; line-height: 1.8; color: var(--space-ink); overflow-wrap: anywhere; }
+.bookmark-import-dialog .bookmark-import-selection { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 10px; color: var(--space-muted); font-size: 11px; }
+.bookmark-import-dialog .bookmark-import-list { display: grid; gap: 8px; max-height: min(45dvh, 410px); overflow: auto; overscroll-behavior: contain; padding: 3px; margin-inline: -3px; scrollbar-width: thin; }
+.bookmark-import-dialog .bookmark-import-row { display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 72px; margin: 0; padding: 12px 14px; border: 1px solid var(--space-line); border-radius: 12px; background: color-mix(in srgb, var(--space-paper) 90%, var(--space-blue)); cursor: pointer; }
+.bookmark-import-dialog .bookmark-import-row:has(input:checked) { border-color: color-mix(in srgb, var(--space-accent) 55%, var(--space-line)); background: var(--space-pink); }
+.bookmark-import-dialog .bookmark-import-row:has(input:disabled) { opacity: .6; cursor: default; }
+.bookmark-import-dialog .bookmark-import-row > input[type=checkbox] { width: 19px; height: 19px; margin: 0; accent-color: var(--space-accent); flex-shrink: 0; }
+.bookmark-import-dialog .bookmark-import-row > span { display: grid; gap: 4px; min-width: 0; }
+.bookmark-import-dialog .bookmark-import-row strong { font-size: 13px; font-weight: 650; line-height: 1.6; color: var(--space-ink); overflow-wrap: anywhere; }
+.bookmark-import-dialog .bookmark-import-row small { font: 400 11px/1.6 var(--mono,monospace); color: var(--space-muted); overflow-wrap: anywhere; }
+.bookmark-import-dialog .space-dialog-actions { position: sticky; bottom: calc(-1 * var(--room-pad, 28px)); background: var(--space-paper); padding-bottom: 12px; z-index: 1; }
+.bookmark-import-dialog .space-button { min-height: 44px; }
+.bookmark-import-dialog [hidden] { display: none !important; }
+.bookmark-import-dialog :is(button,input):focus-visible { outline: 2px solid var(--space-accent); outline-offset: 3px; }
+.bookmark-import-dialog button:disabled { opacity: .55; cursor: wait; }
+@media(max-width:900px) {
+  .links-room .links-search { flex-basis: 100%; }
+  .links-room .links-library-actions { width: 100%; }
+  .links-room[data-links-layout=list] .link-card { grid-template-columns: 96px minmax(0, 1fr) minmax(75px, 140px); gap: 6px 14px; }
+  .links-room[data-links-layout=list] .link-card-cover { width: 96px; }
+  .links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) { grid-template-columns: minmax(0, 1fr) minmax(75px, 140px); }
+}
+@media(max-width:650px) {
+  .links-room .links-library-actions { gap: 8px; }
+  .links-room .links-library-actions > .space-button { flex: 1 1 calc(50% - 8px); padding-inline: 10px; }
+  .links-room .links-library-bar { align-items: stretch; flex-direction: column; gap: 12px; }
+  .links-room .links-library-options { justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .links-room .links-view-switch { flex-shrink: 0; }
+  .links-room .links-sort { min-width: 0; }
+  .links-room .links-sort select { max-width: 140px; }
+  .links-room[data-links-layout=list] .link-card { grid-template-columns: 72px minmax(0, 1fr); padding: 16px; gap: 7px 12px; min-height: 0; }
+  .links-room[data-links-layout=list] .link-card-cover { width: 72px; grid-row: 1 / 4; }
+  .links-room[data-links-layout=list] .link-card h2 { font-size: 15px; }
+  .links-room[data-links-layout=list] .link-card-top { gap: 6px; }
+  .links-room[data-links-layout=list] .link-letter { width: 24px; height: 24px; font-size: 13px; }
+  .links-room[data-links-layout=list] .link-card-bottom { grid-column: 1 / -1; grid-row: 4; flex-direction: row; align-items: center; justify-content: space-between; padding: 8px 0 0; margin-top: 4px; border-left: 0; border-top: 1px dashed var(--space-line); gap: 8px; }
+  .links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) { grid-template-columns: minmax(0, 1fr); }
+  .links-room[data-links-layout=list] .link-card:not(:has(.link-card-cover:not([hidden]))) .link-card-bottom { grid-column: 1; }
+  .bookmark-import-dialog .space-dialog-heading { align-items: flex-start; }
+  .bookmark-import-dialog .space-dialog-heading h2 { font-size: 21px; }
+  .bookmark-import-dialog .bookmark-import-row { padding: 11px 12px; gap: 10px; }
+  .bookmark-import-dialog .space-dialog-actions > button { flex: 1; }
+}
+@media(max-width:380px) {
+  .links-room .links-library-actions > .space-button { font-size: 11px; }
+  .links-room .links-sort { width: 100%; justify-content: space-between; }
+  .links-room .links-sort select { flex: 1; max-width: none; }
+  .links-room .links-view-switch { width: 100%; }
+  .links-room .links-view-switch button { flex: 1; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .links-room :is(.space-button,.links-view-switch button,.link-card),.bookmark-import-dialog .space-button { transition: none; }
+  .links-room .link-card:hover { transform: none; }
+}
+@media(forced-colors:active) {
+  .links-room :is(.links-view-switch,.links-sort select,.link-card),.bookmark-import-dialog :is(.bookmark-import-row,.space-dialog-actions) { background: Canvas; color: CanvasText; border-color: CanvasText; box-shadow: none; }
+  .links-room .links-view-switch button[aria-pressed=true],.bookmark-import-dialog .bookmark-import-row:has(input:checked) { outline: 2px solid Highlight; background: Canvas; color: Highlight; }
+  .links-room :is(.links-sort select,.links-view-switch button):focus-visible,.bookmark-import-dialog :is(button,input):focus-visible { outline-color: Highlight; }
+  .link-duplicate-warning { background: Canvas; color: CanvasText; border-color: CanvasText; }
+}

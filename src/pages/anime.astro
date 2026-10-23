@@ -1,4 +1,114 @@
 ---
-import Layout from '../layouts/PublicLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
+import data from '../data/anime.json';
+import { ANIME_STATUSES, ANIME_FALLBACK, normalizeAnimeSearch, starParts, validateAnimeData } from '../lib/anime.mjs';
+import '../styles/anime.css';
+const anime = validateAnimeData(data);
+const counts = Object.fromEntries(Object.keys(ANIME_STATUSES).map(status => [status, anime.items.filter(item => item.status === status).length]));
+const featured = anime.items.slice(0, 3);
+const sampleCount = anime.items.filter(item => item.example).length;
+const personal = anime.items.filter(item => !item.example);
+const episodes = personal.reduce((sum, item) => sum + item.progress.current, 0);
+const watching = personal.filter(item => item.status === 'watching');
+const remaining = watching.reduce((sum, item) => sum + item.progress.total - item.progress.current, 0);
 ---
-<Layout title="故事放映室"><section class="inner-intro wrap"><p class="eyebrow">THE ANIME ARCHIVE / 03</p><h1>有些故事，<br/><em>不愿散场。</em></h1><p>把下一次心动，留给下一帧。</p></section><section class="wrap anime-public" data-reveal><span class="screen-symbol" aria-hidden="true">▷</span><h2>片单，慢慢填满。</h2><p>公开片单尚未发布。</p><a class="text-link" href="https://bgm.tv/" target="_blank" rel="noopener noreferrer">去 Bangumi 寻找故事 ↗</a></section></Layout>
+<Layout title={`追番放映室 · ${site.name}`} description="月光下的私人动漫片单。用海报、星级与一句短评，收藏每个舍不得散场的故事。">
+  <section class="anime-room container" data-anime-room data-anime-sample={String(anime.sampleMode)}>
+    <header class="anime-hero">
+      <div class="anime-hero-copy">
+        <span class="anime-eyebrow"><span aria-hidden="true">✦</span> MOONLIGHT CINEMA / 02</span>
+        <h1>把喜欢，<br/>藏进<span>每一帧。</span></h1>
+        <p>故事会落幕，心动不散场。<br/>给那些照亮过日常的世界，留一张专属电影票。</p>
+        <div class="anime-room-meta"><span><i aria-hidden="true"></i> 追番放映室</span><span>{anime.items.length.toString().padStart(2, '0')} 部{anime.sampleMode ? '示例' : '精选'}片单</span><span>NO SPOILERS</span></div>
+      </div>
+      <div class="anime-hero-film" aria-hidden="true">
+        <span class="anime-orbit"></span>
+        {featured.map((item, index) => <div class={`anime-film-frame anime-film-frame-${index}`}><img src={item.cover} alt="" width="300" height="400" decoding="async"/><span>SCENE / {(index + 1).toString().padStart(2, '0')}</span></div>)}
+        <span class="anime-hero-stamp">月面上映中 <b>☾</b></span>
+      </div>
+    </header>
+
+    {sampleCount > 0 && <aside class="anime-sample-note" aria-label="示例片单说明"><span aria-hidden="true">✧</span><p>含 {sampleCount} 部示例片单。</p></aside>}
+
+    <div class="anime-collection-heading"><div><span class="anime-eyebrow">THE COLLECTION</span><h2>心动收藏架<span aria-hidden="true"> ✦</span></h2></div><a href="#anime-online-editor" class="anime-edit-entry">✎ 编辑片单 / 搜索 Bangumi ↗</a></div>
+
+    <dl class="anime-shelf-summary" aria-label="当前筛选片单进度">
+      <div><dt>当前片单</dt><dd><strong data-anime-summary="count">{anime.items.length}</strong><span>部</span></dd></div>
+      <div><dt>我的在追</dt><dd><strong data-anime-summary="watching">{watching.length}</strong><span>部</span></dd></div>
+      <div><dt>已看集数</dt><dd><strong data-anime-summary="episodes">{episodes}</strong><span>话</span></dd></div>
+      <div><dt>在追还剩</dt><dd><strong data-anime-summary="remaining">{remaining}</strong><span>话</span></dd></div>
+    </dl>
+
+    <div class="anime-tools" data-anime-tools hidden data-widget-obstacle>
+      <div class="anime-filters" role="group" aria-label="按追番状态筛选">
+        <button type="button" data-anime-filter="all" aria-pressed="true" aria-controls="anime-grid">全部片单 <span>{anime.items.length}</span></button>
+        {Object.entries(ANIME_STATUSES).map(([status, info]) => <button type="button" data-anime-filter={status} aria-pressed="false" aria-controls="anime-grid"><span aria-hidden="true">{info.icon}</span> {info.label} <span>{counts[status]}</span></button>)}
+      </div>
+      <div class="anime-shelf-controls">
+        <label class="anime-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="anime-visually-hidden">搜索中日番名或标签</span><input type="search" data-anime-search placeholder="搜索番名 / 标签…" maxlength="120" autocomplete="off" aria-controls="anime-grid"/></label>
+        <label class="anime-sort"><span>排序</span><select data-anime-sort aria-label="片单排序" aria-controls="anime-grid"><option value="collection">收藏顺序</option><option value="rating">评分最高</option><option value="progress">进度最高</option><option value="title">番名顺序</option></select></label>
+        <button type="button" class="anime-clear" data-anime-clear aria-controls="anime-grid">重置</button>
+      </div>
+    </div>
+    <div class="anime-results-line"><p role="status" aria-live="polite" aria-atomic="true" data-anime-count>共 {anime.items.length} 部{anime.sampleMode && ' · 示例片单'}</p><span>YOUR LITTLE UNIVERSE <span aria-hidden="true">↙</span></span></div>
+
+    <ul id="anime-grid" class="anime-grid" role="list" data-anime-grid>
+      {anime.items.map((item, index) => {
+        const status = ANIME_STATUSES[item.status];
+        const example = item.example ? '示例' : '';
+        return <li class="anime-card" data-anime-card data-anime-id={item.id} data-anime-status={item.status} data-anime-title={item.title} data-anime-rating={item.rating ?? ''} data-anime-current={item.progress.current} data-anime-total={item.progress.total} data-anime-example={String(item.example)} data-anime-search-text={normalizeAnimeSearch([item.title, item.titleJa, ...item.tags].join(' '))}>
+          <article aria-labelledby={`anime-title-${item.id}`}>
+            <a href={item.officialUrl} target="_blank" rel="noopener noreferrer" class="anime-poster" aria-label={`${item.title} · 前往作品官网（新标签页）`}>
+              <img src={item.cover} data-anime-poster data-fallback={ANIME_FALLBACK} alt={`${item.title} 官方宣传视觉图`} width="600" height="800" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/>
+              <span class="anime-status"><span aria-hidden="true">{status.icon}</span> {status.label}</span>
+              <span class="anime-poster-number" aria-hidden="true">{(index + 1).toString().padStart(2, '0')}</span>
+              <span class="anime-poster-open">作品官网 <span aria-hidden="true">↗</span></span>
+            </a>
+            <div class="anime-card-body">
+              <div class="anime-card-kicker"><span>{status.short}</span>{item.example && <span>{example}</span>}</div>
+              <h3 id={`anime-title-${item.id}`}><a href={item.officialUrl} target="_blank" rel="noopener noreferrer">{item.title}<span class="anime-visually-hidden">（作品官网，新标签页）</span></a></h3>
+              <p class="anime-title-ja" lang="ja">{item.titleJa}</p>
+              <div class="anime-rating"><span class="anime-stars" role="img" aria-label={item.rating === null ? '尚未评分' : `${example}评分 ${item.rating} 分，满分 5 分`}>
+                {starParts(item.rating).map(part => <span class="anime-star" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m10 1.5 2.55 5.16 5.7.83-4.13 4.02.98 5.68L10 14.51l-5.1 2.68.98-5.68L1.75 7.5l5.7-.83Z"/></svg><i style={`width:${part * 100}%`}><svg viewBox="0 0 20 20"><path d="m10 1.5 2.55 5.16 5.7.83-4.13 4.02.98 5.68L10 14.51l-5.1 2.68.98-5.68L1.75 7.5l5.7-.83Z"/></svg></i></span>)}
+              </span><span class="anime-rating-value">{item.rating === null ? '待评分' : item.rating.toFixed(1)}<small>{item.rating !== null && ` / 5${item.example ? ' · 示例' : ''}`}</small></span></div>
+              <p class="anime-review">{item.review}</p>
+              {item.bangumi && <p class="anime-bangumi-score"><a href={item.bangumi.sourceUrl} target="_blank" rel="noopener noreferrer">Bangumi ↗</a><span>社区 {item.bangumi.score === null ? '暂无评分' : `${item.bangumi.score.toFixed(1)} / 10`}</span></p>}
+              <a href="#anime-online-editor" class="anime-edit-card" data-anime-edit={item.id}>✎ 编辑这部作品</a>
+              <div class="anime-card-tags">{item.tags.map(tag => <span>{tag}</span>)}</div>
+              <div class="anime-progress"><span>{item.progress.total === 1 ? '影片进度' : '追番进度'}{item.example && ' · 示例'}</span><span>{item.progress.current} / {item.progress.total}{item.progress.total === 1 ? ' 部' : ' 话'}</span><progress value={item.progress.current} max={item.progress.total} aria-label={`${item.title} ${example}进度：${item.progress.current} / ${item.progress.total}`}/></div>
+            </div>
+          </article>
+        </li>;
+      })}
+    </ul>
+    <div class="anime-empty" data-anime-empty hidden={anime.items.length > 0}><span aria-hidden="true">☾</span><h3>这一格月光，暂时还空着。</h3><p>换个番名或状态试试，故事就在下一站。</p><button type="button" data-anime-reset>重置筛选</button></div>
+    <noscript><p class="anime-noscript">搜索与筛选需启用 JavaScript。</p></noscript>
+
+    <details class="anime-online-editor" id="anime-online-editor" data-anime-editor data-pagefind-ignore>
+      <summary><span><small>YOUR SHELF, YOUR STORY</small><strong>✎ 我的片单工作台</strong></span><span class="anime-editor-summary">Bangumi 搜番 · 公开收藏 · 本地编辑 ＋</span></summary>
+      <div class="anime-editor-content">
+        <p class="anime-editor-notice">仅保存本地片单，不修改 Bangumi 账号。</p>
+        <div class="anime-editor-service"><p data-anime-editor-status role="status" aria-live="polite">尚未连接编辑服务。</p><button type="button" data-anime-connect>连接 / 重新加载</button></div>
+        <div class="anime-editor-tabs" role="group" aria-label="片单编辑方式"><button type="button" data-anime-editor-tab="search" aria-pressed="true">✦ Bangumi 搜番</button><button type="button" data-anime-editor-tab="owned" aria-pressed="false">▤ 我的片单</button><button type="button" data-anime-editor-tab="import" aria-pressed="false">↙ 公开收藏</button></div>
+        <fieldset data-anime-editor-fields disabled>
+          <section data-anime-editor-pane="search"><form data-bangumi-search class="anime-editor-search"><label><span>中文 / 日文番名 / Bangumi 数字 ID</span><input name="query" type="search" required maxlength="120" placeholder="例如：孤独摇滚 或 328609" autocomplete="off"/></label><button type="submit">搜索 Bangumi ↗</button></form></section>
+          <section data-anime-editor-pane="owned" hidden><label class="anime-editor-owned"><span>选择要编辑的本地作品</span><select data-anime-owned aria-label="选择本地番剧"><option value="">选择一部作品…</option></select></label></section>
+          <section data-anime-editor-pane="import" hidden><form data-bangumi-import class="anime-editor-search anime-import-form"><label><span>Bangumi 用户名（/user/ 后的部分）</span><input name="username" required maxlength="64" pattern="[A-Za-z0-9_-]+" placeholder="填写 Bangumi 用户名" autocomplete="off"/></label><label><span>公开收藏类型</span><select name="type"><option value="0">全部</option><option value="1">想看</option><option value="2">看过</option><option value="3">在看</option><option value="4">搁置</option><option value="5">抛弃</option></select></label><button type="submit">预览公开收藏 ↙</button></form><p class="anime-editor-hint">每页 20 部，选择作品后保存。</p><button type="button" data-bangumi-more hidden>下一页公开收藏 →</button></section>
+          <div class="anime-bangumi-results" data-bangumi-results aria-live="polite"></div>
+          <form data-anime-edit-form class="anime-edit-form" hidden>
+            <div class="anime-edit-form-heading"><div><small>MAKE IT YOURS</small><h3 data-anime-edit-title>记录我的心动</h3></div><button type="button" data-anime-edit-cancel aria-label="取消编辑">×</button></div>
+            <p data-anime-edit-source class="anime-editor-hint"></p>
+            <div class="anime-edit-grid"><label><span>中文番名 *</span><input name="title" required maxlength="120"/></label><label><span>日文 / 原始番名 *</span><input name="titleJa" required maxlength="120"/></label><label><span>我的状态</span><select name="status"><option value="planned">⏳ 计划看</option><option value="watching">🔥 正在追</option><option value="completed">✨ 已补完</option><option value="favorite">🏆 殿堂神作</option></select></label><label><span>我的评分（5 星制）</span><select name="rating"><option value="">尚未评分</option>{Array.from({length:11},(_,index)=><option value={index/2}>{(index/2).toFixed(1)} / 5</option>)}</select></label><label><span>已看集数 *</span><input name="current" type="number" min="0" max="9999" step="1" required/></label><label><span>总集数 *（未知时可先估填）</span><input name="total" type="number" min="1" max="9999" step="1" required/></label><label class="anime-edit-wide"><span>标签（逗号分隔，最多 4 个，每个 20 字）</span><input name="tags" maxlength="100" placeholder="青春，音乐，日常"/></label><label class="anime-edit-wide"><span>我的短评 *</span><textarea name="review" rows="3" maxlength="240" required placeholder="写一句只属于你的观后感…"></textarea></label></div>
+            <p class="anime-editor-hint">「计划看」的已看集数须为 0。</p>
+            <div class="anime-edit-actions"><button type="button" data-anime-remove hidden>从本地片单移除</button><button type="submit" class="anime-editor-primary">保存我的片单 ✦</button></div>
+          </form>
+        </fieldset>
+        <p class="anime-cover-credit">条目与海报归原权利人 · <a href="/credits/">素材说明</a></p>
+      </div>
+    </details>
+    <footer class="anime-room-end"><span aria-hidden="true">✦</span><p>TO BE CONTINUED<span>下一次心动，还在路上。</span></p><span aria-hidden="true">☾</span></footer>
+  </section>
+  <script is:inline src="/anime-room.js" defer></script>
+  
+</Layout>

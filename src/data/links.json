@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "revision": 3,
+  "updatedAt": "2026-10-22T06:52:22.226Z",
+  "items": [
+    {
+      "id": "bangumi",
+      "title": "Bangumi 番组计划",
+      "url": "https://bgm.tv/",
+      "description": "把想看的故事，放进自己的时间线。",
+      "category": "动漫",
+      "pinned": true,
+      "image": "/images/uploads/c235d16f63d34aedae5df4712d066621959122178d95582f8ce969e60c59e01f.webp"
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "url": "https://github.com/",
+      "description": "寻找有趣的开源项目与创造灵感。",
+      "category": "创造",
+      "pinned": false,
+      "image": "/images/uploads/70062d4e2094c0b3468127a4e11971da01eb40e3398d2467651bef91ad4abbe7.webp"
+    }
+  ]
+}

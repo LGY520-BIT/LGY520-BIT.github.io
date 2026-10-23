@@ -1,0 +1,51 @@
+/* Blank areas share one fixed viewport; content and controls remain independently scrollable. */
+:root{--wallpaper-gray:.72;--wallpaper-veil:.88;--wallpaper-tint:#fffaf2}
+:root[data-theme=dark]{--wallpaper-tint:#171923}
+html:root[data-visual-phase]{background:var(--bg)}
+html:root[data-visual-phase][data-theme] body.scrapbook-layout{background:transparent!important;isolation:isolate}
+.site-wallpaper{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;background:var(--bg);contain:strict;transform:none!important}
+.site-wallpaper__still,.site-wallpaper__live,.site-wallpaper__live iframe,.site-wallpaper__veil{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.site-wallpaper__still{object-fit:cover;object-position:center;filter:grayscale(var(--wallpaper-gray));opacity:1}
+.site-wallpaper__live{filter:grayscale(var(--wallpaper-gray));opacity:0;transition:opacity .45s ease}
+.site-wallpaper[data-ready=true] .site-wallpaper__live{opacity:1}
+.site-wallpaper__veil{background:var(--wallpaper-tint);opacity:var(--wallpaper-veil)}
+html:root[data-wallpaper-enabled=no] .site-wallpaper{visibility:hidden}
+html:root[data-visual-phase][data-theme] .scrapbook-layout .material-atmosphere{display:none!important}
+html:root[data-visual-phase][data-theme] .scrapbook-layout :is(main#main,.scrap-hero,.scrap-welcome,.scrap-journal,.scrap-rooms,.scrap-goodbye,.archive-wrap,.page-hero,.site-footer,.music-room){background:transparent!important;background-image:none!important}
+html:root[data-visual-phase][data-theme] .scrapbook-layout :is(.scrap-hero-paper,.scrap-world-background){display:none!important}
+html:root[data-visual-phase][data-theme] .scrapbook-layout .scrap-welcome::before{background:transparent!important}
+html:root[data-visual-phase][data-theme] .scrapbook-layout .scrap-comic{opacity:.2}
+html:root[data-visual-phase][data-theme] .scrapbook-layout .scrap-hero-person{opacity:.42}
+.wallpaper-settings{position:fixed;inset:auto 18px 24px auto;width:min(390px,calc(100vw - 24px));max-height:calc(100dvh - 42px);margin:0;padding:23px;border:1px solid var(--line);border-radius:22px;background:var(--surface);color:var(--text);box-shadow:0 18px 70px #10101b40;overflow:auto;overscroll-behavior:contain;font:13px/1.7 var(--sans,sans-serif)}
+.wallpaper-settings:not([open]){display:none!important}
+.wallpaper-settings::backdrop{background:#11152226;backdrop-filter:blur(3px)}
+.wallpaper-settings>header{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:20px}
+.wallpaper-settings h2{font-size:21px;line-height:1.5;margin:5px 0 0;letter-spacing:-.5px}
+.wallpaper-settings small{font-size:8px;letter-spacing:1.6px;color:var(--muted)}
+.wallpaper-settings button{min-height:36px;padding:6px 12px;border:1px solid var(--line);border-radius:12px;background:var(--pale);color:var(--text);font:inherit;cursor:pointer}
+.wallpaper-settings>header>button{font-size:22px;padding:0;width:34px;min-height:34px;background:none}
+.wallpaper-settings fieldset{border:0;margin:0;padding:0;min-width:0}
+.wallpaper-settings legend.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.wallpaper-settings label{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--soft,var(--text));margin-top:13px}
+.wallpaper-settings input[type=range]{width:100%;height:27px;padding:0;margin:1px 0 5px;accent-color:var(--warm)}
+.wallpaper-settings select{width:100%;min-height:38px;border:1px solid var(--line);border-radius:9px;padding:5px 10px;background:var(--surface);color:var(--text);font:inherit;margin-top:5px}
+.wallpaper-settings input[type=checkbox]{width:17px;height:17px;accent-color:var(--warm)}
+.wallpaper-settings output{color:var(--warm);font-variant-numeric:tabular-nums;font-size:11px}
+.wallpaper-settings__advanced{margin-top:15px;border-top:1px solid var(--line);padding-top:14px}
+.wallpaper-settings__advanced>summary{cursor:pointer;font-size:12px;color:var(--muted);min-height:30px}
+.wallpaper-settings__advanced>div{padding-top:2px}
+.wallpaper-settings__advanced>div>button{margin-top:15px}
+.wallpaper-settings__status{font-size:11px;color:var(--muted);min-height:19px;margin:15px 0 10px}
+.wallpaper-settings>footer{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:15px}
+.wallpaper-settings :is(button,input,select,summary):focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.cosmic-tools [data-wallpaper-open]{font-size:16px}
+.dreamscape-worknote{width:min(720px,100%);margin:clamp(80px,15vh,160px) auto clamp(90px,18vh,180px);padding:32px;border:1px solid var(--line);border-radius:22px;background:var(--glass-panel);backdrop-filter:blur(22px);box-shadow:var(--shadow)}
+.dreamscape-worknote h1{font-size:clamp(32px,6vw,64px);margin:18px 0;letter-spacing:-2px}.dreamscape-worknote p{color:var(--muted);line-height:2}.dreamscape-worknote>div{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.dreamscape-worknote button,.dreamscape-worknote>div>a{padding:10px 17px;min-height:42px;background:var(--surface);border:1px solid var(--line);border-radius:999px;color:var(--text);font:12px/1.6 var(--sans);cursor:pointer;text-decoration:none}.dreamscape-worknote>small{font-size:9px;letter-spacing:1.5px;color:var(--warm)}
+.site-wallpaper:fullscreen{z-index:auto;pointer-events:auto}.site-wallpaper:fullscreen .site-wallpaper__veil{opacity:0}.site-wallpaper:fullscreen :is(.site-wallpaper__still,.site-wallpaper__live){filter:none}
+@media(max-width:600px){.wallpaper-settings{inset:auto 12px 12px;width:calc(100vw - 24px);padding:20px}.dreamscape-worknote{padding:24px;margin-top:110px}}
+@media(prefers-reduced-motion:reduce){.site-wallpaper__live{transition:none}}
+html[data-motion=quiet] .site-wallpaper__live{transition:none}
+@media(prefers-reduced-transparency:reduce){.dreamscape-worknote{background:var(--surface);backdrop-filter:none}.wallpaper-settings::backdrop{backdrop-filter:none}}
+@media(forced-colors:active){.site-wallpaper{display:none}.wallpaper-settings,.dreamscape-worknote{background:Canvas;color:CanvasText;border-color:CanvasText}.wallpaper-settings :is(button,input,select,summary):focus-visible{outline-color:Highlight}}
+
+html:root[data-wallpaper-enabled=no] .site-wallpaper:fullscreen{visibility:visible}

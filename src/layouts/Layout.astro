@@ -1,0 +1,164 @@
+---
+import '../styles/global.css';
+import '../styles/cosmic.css';
+import '../styles/diary.css';
+import '../styles/refined.css';
+import '../styles/material.css';
+import '../styles/music-player.css';
+import '../styles/music-room.css';
+import '../styles/music-session.css';
+import '../styles/vinyl.css';
+import '../styles/next-ui.css';
+import '../styles/cyber-effects.css';
+import '../styles/cyber-moon.css';
+import '../styles/companion-dialogue.css';
+import '../styles/scrapbook.css';
+import '../styles/wallpaper-shell.css';
+import '../styles/shell-header.css';
+import '../styles/home-opaque.css';
+import '../styles/floating-widgets.css';
+import '../styles/clean-view.css';
+import CleanViewControls from '../components/CleanViewControls.astro';
+import NavPreferences from '../components/NavPreferences.astro';
+import WallpaperBackdrop from '../components/WallpaperBackdrop.astro';
+import CollapsibleHeader from '../components/CollapsibleHeader.astro';
+import Icon from '../components/Icon.astro';
+import MusicPlayer from '../components/MusicPlayer.astro';
+import { ClientRouter } from 'astro:transitions';
+import Companion from '../components/Companion.astro';
+import CyberEffects from '../components/CyberEffects.astro';
+import CyberEffectsControls from '../components/CyberEffectsControls.astro';
+import { site } from '../config';
+import { categories } from '../lib/posts';
+interface Props { title?: string; description?: string; article?: boolean; }
+const { title = site.title, description = site.description, article = false } = Astro.props;
+const path = Astro.url.pathname;
+const canonical = new URL(path, Astro.site);
+const nav = [{ id:'home',href:'/',text:'首页',icon:'home',active:path==='/' },{ id:'archive',href:'/archive/',text:'文章',icon:'book',active:path.startsWith('/archive')||path.startsWith('/posts') },{ id:'anime',href:'/anime/',text:'追番',icon:'anime',active:path.startsWith('/anime') },{ id:'music',href:'/music/',text:'音乐',icon:'music',active:path.startsWith('/music') },{ id:'space',href:'/space/',text:'空间',icon:'user',active:path.startsWith('/space') },{ id:'links',href:'/links/',text:'收藏夹',icon:'link',active:path.startsWith('/links') },{ id:'gallery',href:'/gallery/',text:'画廊',icon:'moon',active:path.startsWith('/gallery') },{ id:'atelier',href:'/atelier/',text:'工坊',icon:'feather',active:path.startsWith('/atelier') },{ id:'library',href:'/library/',text:'星标',icon:'book',active:path.startsWith('/library') },{ id:'projects',href:'/projects/',text:'创造日志',icon:'code',active:path.startsWith('/projects') }];
+---
+<!doctype html>
+<html lang="zh-CN" data-theme="dark" data-visual-phase="scrapbook-moon" data-ui-hidden="no" data-ui-hints="no" data-ui-progress="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/public-edition.css" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; media-src 'self' blob:; connect-src 'self' blob:; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+    <script is:inline data-page-motion-bootstrap>(()=>{let p='soft';try{const s=localStorage.getItem('unfinished-page-motion-v1');if(['soft','snappy','off'].includes(s))p=s}catch{}document.documentElement.dataset.pageMotion=p})();</script>
+    <script is:inline data-clean-bootstrap>(()=>{let p={};try{const v=JSON.parse(localStorage.getItem('fieldnotes-clean-view-v1')||'{}');if(v&&typeof v==='object'&&!Array.isArray(v))p=v}catch{}const d=document.documentElement.dataset;d.uiHidden=p.hidden===true?'yes':'no';d.uiHints=p.hints===true?'yes':'no';d.uiProgress=p.progress===true?'yes':'no'})();</script>
+    <ClientRouter fallback="swap" />
+    <script>
+      import { navigate } from 'astro:transitions/client';
+      window.FieldnotesNavigate = (href, options) => navigate(href, options);
+      window.FieldnotesRefresh = () => navigate(location.href, {history:'replace'});
+    </script>
+    <script is:inline src="/route-lifecycle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171923" />
+    <meta name="application-name" content={site.name} />
+    <meta name="application-id" content="FIELDNOTES" />
+    <meta name="color-scheme" content="light dark" />
+    {(path.startsWith('/studio') || path.startsWith('/library') || path.startsWith('/atelier')) && <meta name="robots" content="noindex,nofollow"/>}
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/images/cosmic/story.webp', Astro.site)} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/vendor/tsukuyomi-space/tokens.css" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} RSS`} href="/rss.xml" />
+    <title>{title}</title>
+    <script is:inline data-nav-bootstrap>try{document.documentElement.dataset.navCollapsed=localStorage.getItem('scrapbook-nav-collapsed')==='yes'?'yes':'no'}catch{document.documentElement.dataset.navCollapsed='no'}</script>
+    <script is:inline data-theme-bootstrap>
+      (()=>{let theme='dark';try{const migrated=localStorage.getItem('fieldnotes-cover-tone-v1')==='1';const saved=localStorage.getItem('fieldnotes-theme');if(migrated){theme=saved==='light'||saved==='dark'?saved:'dark'}else{localStorage.setItem('fieldnotes-theme','dark');localStorage.setItem('fieldnotes-cover-tone-v1','1')}}catch{}document.documentElement.dataset.theme=theme;document.querySelector?.('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#171923':'#fffaf2')})();
+    </script>
+    <script is:inline>try{const d=document.documentElement.dataset,c=localStorage.getItem('cosmic-character'),m=localStorage.getItem('cosmic-motion');d.character=['kaguya','iroha','yachiyo'].includes(c)?c:'kaguya';d.motion=['quiet','normal'].includes(m)?m:(matchMedia('(prefers-reduced-motion: reduce)').matches?'quiet':'normal')}catch{document.documentElement.dataset.character='kaguya';document.documentElement.dataset.motion=matchMedia('(prefers-reduced-motion: reduce)').matches?'quiet':'normal'}</script>
+    <script is:inline>try{document.documentElement.dataset.density=localStorage.getItem('cosmic-density')==='compact'?'compact':'comfortable'}catch{document.documentElement.dataset.density='comfortable'}</script>
+    <script is:inline data-cyber-bootstrap>(()=>{const d=document.documentElement.dataset;let p={cursor:'on',click:'on',stars:'on'};try{for(const n of ['cursor','click','stars'])p[n]=localStorage.getItem('cosmic-effects-'+n)==='off'?'off':'on'}catch{}const stop=matchMedia('(prefers-reduced-motion: reduce)').matches||matchMedia('(forced-colors: active)').matches||d.motion==='quiet',fine=matchMedia('(hover: hover) and (pointer: fine)').matches,privatePage=/^\/(?:studio|atelier)(?:\/|$)/.test(location.pathname);d.cyberCursor=!stop&&fine?p.cursor:'off';d.cyberClick=!stop&&fine&&!privatePage?p.click:'off';d.cyberStars=!stop&&location.pathname==='/'?p.stars:'off'})()</script>
+    <script is:inline>try{const p=localStorage.getItem('cosmic-material'),m=['liquid','mosa','solid'].includes(p)?p:'liquid';document.documentElement.dataset.material=matchMedia('(prefers-reduced-transparency: reduce)').matches||matchMedia('(forced-colors: active)').matches?'solid':m}catch{document.documentElement.dataset.material='solid'}</script>
+  </head>
+  <body id="top" class:list={['cosmic-layout refined-layout next-layout scrapbook-layout', { 'next-home': path === '/', 'moon-room': path !== '/' }]}>
+    <WallpaperBackdrop />
+    <div class="material-atmosphere" aria-hidden="true"></div>
+    <CyberEffects />
+    <div class="reading-progress" aria-hidden="true"><i></i></div>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <CollapsibleHeader siteName={site.name} nav={nav} />
+    <main id="main"><slot /><section id="music-room" class="music-room container music-session" data-music-session data-music-location={path.startsWith('/music') ? 'room' : 'dock'} transition:persist="moon-music-session" transition:animate="none" data-pagefind-ignore><MusicPlayer view="page" /></section></main>
+    <footer class="site-footer" data-pagefind-ignore>
+      <div class="container footer-top"><a class="brand" href="/"><span class="cosmic-logo" aria-hidden="true">☾<i>✦</i></span><span class="brand-name">{site.name}</span><span class="brand-en">MEMORIES<br/>CONTINUE</span></a><p>保持好奇，让热爱继续生长。</p><div class="next-footer-links"><a href="/space/">个人空间</a><a href="/links/">网址收藏</a><a href="/about/">关于</a><a href="/dreamscape/">梦隙</a><a href="/gallery/">画廊</a><a href="/atelier/">工坊</a><a href="/library/">星标</a><a href="/credits/">素材致谢</a><a class="rss-link" href="/rss.xml"><Icon name="rss" size={16}/>RSS 订阅</a></div></div>
+      <div class="container footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><a href="/credits/">素材与致谢 ↗</a><a href="#top" class="back-top" aria-label="回到页面顶部">回到顶部 <Icon name="up" size={14}/></a></div>
+    </footer>
+    <dialog id="search-dialog" aria-labelledby="search-title" data-pagefind-ignore>
+      <div class="search-heading"><div><span class="eyebrow">FIND A LITTLE SOMETHING</span><h2 id="search-title">在文字之间，找一找。</h2></div><button class="icon-button" data-close-search aria-label="关闭搜索"><Icon name="close"/></button></div>
+      <div class="search-input-wrap"><Icon name="search"/><input id="search-input" type="search" placeholder="搜索正文，或用 #标签…" maxlength="120" autocomplete="off" aria-label="搜索关键词" aria-controls="search-results" aria-describedby="search-status" /><button type="button" class="icon-button search-clear" data-search-clear aria-label="清空搜索关键词" hidden>×</button></div>
+      <div class="search-filters"><label for="search-category">分类<select id="search-category"><option value="all">全部文章</option>{categories.map(category=><option value={category}>{category}</option>)}</select></label><label for="search-sort">排序<select id="search-sort"><option value="relevance">相关度优先</option><option value="recent">最新发布</option></select></label></div>
+      <p id="search-status" class="search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div id="search-results" class="search-results"><p class="search-hint">输入关键词，或选一个分类。</p></div>
+      <button type="button" class="diary-button search-more" data-search-more hidden>显示更多</button>
+      <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 · <kbd>Enter</kbd> 打开</span><span><kbd>Esc</kbd> 关闭</span></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <dialog class="next-command-dialog" data-next-dialog aria-labelledby="next-command-title" data-pagefind-ignore>
+      <header><div><span class="eyebrow">QUICK ACCESS</span><h2 id="next-command-title">下一站，想去哪里？</h2></div><button type="button" class="icon-button" data-next-close aria-label="关闭快捷中心"><Icon name="close"/></button></header>
+      <label class="next-command-input"><Icon name="search" size={19}/><input type="search" data-next-query placeholder="输入功能名称：音乐、写作、画廊…" autocomplete="off" aria-label="筛选快捷功能"/></label>
+      <nav class="next-command-list" aria-label="快捷功能" data-next-list>
+        <a href="/" data-next-item="首页 主页 home"><span>⌂</span><span><b>回到首页</b><small>最近文章与个人空间</small></span><span>↗</span></a>
+        <a href="/space/" data-next-item="个人 资料 编辑 空间 profile space"><span>♡</span><span><b>我的个人空间</b><small>封面 · 签名 · 在线编辑个人资料</small></span><span>↗</span></a>
+        <a href="/links/" data-next-item="网址 书签 收藏 网站 links"><span>↗</span><span><b>网址收藏夹</b><small>分类 · 置顶 · 在线编辑喜欢的网站</small></span><span>↗</span></a>
+        <a href="/archive/" data-next-item="文章 归档 archive"><span>▤</span><span><b>浏览全部文章</b><small>分类与标签筛选</small></span><span>↗</span></a>
+        <a href="/anime/" data-next-item="追番 动漫 放映室 anime"><span>▷</span><span><b>追番放映室</b><small>番剧海报 · 状态 · 星级与短评</small></span><span>↗</span></a>
+        
+        <a href="/dreamscape/" data-next-item="梦隙 枯梦 壁纸 我的作品 wallpaper dreamscape"><span>✧</span><span><b>枯梦·梦隙</b><small>我的第一款动态壁纸</small></span><span>↗</span></a>
+        <a href="/gallery/" data-next-item="画廊 图片 辉夜 gallery"><span>▧</span><span><b>月光画廊</b><small>收藏喜欢的主题画面</small></span><span>↗</span></a>
+        <a href="/atelier/" data-next-item="工坊 专注 便签 待办 timer"><span>◷</span><span><b>灵感工坊</b><small>给灵感一个落脚点</small></span><span>↗</span></a>
+        <a href="/library/" data-next-item="星标 收藏 阅读 library"><span>☆</span><span><b>我的星标与足迹</b><small>喜欢的文字，接着读</small></span><span>↗</span></a>
+        <a href="/music/" data-next-item="音乐 歌曲 音乐馆 music"><span>♫</span><span><b>月光音乐馆</b><small>曲库 · 歌词 · 播放队列</small></span><span>↗</span></a>
+        <button type="button" data-next-item="隐藏 清屏 清爽 界面 插件 F8 clean" data-clean-toggle><span>⛶</span><span><b>一键隐藏界面</b><small>不打断音乐，再按 F8 恢复</small></span><kbd>F8</kbd></button>
+        <button type="button" data-next-item="外观 设置 材质 玻璃 磨砂 密度 appearance" data-next-action="appearance"><span>◐</span><span><b>外观与阅读设置</b><small>材质 · 密度 · 角色 · 减少动态</small></span><span>↗</span></button>
+        <button type="button" data-next-item="搜索 查找 内容 search" data-next-action="search"><span>⌕</span><span><b>搜索文章内容</b><small>标题、正文与标签</small></span><kbd>Ctrl K</kbd></button>
+      </nav><p data-next-empty hidden>没有找到这个功能，换个关键词试试。</p><footer><span><kbd>↑</kbd><kbd>↓</kbd> 选择 · <kbd>Enter</kbd> 打开</span><span><kbd>Esc</kbd> 关闭</span></footer>
+    </dialog>
+    <dialog class="appearance-dialog" data-appearance-dialog aria-labelledby="appearance-title" data-pagefind-ignore>
+      <div class="appearance-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><button type="button" class="icon-button" data-appearance-close aria-label="关闭外观设置"><Icon name="close"/></button></div>
+      <h2 id="appearance-title">你的月光，自己调。</h2>
+      <fieldset><legend>动漫配色</legend><div class="appearance-options cyber-theme-options"><button type="button" data-theme-choice="dark" aria-pressed="true">午夜手账<small>Moonlit Pages · 静谧夜色</small></button><button type="button" data-theme-choice="light" aria-pressed="false">樱花漫画<small>Sakura Scrapbook · 奶油晴空</small></button></div></fieldset>
+      <CleanViewControls />
+      <NavPreferences items={nav} />
+      <CyberEffectsControls />
+      <fieldset><legend>表面材质</legend><div class="appearance-options material-options"><button type="button" data-material-choice="liquid" aria-pressed="true">液态玻璃<small>LIQUID / 清透高光</small></button><button type="button" data-material-choice="mosa" aria-pressed="false">Mosa 磨砂<small>MATTE / 细颗粒雾面</small></button><button type="button" data-material-choice="solid" aria-pressed="false">纯色<small>SOLID / 简洁省资源</small></button></div><div class="material-preview"><i aria-hidden="true">✦</i><span><b data-material-name>液态玻璃</b><small></small></span></div><p class="material-status" data-material-status role="status"></p><p class="material-status" data-material-project-status></p></fieldset>
+      <fieldset><legend>阅读密度</legend><div class="appearance-options"><button type="button" data-density="comfortable" aria-pressed="true">舒展 · 多一点留白</button><button type="button" data-density="compact" aria-pressed="false">紧凑 · 多看几篇</button></div></fieldset>
+      <fieldset><legend>首页角色</legend><div class="appearance-options"><button type="button" data-character-switch="kaguya" aria-pressed="true">辉夜</button><button type="button" data-character-switch="iroha" aria-pressed="false">彩叶</button><button type="button" data-character-switch="yachiyo" aria-pressed="false">八千代</button></div></fieldset>
+      <div class="appearance-row"><span>减少动态<small>系统减少动态设置始终优先</small></span><button class="diary-button motion-toggle" type="button" aria-pressed="false">减少动态</button></div>
+      <fieldset><legend>界面动效</legend><div class="appearance-options page-motion-options" role="group" aria-label="页面入场与滚动动效"><button type="button" data-page-motion-choice="soft" aria-pressed="true">轻柔<small>舒缓入场 · 逐层呈现</small></button><button type="button" data-page-motion-choice="snappy" aria-pressed="false">利落<small>短过渡 · 快速响应</small></button><button type="button" data-page-motion-choice="off" aria-pressed="false">关闭<small>直接展示内容</small></button></div><p class="appearance-feedback" data-page-motion-status role="status"></p></fieldset>
+      <p class="appearance-feedback" data-appearance-feedback role="status"></p>
+    </dialog>
+
+    <div transition:persist="moon-companion"><Companion /></div>
+    <CleanViewControls view="restore" />
+    <div class="cosmic-tools" data-pagefind-ignore><button class="icon-button" type="button" data-clean-toggle aria-label="隐藏浮动界面（F8）" title="一键隐藏 · F8">⛶</button><button class="icon-button" type="button" data-wallpaper-open aria-label="背景与消融设置" title="背景设置">◐</button><button class="icon-button" data-appearance-open aria-label="外观与阅读密度设置" title="外观设置">✧</button><a class="icon-button" href="#top" aria-label="回到顶部"><Icon name="up" size={17}/></a></div>
+    <script is:inline src="/music-player.js" defer></script>
+    <script is:inline src="/music-session.js" defer></script>
+    <script is:inline src="/floating-widgets.js" defer></script>
+    <script is:inline type="module" src="/widget-avoidance.js"></script>
+    <script is:inline src="/vinyl-controller.js" defer></script>
+    <script is:inline src="/app.js" defer></script>
+    <script is:inline src="/cosmic.js" defer></script>
+    <script is:inline src="/diary.js" defer></script>
+    <script is:inline src="/reading-position.js" defer></script>
+    <script is:inline src="/reading-tools.js" defer></script>
+    <script is:inline src="/refined.js" defer></script>
+    <script is:inline src="/material.js" defer></script>
+    <script is:inline type="module" src="/project-glass.mjs"></script>
+    <script is:inline src="/next-ui.js" defer></script>
+    <script is:inline src="/cyber-effects.js" defer></script>
+    <script is:inline src="/scrapbook-ui.js" defer></script>
+    <script is:inline src="/nav-fold.js" defer></script>
+    <script is:inline src="/nav-preferences.js" defer></script>
+    <script is:inline src="/dreamscape-host.js" defer></script>
+    <script is:inline src="/clean-view.js" defer></script>
+    <script is:inline src="/page-motion.js" defer></script>
+  </body>
+</html>

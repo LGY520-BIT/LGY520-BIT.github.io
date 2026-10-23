@@ -1,4 +1,12 @@
 ---
-import Layout from '../layouts/PublicLayout.astro';import {href} from '../lib/site';
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="月光音乐馆"><section class="inner-intro wrap"><p class="eyebrow">THE LISTENING ROOM / 02</p><h1>把时间，<br/><em>调慢半拍。</em></h1><p>一首歌的时间，只属于此刻。</p></section><section class="listening-room wrap"><div class="turntable" data-reveal><div class="vinyl" data-vinyl><img src={href('art/moon-observatory-mobile.webp')} alt="月面唱片封面"/><i></i></div><div class="tonearm" aria-hidden="true"></div><span class="rpm">33⅓ RPM · MOONLIGHT RECORDS</span></div><div class="track-list" data-reveal><p class="eyebrow">ORIGINAL SESSIONS</p><h2 data-track-title>月沿散步</h2><p>两首本站原创合成短曲</p><button class="track" data-track="0"><span>01</span><b>月沿散步<small>MOONWALK / 00:49</small></b><span>▷</span></button><button class="track" data-track="1"><span>02</span><b>星间来信<small>STARLIT LETTER / 00:43</small></b><span>▷</span></button><label class="music-progress">播放进度<input type="range" min="0" max="100" step="0.1" value="0" data-seek aria-label="音乐播放进度"/></label><label class="music-volume">音量<input type="range" min="0" max="1" step="0.01" value="0.6" data-volume aria-label="音量"/></label><label class="local-music">＋ 播放设备中的歌曲<input type="file" accept="audio/*" data-local-audio/></label><small>所选文件仅在当前浏览器播放，不上传。</small></div></section></Layout>
+<Layout title={`月光音乐室 · ${site.name}`} description="给喜欢的旋律，一个独立的小房间。本地播放、黑胶唱片、同步歌词和你亲手挑选的封面。">
+  <section class="music-room container" data-music-room>
+    <header class="music-room__intro">
+      <div><a class="music-room__back" href="/">← 回到日常</a><span class="music-room__eyebrow">私の音楽室 / MOONLIGHT RECORDS</span><h1>把耳机戴上，<br/>世界先按<span>暂停。</span><i aria-hidden="true">♫</i></h1><p>不赶时间，不必切歌。<br/>把今天的心情，调到自己喜欢的频率。</p></div>
+      <div class="music-room__ticket" aria-hidden="true"><span>ADMIT ONE</span><strong>只属于你的<br/>小小演唱会</strong><div>MOONLIGHT<br/><b>VOL. 01</b></div><small>GOOD MUSIC / GOOD MOOD</small></div>
+    </header>
+  </section>
+</Layout>

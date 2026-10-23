@@ -1,0 +1,101 @@
+{
+  "format": "fieldnotes-layered-2d-v1",
+  "character": "kaguya",
+  "title": "辉夜 · 自制分层 2D 同人",
+  "cubism": false,
+  "width": 320,
+  "height": 520,
+  "headIndex": 4,
+  "provenance": "First-party SVG fan illustration, inspired by the official character reference. Not official artwork, not a licensed Cubism model. Character rights remain with their respective owners.",
+  "parameters": {
+    "headX": [
+      -25,
+      25
+    ],
+    "headY": [
+      -15,
+      15
+    ],
+    "breath": [
+      0,
+      1
+    ],
+    "eyeOpen": [
+      0,
+      1
+    ],
+    "eyeX": [
+      -1,
+      1
+    ],
+    "eyeY": [
+      -1,
+      1
+    ],
+    "mouthOpen": [
+      0,
+      1
+    ],
+    "hair": [
+      -1,
+      1
+    ],
+    "wave": [
+      0,
+      1
+    ]
+  },
+  "layers": [
+    {
+      "id": "back-hair",
+      "src": "/models/kaguya/back-hair.svg",
+      "mesh": "hair"
+    },
+    {
+      "id": "body",
+      "src": "/models/kaguya/body.svg",
+      "mesh": "body"
+    },
+    {
+      "id": "wave-arm",
+      "src": "/models/kaguya/wave-arm.svg",
+      "pivot": [
+        220,
+        209
+      ]
+    },
+    {
+      "id": "face",
+      "src": "/models/kaguya/face.svg",
+      "parent": "head"
+    },
+    {
+      "id": "eyes",
+      "src": "/models/kaguya/eyes.svg",
+      "parent": "head",
+      "pivot": [
+        160,
+        110
+      ]
+    },
+    {
+      "id": "eyes-closed",
+      "src": "/models/kaguya/eyes-closed.svg",
+      "parent": "head"
+    },
+    {
+      "id": "mouth",
+      "src": "/models/kaguya/mouth.svg",
+      "parent": "head",
+      "pivot": [
+        160,
+        141
+      ]
+    },
+    {
+      "id": "front-hair",
+      "src": "/models/kaguya/front-hair.svg",
+      "parent": "head"
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "format": "fieldnotes-layered-2d-v1",
+  "character": "kaguya",
+  "title": "Kaguya - AI-assisted layered 2D fan rig / preview",
+  "cubism": false,
+  "width": 320,
+  "height": 520,
+  "headIndex": 4,
+  "provenance": "AI-generated fan-art atlas, inspected against official character reference. Runtime crops are Pixi.Texture UV frames, raster source unmodified. This is an editable layered/mesh 2D fan rig, not official art and not Cubism/moc3. Character rights remain with their respective owners.",
+  "parameters": {
+    "headX": [
+      -25,
+      25
+    ],
+    "headY": [
+      -15,
+      15
+    ],
+    "breath": [
+      0,
+      1
+    ],
+    "eyeOpen": [
+      0,
+      1
+    ],
+    "eyeX": [
+      -1,
+      1
+    ],
+    "eyeY": [
+      -1,
+      1
+    ],
+    "mouthOpen": [
+      0,
+      1
+    ],
+    "hair": [
+      -1,
+      1
+    ],
+    "wave": [
+      0,
+      1
+    ]
+  },
+  "layers": [
+    {
+      "id": "back-hair",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        0,
+        0,
+        405,
+        742
+      ],
+      "dest": [
+        40,
+        38,
+        240,
+        440
+      ],
+      "mesh": "hair"
+    },
+    {
+      "id": "wave-arm",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        783,
+        0,
+        305,
+        530
+      ],
+      "dest": [
+        138,
+        122,
+        107,
+        186
+      ],
+      "pivot": [
+        177,
+        180
+      ]
+    },
+    {
+      "id": "right-arm",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        1155,
+        125,
+        290,
+        415
+      ],
+      "dest": [
+        77,
+        181,
+        90,
+        129
+      ]
+    },
+    {
+      "id": "body",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        410,
+        46,
+        350,
+        705
+      ],
+      "dest": [
+        72,
+        160,
+        176,
+        354
+      ],
+      "mesh": "body"
+    },
+    {
+      "id": "face",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        0,
+        746,
+        405,
+        340
+      ],
+      "dest": [
+        90,
+        60,
+        143,
+        120
+      ],
+      "parent": "head"
+    },
+    {
+      "id": "eyes",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        439,
+        815,
+        254,
+        125
+      ],
+      "dest": [
+        132,
+        92,
+        60,
+        30
+      ],
+      "pivot": [
+        127,
+        82
+      ],
+      "parent": "head"
+    },
+    {
+      "id": "eyes-closed",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        798,
+        818,
+        251,
+        112
+      ],
+      "dest": [
+        132,
+        93,
+        60,
+        27
+      ],
+      "parent": "head"
+    },
+    {
+      "id": "mouth",
+      "src": "/models/kaguya/kaguya-parts-v1.png",
+      "region": [
+        1230,
+        925,
+        92,
+        86
+      ],
+      "dest": [
+        154,
+        127,
+        13,
+        12
+      ],
+      "pivot": [
+        46,
+        43
+      ],
+      "parent": "head"
+    }
+  ]
+}

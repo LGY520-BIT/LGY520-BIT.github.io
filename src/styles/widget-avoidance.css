@@ -1,0 +1,16 @@
+/* Temporary edit-mode presentation, not a playback/model visibility state. */
+html:root[data-theme] body.next-layout #music-room[data-music-location=dock][data-widget-touch=yes][data-widget-device=mobile] {
+  width: min(max(206px, calc(340px * var(--music-widget-scale, .85))), calc(100vw - 16px));
+}
+html:root[data-theme] body.next-layout #music-room[data-music-location=dock][data-widget-touch=yes][data-widget-device=mobile]:has([data-dock-folded=yes]) {
+  width: min(206px, calc(100vw - 16px));
+}
+html[data-widget-editing=yes] [data-music-session][data-music-location=dock],
+html[data-widget-editing=yes] [data-companion],
+html[data-widget-editing=yes] [data-companion-restore],
+[data-music-session][data-music-location=dock][data-widget-avoided=yes],
+[data-companion][data-widget-avoided=yes],
+[data-companion-restore][data-widget-avoided=yes] {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

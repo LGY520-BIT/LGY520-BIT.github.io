@@ -1,0 +1,8 @@
+.studio-recovery { padding: 15px 20px; border-block: 1px solid var(--line); background: color-mix(in srgb, var(--green) 6%, transparent); }
+.studio-recovery[hidden] { display: none; }
+.studio-recovery p { margin: 0 0 10px; line-height: 1.7; font-size: .82rem; overflow-wrap: anywhere; }
+.studio-recovery-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.studio-recovery-status { margin: 0; padding: 8px 20px; font-size: .72rem; line-height: 1.7; color: var(--muted); }
+.studio-recovery-status[data-state="error"] { color: var(--warm); }
+.studio-export-current { margin-left: auto; white-space: nowrap; }
+@media(max-width: 600px) { .studio-recovery { padding: 14px; } .studio-recovery-actions .studio-btn { min-height: 42px; } .studio-writing-foot { flex-wrap: wrap; gap: 8px; } }

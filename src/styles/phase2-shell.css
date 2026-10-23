@@ -1,0 +1,14 @@
+/* Seven destinations: collapse before labels collide at tablet widths. */
+html:root[data-theme] .next-layout .cosmic-header .desktop-nav a { gap:6px; white-space:nowrap; }
+@media (max-width:1023px) {
+  html:root[data-theme] .next-layout .menu-toggle { display:inline-flex; }
+  html:root[data-theme] .next-layout .cosmic-header .desktop-nav { display:none!important; }
+  html:root[data-theme] .next-layout .cosmic-header .desktop-nav.open {
+    display:flex!important; position:absolute; inset:75px 0 auto; width:100%; height:auto;
+    margin:0; padding:10px 20px 17px; flex-direction:column; align-items:stretch; gap:3px;
+    border:1px solid var(--line); border-radius:0 0 18px 18px; background:var(--surface);
+    box-shadow:0 12px 28px #02061722;
+  }
+  html:root[data-theme] .next-layout .cosmic-header .desktop-nav.open a { padding:12px!important; min-height:42px; font-size:14px; }
+}
+@media (max-width:767px) { html:root[data-theme] .next-layout .cosmic-header .desktop-nav.open { top:63px!important; padding-inline:16px; } }

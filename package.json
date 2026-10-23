@@ -1,15 +1,22 @@
 {
-  "name": "unfinished-memories-public",
+  "name": "unfinished-original-public",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev --host 127.0.0.1 --port 4322",
-    "build": "astro build && pagefind --site dist && node scripts/audit.mjs dist",
-    "preview": "astro preview --host 127.0.0.1 --port 4322",
-    "test": "node --test scripts/test-public.mjs",
-    "audit": "node scripts/audit.mjs ."
+    "dev": "astro dev --host 127.0.0.1",
+    "preview": "astro preview --host 127.0.0.1",
+    "build": "astro build && pagefind --site dist && node scripts/audit-public.mjs dist",
+    "audit": "node scripts/audit-public.mjs .",
+    "test": "node --test scripts/test-public.mjs"
   },
-  "dependencies": {"astro": "7.4.1", "@astrojs/markdown-satteri": "0.4.4"},
-  "devDependencies": {"pagefind": "1.5.0"}
+  "dependencies": {
+    "astro": "^7.4.1",
+    "@astrojs/markdown-satteri": "0.4.4",
+    "yaml": "^2.9.1",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.0"
+  }
 }

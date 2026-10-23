@@ -1,23 +1,69 @@
 ---
-import Layout from '../layouts/PublicLayout.astro';
-import {getCollection} from 'astro:content';
-import {href,rooms} from '../lib/site';
-const posts=(await getCollection('blog',({data})=>!data.draft&&!data.sample)).sort((a,b)=>b.data.date.getTime()-a.data.date.getTime());
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import PostCard from '../components/PostCard.astro';
+import DreamscapeCard from '../components/DreamscapeCard.astro';
+import { getPosts, categories, dateLabel } from '../lib/posts';
+import { site } from '../config';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap(p => p.data.tags))].slice(0, 12);
+const paths = posts.map(p => `/posts/${p.id}/`);
+const totalWords = posts.reduce((n,p) => n + (p.body || '').replace(/\s/g,'').length, 0);
+const latest = posts[0]?.data.date;
+const anchor = latest ? new Date(latest) : new Date();
+anchor.setUTCHours(0,0,0,0);
+const counts = new Map<string, number>();
+posts.forEach(p => { const key=p.data.date.toISOString().slice(0,10);counts.set(key,(counts.get(key)||0)+1); });
+const calendar = Array.from({length:49},(_,i) => {const day=new Date(anchor);day.setUTCDate(day.getUTCDate()-48+i);const key=day.toISOString().slice(0,10);return {key,count:counts.get(key)||0};});
+const characters = [{ id:'kaguya',name:'辉夜' },{ id:'iroha',name:'彩叶' },{ id:'yachiyo',name:'八千代' }];
+const panels = ['iroha','kaguya','yachiyo','iroha','yachiyo','kaguya','iroha','yachiyo'];
+const rooms = [{href:'/space/',icon:'user',label:'我的个人空间',en:'MY SPACE',description:'心情、签名，和一点点自己'},{href:'/links/',icon:'link',label:'网址收藏夹',en:'FAVORITES',description:'把值得再来的地方留住'},{href:'/anime/',icon:'anime',label:'追番放映室',en:'ANIME',description:'收藏每一帧心动'},{href:'/music/',icon:'music',label:'月光音乐馆',en:'MUSIC',description:'为今天挑一首 BGM'},{href:'/gallery/',icon:'moon',label:'月光画廊',en:'GALLERY',description:'把喜欢的画面装裱'},{href:'/atelier/',icon:'feather',label:'灵感工坊',en:'ATELIER',description:'专注 · 便签 · 待办'},{href:'/library/',icon:'book',label:'我的星标',en:'LIBRARY',description:'接着读，慢慢收藏'},{href:'/projects/',icon:'code',label:'创造日志',en:'PROJECTS',description:'一点点，把想法做出来'}];
 ---
-<Layout home>
-  <section class="opening" aria-labelledby="opening-title">
-    <picture class="opening-art"><source media="(max-width:700px)" srcset={href('art/moon-observatory-mobile.webp')}/><img src={href('art/moon-observatory.webp')} alt="月夜观测台，一位银发旅人俯瞰城市与星河" width="1672" height="941" fetchpriority="high"/></picture>
-    <div class="opening-shade" aria-hidden="true"></div><div class="orbital-line" aria-hidden="true"></div>
-    <div class="opening-copy"><p class="eyebrow"><span class="signal-dot"></span> A PERSONAL UNIVERSE / VOL. 01</p><h1 id="opening-title">往事<span class="punctuation">.</span><br/><em>未完</em><span class="title-star" aria-hidden="true">✧</span></h1><p class="opening-line">有些故事，<br/>值得在星光下慢慢写完。</p><a class="text-link" href="#chapters">翻开这一页 <span>↘</span></a></div>
-    <div class="opening-caption"><span>夜色正好。</span><small>STAY A LITTLE LONGER.</small></div>
-    <a class="scroll-cue" href="#chapters">SCROLL TO EXPLORE <span>↓</span></a>
-    <span class="scene-number" aria-hidden="true">01 — ∞</span>
+<Layout>
+  <section class="scrap-hero" aria-labelledby="home-title" data-scrap-hero>
+    <div class="scrap-comic" aria-hidden="true">{panels.map((id,i)=><div class={`scrap-comic-panel panel-${i}`}><img src={`/images/cosmic/${id}.webp`} width="1920" height="1800" alt="" decoding="async" loading={i<4?'eager':'lazy'}/><i>{['!','…','✧','♫'][i%4]}</i></div>)}</div>
+    <div class="scrap-hero-person" data-cosmic-stage aria-hidden="true">{characters.map((c,i)=><img data-character-visual={c.id} src={`/images/cosmic/${c.id}.webp`} width="1920" height="1800" alt="" fetchpriority={i===0?'high':'auto'} decoding="async" draggable="false"/>)}</div>
+    <div class="scrap-hero-paper" aria-hidden="true"></div>
+    <span class="scrap-hero-sticker" aria-hidden="true">a little<br/><b>daydream</b> ✧</span>
+    <span class="scrap-hero-coordinate" aria-hidden="true">35° MOONLIGHT / A SMALL PERSONAL UNIVERSE</span>
+    <div class="scrap-hero-center">
+      <p class="scrap-kicker"><i></i> PERSONAL BLOG / ANIME & EVERYDAY</p>
+      <h1 id="home-title"><span>{site.name}</span><em>.diary</em></h1>
+      <p class="scrap-hero-tagline">{site.description}</p>
+      <div class="scrap-terminal" aria-label="小站寄语"><div><i></i><i></i><i></i><span>moon@diary — a little note</span></div><p><span>moon@diary:~$</span> <b data-scrap-type>collect a little starlight.</b><i aria-hidden="true">▌</i></p></div>
+      <div class="scrap-hero-actions"><a href="#welcome">翻开这本手账 <Icon name="arrow" size={16}/></a><button type="button" data-random-post data-post-paths={JSON.stringify(paths)}>随便逛逛 <Icon name="diagonal" size={14}/></button></div>
+    </div>
+    <details class="scrap-profile"><summary aria-label="展开小站主人名片"><img src="/images/cosmic/kaguya.webp" width="1920" height="1800" alt=""/><span>喂，认识一下？<i>✿</i></span></summary><div class="scrap-profile-note"><span>✿ HELLO, TRAVELER</span><strong>{site.name} / {site.author}</strong><p>{site.bio}</p><a href="/space/">打开我的小档案 ↗</a></div></details>
+    <div class="scrap-character-choice" aria-label="切换首页主题角色">{characters.map((c,i)=><button type="button" data-character-switch={c.id} aria-pressed={i===0?'true':'false'}>{c.name}</button>)}</div>
+    <a class="scrap-scroll" href="#welcome"><span>scroll down</span><i>↓</i><span>下一页，遇见你</span></a>
+    <a class="scrap-art-credit" href="/credits/">非官方同人主题 / 素材出处 ↗</a>
   </section>
-  <section class="chapter-section wrap" id="chapters" aria-labelledby="chapters-title">
-    <div class="section-top" data-reveal><p class="eyebrow">01 / BETWEEN THE PAGES</p><span class="chapter-note">把喜欢的，都留在这里。</span></div>
-    <h2 class="section-title" id="chapters-title" data-reveal>我的小宇宙<span>不止一面。</span></h2>
-    <div class="comic-grid">{rooms.map((room,i)=><a class={`comic-frame frame-${i}`} href={href(room.path)} data-reveal><img src={href('art/moon-observatory.webp')} alt="" width="1672" height="941" loading="lazy"/><span class="frame-index">{room.number} / {room.en}</span><div class="frame-label"><small>{room.description}</small><h3>{room.label}</h3><span aria-hidden="true">↗</span></div></a>)}</div>
+  <section class="scrap-welcome" id="welcome" aria-labelledby="welcome-title">
+    <img class="scrap-world-background" src="/images/anime/kaguya.jpg" width="1715" height="1382" alt="" loading="lazy" aria-hidden="true"/>
+    <div class="scrap-welcome-inner container">
+      <div class="scrap-world-title"><span class="scrap-tape">HELLO, MY LITTLE WORLD</span><h2 id="welcome-title">往事，<br/><em>仍然未完。</em></h2><p>代码、动画、音乐，和生活里的小小闪光。<br/>这里不赶时间，喜欢什么就多停一会儿。</p></div>
+      <div class="scrap-clock-card"><span data-scrap-date>今天，也值得被记住。</span><strong data-scrap-clock aria-label="本地时间" role="timer" aria-live="off" aria-atomic="true">--:--</strong><small>此刻的地球时间 · LOCAL TIME</small></div>
+      <div class="scrap-quote"><span aria-hidden="true">“</span><p data-message-text aria-live="polite">把今天的一点灵感，留给明天的自己。</p><button type="button" data-cosmic-message aria-label="换一条小站原创寄语">换一张便签 ↻</button></div>
+      <div class="scrap-sticker-board" aria-label="小站兴趣贴纸">{[...tags,'ANIME','MUSIC','MOONLIGHT','CREATE'].map((tag,i)=><a href={i<tags.length?`/archive/?tag=${encodeURIComponent(tag)}`:tag==='MUSIC'?'/music/':tag==='ANIME'?'/anime/':'/about/'} style={`--sticker-rotation:${[-12,8,-7,13,-4,6][i%6]}deg`} class={`scrap-sticker sticker-tone-${i%4}`}>{tag}<span aria-hidden="true">{['✿','♡','✦','☾'][i%4]}</span></a>)}</div>
+    </div>
   </section>
-  <section class="letter-scene" aria-labelledby="letter-title"><div class="letter-orbit" aria-hidden="true">☾</div><div class="wrap letter-layout"><div data-reveal><p class="eyebrow">02 / A LETTER FROM THE MOON</p><h2 id="letter-title">不是每颗星，<br/>都要成为<span>太阳。</span></h2><p>收藏一点日常，创造一点有趣。<br/>在代码与幻想之间，写下还没结束的故事。</p><a class="text-link" href={href('space/')}>认识这个小世界 <span>↗</span></a></div><div class="letter-paper" data-reveal><span class="paper-stamp">☾</span><small>TO: THE ONE WHO STOPS HERE</small><p>今天也辛苦了。<br/><br/>不必急着去往下一站。<br/>听一首歌，翻一页手账，<br/>或者，只是看看月亮。</p><span class="paper-signature">往事.未完</span></div></div></section>
-  <section class="journal-section wrap" aria-labelledby="journal-title"><div class="section-top" data-reveal><p class="eyebrow">03 / RECENT ENTRIES</p><a href={href('archive/')}>全部文章 ↗</a></div><h2 class="section-title" id="journal-title" data-reveal>时间的折页<span>写下的，都是经过。</span></h2><div class="journal-list">{posts.slice(0,3).map((post,i)=><a class="journal-entry" href={href(`posts/${post.id}/`)} data-reveal><span class="entry-index">0{i+1}</span><div><small>{post.data.date.toISOString().slice(0,10)} · {post.data.category}</small><h3>{post.data.title}</h3><p>{post.data.description}</p></div><span class="entry-arrow">↗</span></a>)}</div></section>
+  <section class="scrap-journal container" id="journal" aria-labelledby="journal-title">
+    <div class="scrap-journal-heading"><div><span class="scrap-kicker">CHAPTER 01 / MY NOTEBOOK</span><h2 id="journal-title">最近写下的<span>小日常。</span></h2></div><a href="/archive/">翻阅全部文章 <Icon name="arrow" size={17}/></a></div>
+    <div class="scrap-journal-layout"><div class="scrap-story-column">
+      <div class="filter-bar scrap-filters" aria-label="按分类筛选文章"><button class="filter-chip active" data-filter="all" aria-pressed="true">全部 <span>{posts.length}</span></button>{categories.map(c=><button class="filter-chip" data-filter={c} aria-pressed="false">{c}</button>)}</div>
+      <div class="scrap-post-list posts-list">{posts.map((post,i)=><PostCard post={post} index={i} featured={i===0}/>)}</div>
+      <p class="empty-state" hidden>这个分类还没有文章，试试其他分类吧。</p><a class="scrap-more" href="/archive/">TO BE CONTINUED / 下一页 <Icon name="arrow" size={18}/></a>
+    </div><aside class="scrap-sidebar" aria-label="小站名片与阅读工具">
+      <section class="scrap-note-card scrap-about-note"><span class="scrap-tape">ABOUT THIS DIARY</span><img src={site.avatar} width="1920" height="1800" alt={`${site.author} 的头像`} loading="lazy"/><h3>{site.name}<span>✿</span></h3><p>{site.bio}</p><div class="scrap-stat-row"><span><b>{posts.length}</b>篇文字</span><span><b>{categories.length}</b>个分类</span><span><b>{(totalWords/1000).toFixed(1)}k</b>正文字符</span></div><a href="/space/">更多关于我 ↗</a></section>
+      <section class="scrap-note-card scrap-reading-note"><span class="scrap-kicker">A LITTLE PAUSE</span><h3>歇一会儿，再出发。</h3><a href="/library/" data-continue-reading>接着读刚才的故事 <Icon name="arrow" size={16}/></a><a href="/atelier/#focus">开启一轮专注 <Icon name="clock" size={16}/></a><button type="button" data-sound-toggle aria-label="开启原创环境音" aria-pressed="false">月面白噪音 <span data-sound-status>点击开启</span></button><a href="/rss.xml">订阅小站 RSS <Icon name="rss" size={16}/></a><small>文章更新于 {posts[0]?dateLabel(posts[0].data.date):'未来的某一天'}；阅读记录仅留本机。</small></section>
+      <section class="scrap-note-card scrap-activity-note"><span class="scrap-kicker">SEVEN WEEKS OF STORIES</span><h3>写作足迹 <span>✧</span></h3><div class="scrap-calendar" role="img" aria-label="截至最近发布日的七周文章发布记录">{calendar.map(day=><i data-count={Math.min(day.count,3)} title={`${day.key} · ${day.count} 篇文章`}></i>)}</div><p>{latest?`截至 ${dateLabel(latest)}`:'等待第一篇公开文章'}</p><small>依据公开文章日期，不收集访问行为。</small></section>
+    </aside></div>
+  </section>
+  <section class="dreamscape-home container" aria-label="我的第一件作品"><DreamscapeCard /></section>
+  <section class="scrap-rooms container" aria-labelledby="rooms-title"><div class="scrap-rooms-heading"><span class="scrap-kicker">CHAPTER 02 / LITTLE ROOMS</span><h2 id="rooms-title">小宇宙的其他房间<span>↘</span></h2></div><div class="scrap-room-grid">{rooms.map((room,i)=><a class="scrap-room-link" href={room.href}><span class="scrap-room-number">0{i+1}</span><Icon name={room.icon} size={25}/><div><small>{room.en}</small><h3>{room.label}</h3><p>{room.description}</p></div><span aria-hidden="true">↗</span></a>)}</div></section>
+  <div class="scrap-goodbye container"><span aria-hidden="true">✿</span><p>这一页写完了，<br/><b>喜欢的事，还要继续。</b></p></div>
 </Layout>
+<style>
+  /* Keep the eight-digit option inside the original clock card, including the 250px column. */
+  .scrap-clock-card > [data-scrap-clock][data-clock-format="seconds"] { font-size:38px;letter-spacing:.5px; }
+</style>

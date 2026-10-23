@@ -1,0 +1,71 @@
+---
+// Native audio only. Imported files remain in this page and are never uploaded.
+interface Props { view?: 'floating' | 'page'; }
+const { view = 'floating' } = Astro.props;
+const pageMode = view === 'page';
+---
+<aside class:list={['moon-player', { 'moon-player--page': pageMode }]} data-music-player data-music-view={view} aria-label="月光音乐室">
+  {!pageMode && <button class="moon-player__launcher" data-music-toggle type="button" aria-expanded="false" aria-controls="moon-music-panel" aria-label="打开月光唱片机">
+    <span class="moon-player__disc" aria-hidden="true"><span>♫</span></span>
+    <span class="moon-player__launcher-copy"><strong>月光唱片机</strong><small data-music-mini>点击选曲</small></span>
+    <span class="moon-player__equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>}
+  <div class="moon-player__dock" data-music-dock>
+    <button type="button" class="music-widget-drag" data-music-dock-drag aria-label="拖动音乐插件；方向键移动" title="拖动音乐插件">⠿</button>
+    <a href="/music/" class="music-dock-title" aria-label="打开音乐馆"><span class="music-dock-art" aria-hidden="true"><img data-music-dock-cover hidden alt="" referrerpolicy="no-referrer" draggable="false" /><span data-music-dock-cover-empty>♫</span></span><span><strong data-music-dock-title>月光音乐馆</strong><small data-music-dock-state>选一首喜欢的歌</small></span></a>
+    <button type="button" data-music-dock-prev aria-label="上一首">⏮</button><button type="button" data-music-dock-play aria-label="播放"><span data-music-dock-icon aria-hidden="true">▶</span></button><button type="button" data-music-dock-next aria-label="下一首">⏭</button>
+    <button type="button" data-music-dock-scale aria-label="音乐插件大小 85%；点击切换" title="切换插件大小">85%</button><button type="button" data-music-dock-fold aria-expanded="true" aria-label="收起音乐条">⌄</button><a href="/music/" class="music-dock-open" aria-label="打开完整播放器">↗</a>
+    <div class="music-dock-timeline"><time data-music-dock-current>0:00</time><input data-music-dock-seek type="range" min="0" max="1000" step="1" value="0" aria-label="音乐条播放进度" disabled /><time data-music-dock-duration>0:00</time><button type="button" data-music-dock-favorite aria-label="收藏当前歌曲" aria-pressed="false" title="收藏当前歌曲">♡</button><button type="button" data-music-dock-mute aria-label="静音" aria-pressed="false" title="静音">♪</button></div>
+  </div>
+  <section class="moon-player__panel" id="moon-music-panel" data-music-panel hidden={!pageMode} aria-labelledby="moon-music-heading">
+    <header class="moon-player__header"><div><span class="moon-player__eyebrow">{pageMode ? 'SIDE A / YOUR PRIVATE SOUNDTRACK' : 'YOUR LITTLE MUSIC SPACE'}</span><h2 id="moon-music-heading">{pageMode ? '此刻，只听喜欢。' : '把喜欢的歌，留在这里。'}</h2></div>{pageMode ? <span class="moon-player__session"><i aria-hidden="true"></i><span data-music-mini>点击选曲</span></span> : <button data-music-close type="button" class="moon-player__icon" aria-label="收起播放器">×</button>}</header>
+    <div class="moon-player__now-playing">
+      <div class="moon-player__deck">
+        <div class="moon-player__turntable" data-vinyl-deck><span class="moon-player__record-label" aria-hidden="true">33⅓ RPM <span>STEREO</span></span><span class="moon-player__tonearm" aria-hidden="true"></span>
+      <div class="moon-player__record" data-vinyl-rotor role="slider" tabindex="0" aria-label="唱片进度" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="尚未载入歌曲" title="拖动调进度，空格播放或暂停"><img data-music-cover hidden alt="当前歌曲封面" referrerpolicy="no-referrer" draggable="false" /><span data-music-cover-empty aria-hidden="true">☾<small>MOONLIGHT<br/>RECORDS</small></span></div>
+        <span class="moon-player__turntable-caption" aria-hidden="true">A LITTLE MUSIC, A LITTLE MAGIC. ✦</span></div>
+        <span class="moon-player__vinyl-hint" aria-hidden="true">拖动唱片 · ← → 调进度</span>
+    <a class="vinyl-dreamscape-link" href="/dreamscape/">✧ 去梦隙里听歌 ↗</a>
+    <a data-music-cover-source class="moon-player__cover-source" hidden target="_blank" rel="noopener noreferrer">在 Apple Music 查看对应歌曲 ↗</a>
+    <div class="moon-player__track"><strong data-music-title>月沿散步</strong><span data-music-artist>未完 · 原创轻音乐</span></div>
+    <audio data-music-audio preload="metadata"></audio>
+    <div class="moon-player__timeline"><input data-music-seek type="range" min="0" max="1000" step="1" value="0" aria-label="播放进度" disabled /><div><time data-music-current>0:00</time><time data-music-duration>0:00</time></div></div>
+    <div class="moon-player__controls">
+      <button data-music-repeat type="button" class="moon-player__icon" aria-pressed="false" aria-label="开启单曲循环" title="单曲循环">↻</button>
+      <button data-music-prev type="button" class="moon-player__icon" aria-label="上一首" title="上一首">⏮</button>
+      <button data-music-play type="button" class="moon-player__play" aria-label="播放" title="播放"><span data-music-play-icon aria-hidden="true">▶</span></button>
+      <button data-music-next type="button" class="moon-player__icon" aria-label="下一首" title="下一首">⏭</button>
+      <button data-music-mute type="button" class="moon-player__icon" aria-pressed="false" aria-label="静音" title="静音">♪</button>
+    </div>
+    <div class="moon-player__listening-tools">
+      <label for="moon-music-mode"><span>播放方式</span><select id="moon-music-mode" data-music-mode><option value="stop">曲终暂停</option><option value="list">顺序循环</option><option value="one">单曲循环</option><option value="shuffle">随机播放 · 全部曲目</option></select></label>
+      <button type="button" class="moon-player__favorite" data-music-favorite aria-pressed="false" aria-label="收藏当前歌曲"><span aria-hidden="true">♡</span><span>收藏</span></button>
+    </div>
+    <div class="moon-player__volume"><label for="moon-music-volume">音量</label><input id="moon-music-volume" data-music-volume type="range" min="0" max="100" step="1" value="40" /><output data-music-volume-value for="moon-music-volume">40%</output></div>
+    <p class="moon-player__status" data-music-status role="status" aria-live="polite">选一首喜欢的歌。</p>
+      </div>
+      <div class="moon-player__lyric-room"><div class="moon-player__lyric-heading"><span class="moon-player__eyebrow">LYRIC NOTE / 歌词手账</span><span aria-hidden="true">✧</span></div><div data-music-lyrics class="moon-player__lyrics" aria-label="歌词；点击已同步歌词可跳转">这是一首纯音乐，让旋律自己说话。</div><div class="moon-player__lyric-credit" data-music-lyrics-credit>可以导入你自己的 .lrc</div><p class="moon-player__lyric-footnote">SOME SONGS FEEL LIKE HOME.</p></div>
+      <section class="moon-player__queue" aria-labelledby="moon-music-list-heading">
+    <div class="moon-player__list-heading"><div><span class="moon-player__eyebrow">SIDE B / COLLECTION</span><h3 id="moon-music-list-heading">今晚的唱片</h3></div><label class="moon-player__import" for="moon-music-files">＋ 选入音频<input id="moon-music-files" data-music-files type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.flac,.opus,.webm" multiple /></label></div>
+    {pageMode && <div class="moon-player__library-tools"><div><strong>我的唱片架</strong></div><label for="music-library-filter">查找歌曲<input id="music-library-filter" data-music-library-filter type="search" maxlength="120" placeholder="歌名 / 歌手 / 专辑" /></label><div class="moon-player__collection-filters"><label for="music-library-view">唱片架<select id="music-library-view" data-music-library-view><option value="all">全部歌曲</option><option value="favorites">我的收藏</option></select></label><label for="music-library-sort">排列<select id="music-library-sort" data-music-library-sort><option value="library">曲库顺序</option><option value="title">按歌名</option><option value="artist">按歌手</option></select></label></div><label class="moon-player__compat"><input data-music-compat type="checkbox" /> 兼容播放（MP3）</label><p data-music-library-status role="status" aria-live="polite">播放原创曲目，或从设备选择歌曲。</p></div>}
+    <div class="moon-player__collection-bar"><span data-music-list-count role="status" aria-live="polite" aria-atomic="true">2 首歌曲</span><button data-music-locate type="button" aria-label="在唱片架中定位当前歌曲">◎ 定位当前</button></div>
+    <ol class="moon-player__list" data-music-list></ol>
+    <p class="moon-player__list-empty" data-music-list-empty hidden>没有找到歌曲</p>
+      </section>
+    </div>
+    <details class="moon-player__metadata" id="music-artwork-tools">
+      <summary>给这首歌，一张专属封面 <span>手选封面 · 导入 LRC · 调整同步</span><b aria-hidden="true">＋</b></summary>
+      <div class="moon-player__metadata-body">
+        <label class="moon-player__search-label" for="moon-music-query">歌名 / 歌手<input id="moon-music-query" data-music-query type="search" maxlength="180" placeholder="例如：メルト supercell" autocomplete="off" /></label>
+        <div class="moon-player__search-actions" hidden><button data-music-search-cover type="button">搜索封面</button><button data-music-search-lyrics type="button">搜索歌词</button></div>
+        <p class="moon-player__privacy">来源：iTunes / LRCLIB · 选择后应用</p>
+        <p data-music-search-status class="moon-player__search-status" role="status" aria-live="polite">选择封面或歌词。</p>
+        <div data-music-candidates class="moon-player__candidates"></div>
+        <div class="moon-player__local-metadata"><label class="moon-player__import" for="moon-music-cover-file">＋ 本地封面<input id="moon-music-cover-file" data-music-cover-file type="file" accept="image/png,image/jpeg,image/webp" /></label><label class="moon-player__import" for="moon-music-lrc-file">＋ 本地 LRC<input id="moon-music-lrc-file" data-music-lrc-file type="file" accept=".lrc,text/plain" /></label><button data-music-clear-metadata type="button">重置本曲</button></div>
+        <div class="moon-player__lyric-settings"><label for="moon-music-offset">歌词延后 <input id="moon-music-offset" data-music-offset type="number" min="-10000" max="10000" step="100" value="0" /> ms</label><label><input data-music-follow type="checkbox" checked /> 自动跟随</label></div>
+
+      </div>
+    </details>
+    <noscript><p class="moon-player__note">播放控制需要 JavaScript。启用后可听两首本地原创音乐，或导入你自己的音频。</p></noscript>
+  </section>
+</aside>

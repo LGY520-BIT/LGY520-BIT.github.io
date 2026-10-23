@@ -1,0 +1,16 @@
+---
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title={`我的星标 · ${site.name}`} description="把喜欢的文章和阅读足迹，收藏成自己的星图。">
+  <section class="page-intro container"><span class="eyebrow">YOUR PERSONAL CONSTELLATION</span><h1>喜欢的文字，不必走散<span class="heading-dot">.</span></h1><p>把喜欢的文字，留在这里。</p><span class="intro-flower" aria-hidden="true">✦</span></section>
+  <section class="library-shell container" data-library>
+    <div class="library-actions"><button class="diary-button" data-export-library><Icon name="book" size={15}/>导出收藏</button><label class="diary-button library-import">导入收藏<input type="file" accept="application/json,.json" data-import-library/></label><button class="diary-button" data-clear-history>清除阅读足迹</button><span data-library-status role="status"></span></div>
+    <details class="library-backup-note"><summary>备份与存储</summary><p>记录保存在此浏览器；清理浏览器数据前，请先导出收藏备份。</p></details>
+    <div class="library-section"><div class="library-heading"><h2>✦ 我的收藏</h2><span data-saved-count>0 篇</span></div><div class="library-list" data-saved-list></div><p class="library-empty" data-saved-empty>还没有星标。打开一篇文章，点击「收藏文章」就能在这里找到它。</p></div>
+    <div class="library-section"><div class="library-heading"><h2>☾ 最近读过</h2><span>最多保留 30 条</span></div><div class="library-list" data-recent-list></div><p class="library-empty" data-recent-empty>还没有阅读足迹。去<a href="/archive/">文字放映室</a>走走吧。</p></div>
+    <noscript><p class="sample-banner">收藏与足迹需要浏览器 JavaScript。文章仍可在归档中阅读。</p></noscript>
+  </section>
+  <dialog class="library-confirm" data-clear-history-dialog aria-labelledby="library-clear-title"><h2 id="library-clear-title">清除阅读足迹？</h2><p>只清除当前浏览器的最近阅读，不会删除文章或收藏。</p><div><button class="diary-button" data-cancel-clear-history>保留足迹</button><button class="diary-button" data-confirm-clear-history>确认清除足迹</button></div></dialog>
+</Layout>

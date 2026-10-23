@@ -1,0 +1,46 @@
+/* Native SVG cursors: no fake following cursor and no pointermove listener. */
+/* New appearance controls have their own geometry; palette skinning stays geometry-free. */
+html:root[data-theme] .next-layout .cyber-theme-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+html:root[data-theme] .next-layout .cyber-theme-options>button { display:grid; gap:5px; text-align:left; padding:12px; min-width:0; }
+html:root[data-theme] .next-layout .cyber-theme-options small { color:var(--muted); font-size:10px; line-height:1.6; }
+@media (hover:hover) and (pointer:fine){
+  html[data-cyber-cursor=on],html[data-cyber-cursor=on] body{cursor:url('/cursors/moon-default.svg') 4 3,auto}
+  html[data-cyber-cursor=on] :is(a[href],button,[role=button],summary,label[for],select,input[type=checkbox],input[type=radio],input[type=range]){cursor:url('/cursors/moon-link.svg') 5 3,pointer}
+  html[data-cyber-cursor=on] :is(input:not([type=button]):not([type=submit]):not([type=reset]):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),textarea,[contenteditable=true],[contenteditable=""],[role=textbox]){cursor:text!important}
+  html[data-cyber-cursor=on] :is(:disabled,[aria-disabled=true]){cursor:not-allowed!important}
+  html[data-cyber-cursor=on] [aria-busy=true]{cursor:progress!important}
+}
+.cyber-effects-layer{position:fixed;inset:0;z-index:32;pointer-events:none;overflow:hidden;contain:layout style paint}
+.cyber-effects-layer *{pointer-events:none!important;user-select:none}
+.cyber-stardust{position:absolute;inset:0 0 auto;height:min(650px,82vh);overflow:hidden;opacity:.5}
+.cyber-stardust i{position:absolute;left:12%;top:21%;width:3px;height:3px;border-radius:50%;background:#67e8f9;box-shadow:0 0 9px #22d3ee70;animation:cyber-dust 14s ease-in-out infinite}
+.cyber-stardust i:nth-child(2){left:28%;top:76%;width:2px;height:2px;animation-delay:-4s;animation-duration:18s;background:#f9a8d4}
+.cyber-stardust i:nth-child(3){left:48%;top:32%;animation-delay:-7s;animation-duration:17s}
+.cyber-stardust i:nth-child(4){left:69%;top:64%;width:2px;height:2px;animation-delay:-11s;animation-duration:19s;background:#f9a8d4}
+.cyber-stardust i:nth-child(5){left:84%;top:27%;animation-delay:-3s;animation-duration:16s}
+.cyber-stardust i:nth-child(6){left:93%;top:81%;width:2px;height:2px;animation-delay:-9s;animation-duration:20s;background:#f9a8d4}
+.cyber-click-particle{position:absolute;left:0;top:0;width:14px;height:14px;color:#67e8f9;filter:drop-shadow(0 0 3px #06b6d470);font-size:17px;line-height:1;will-change:transform,opacity;animation:cyber-click .78s ease-out both;transform:translate3d(var(--cyber-x),var(--cyber-y),0)}
+.cyber-click-particle[data-kind=petal]{width:7px;height:10px;border-radius:75% 10% 75% 15%;background:#f9a8d4;color:transparent;filter:none}
+.cyber-click-particle[data-kind=ring]{width:17px;height:17px;border:1px solid #67e8f9;border-radius:50%;color:transparent;animation-name:cyber-ring}
+html:not([data-cyber-stars=on]) .cyber-stardust,html:not([data-cyber-click=on]) .cyber-clicks{display:none}
+html[data-cyber-hidden=true] .cyber-effects-layer{display:none}
+html[data-motion=quiet] .cyber-effects-layer{display:none}
+.cyber-effects-controls{min-width:0;margin:20px 0 0;padding:16px;border:1px solid var(--line);border-radius:16px;color:var(--text);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.cyber-effects-controls legend{font-size:12px;font-weight:650;padding:0 7px;letter-spacing:.03em}
+.cyber-effects-controls .cyber-effects-intro{font-size:11px;line-height:1.8;color:var(--muted);margin:0 0 9px}
+.cyber-effects-controls>label{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.cyber-effects-controls>label>b,.cyber-effects-controls b{font-size:12px;font-weight:600}
+.cyber-effects-controls small{display:block;font-size:10px;color:var(--muted);line-height:1.7;margin-top:3px}
+.cyber-effects-controls input{flex-shrink:0;width:17px;height:17px;accent-color:var(--cyan,#06b6d4)}
+.cyber-effects-controls input:focus-visible{outline:2px solid var(--cyan,#06b6d4);outline-offset:4px}
+.cyber-effects-controls .cyber-effects-status{font-size:10px;line-height:1.8;margin:10px 0 0;color:var(--soft)}
+@keyframes cyber-dust{0%,100%{transform:translate3d(0,8px,0);opacity:.18}50%{transform:translate3d(8px,-13px,0);opacity:.85}}
+@keyframes cyber-click{0%{transform:translate3d(var(--cyber-x),var(--cyber-y),0) rotate(0deg) scale(.7);opacity:.8}100%{transform:translate3d(calc(var(--cyber-x) + var(--cyber-dx)),calc(var(--cyber-y) + var(--cyber-dy)),0) rotate(var(--cyber-rotate)) scale(.2);opacity:0}}
+@keyframes cyber-ring{0%{transform:translate3d(calc(var(--cyber-x) - 8px),calc(var(--cyber-y) - 8px),0) scale(.3);opacity:.65}100%{transform:translate3d(calc(var(--cyber-x) - 8px),calc(var(--cyber-y) - 8px),0) scale(1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce),(forced-colors:active){
+  .cyber-effects-layer{display:none!important}
+  html[data-cyber-cursor],html[data-cyber-cursor] body{cursor:auto!important}
+  html[data-cyber-cursor] :is(a[href],button,[role=button],summary,label[for],select,input[type=checkbox],input[type=radio],input[type=range]){cursor:pointer!important}
+  html[data-cyber-cursor] :is(input:not([type=button]):not([type=submit]):not([type=reset]):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),textarea,[contenteditable=true],[contenteditable=""],[role=textbox]){cursor:text!important}
+  html[data-cyber-cursor] :is(:disabled,[aria-disabled=true]){cursor:not-allowed!important}
+}

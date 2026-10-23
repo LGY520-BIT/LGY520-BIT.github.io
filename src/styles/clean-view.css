@@ -1,0 +1,20 @@
+/* Quiet by default. User content and audio elements remain in the document. */
+html:root:not([data-ui-hints=yes]) body.scrapbook-layout .shell-header-edge button{font-size:0!important;gap:0!important;padding-inline:6px!important;min-width:28px}
+html:root:not([data-ui-hints=yes]) body.scrapbook-layout .shell-header-edge button>span:first-child{font-size:15px;line-height:1}
+html:root:not([data-ui-hints=yes]) body.scrapbook-layout .shell-header-edge .shell-header-edge__all-label{display:none!important}
+html:root:not([data-ui-hints=yes]) body.scrapbook-layout.next-home :is(.scrap-hero-sticker,.scrap-hero-coordinate,.scrap-hero .scrap-kicker,.scrap-hero-center h1>em,.scrap-scroll>span,.scrap-art-credit,.scrap-world-title>.scrap-tape),html:root[data-ui-hidden=yes] body.scrapbook-layout.next-home :is(.scrap-hero-sticker,.scrap-hero-coordinate,.scrap-hero .scrap-kicker,.scrap-hero-center h1>em,.scrap-terminal,.scrap-scroll>span,.scrap-art-credit,.scrap-world-title>.scrap-tape){display:none!important}
+html:root:not([data-ui-progress=yes]) body.scrapbook-layout .reading-progress{display:none!important}
+html:root[data-ui-hidden=yes] body.scrapbook-layout :is([data-foldable-nav],[data-header-restore-rail],#music-room[data-music-location=dock],[data-companion],[data-companion-restore],[data-companion-panel],[data-companion-particles],.cosmic-tools,.reading-progress,.cyber-effects-layer,.diary-particle,#toast){display:none!important;visibility:hidden!important;pointer-events:none!important}
+.clean-view-restore{display:none;position:fixed;z-index:110;right:12px;bottom:12px;width:28px;height:28px;min-width:28px;min-height:28px;padding:5px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--soft,var(--text));box-shadow:none;cursor:pointer;opacity:.72}
+html:root[data-ui-hidden=yes] body.scrapbook-layout button.clean-view-restore:not([hidden]){display:grid;place-items:center;visibility:visible;pointer-events:auto}
+.clean-view-restore[hidden]{display:none!important}
+.clean-view-restore:hover,.clean-view-restore:focus-visible{opacity:1}
+.clean-view-restore:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.clean-view-settings{min-width:0}
+.clean-view-settings>label{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:36px;margin:5px 0;color:var(--text);font-size:12px;cursor:pointer}
+.clean-view-settings input[type=checkbox]{width:18px;height:18px;margin:0;accent-color:var(--warm)}
+.clean-view-settings>button{display:flex;align-items:center;justify-content:space-between;gap:22px;width:100%;min-height:40px;margin-top:13px;padding:9px 13px;border:1px solid var(--line);border-radius:11px;background:var(--pale);color:var(--text);font:12px/1.6 var(--sans,system-ui,sans-serif);cursor:pointer}
+.clean-view-settings kbd{font:10px/1.4 var(--mono,monospace);color:var(--soft)}
+.clean-view-settings :is(button,input):focus-visible{outline:3px solid var(--green);outline-offset:3px}
+@media(forced-colors:active){.clean-view-restore,.clean-view-settings>button{background:Canvas;color:CanvasText;border-color:CanvasText;opacity:1}.clean-view-restore:focus-visible,.clean-view-settings :is(button,input):focus-visible{outline-color:Highlight}}
+@media(prefers-reduced-motion:reduce){.clean-view-restore,.clean-view-settings *{transition:none!important;animation:none!important}}

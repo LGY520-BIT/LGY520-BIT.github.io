@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "sampleMode": false,
+  "notice": "共 7 部作品，其中 4 部带「示例」标记；示例的状态、评分和短评不代表站长的真实记录。其余为在本地编辑保存的片单。",
+  "items": [
+    {
+      "id": "bgm-248175",
+      "title": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+      "titleJa": "かぐや様は告らせたい～天才たちの恋愛頭脳戦～",
+      "status": "watching",
+      "rating": 5,
+      "review": "还没有写短评，先把这一刻的喜欢收藏起来。",
+      "cover": "/images/anime/bangumi-248175-38e4ecd3217d.jpg",
+      "officialUrl": "https://bgm.tv/subject/248175",
+      "tags": [
+        "恋爱",
+        "搞笑",
+        "A-1Pictures",
+        "校园"
+      ],
+      "progress": {
+        "current": 6,
+        "total": 12
+      },
+      "example": false,
+      "bangumi": {
+        "id": 248175,
+        "score": 7.9,
+        "rank": 354,
+        "airDate": "2019-01-12",
+        "sourceUrl": "https://bgm.tv/subject/248175"
+      }
+    },
+    {
+      "id": "bgm-622206",
+      "title": "尼古喵喵",
+      "titleJa": "ヤニねこ",
+      "status": "completed",
+      "rating": 5,
+      "review": "神",
+      "cover": "/images/anime/bangumi-622206-8ffcf99f2080.jpg",
+      "officialUrl": "https://bgm.tv/subject/622206",
+      "tags": [
+        "搞笑",
+        "漫画改",
+        "2026年7月",
+        "日常"
+      ],
+      "progress": {
+        "current": 12,
+        "total": 12
+      },
+      "example": false,
+      "bangumi": {
+        "id": 622206,
+        "score": 7.5,
+        "rank": 849,
+        "airDate": "2026-07-02",
+        "sourceUrl": "https://bgm.tv/subject/622206"
+      }
+    },
+    {
+      "id": "cosmic-princess-kaguya",
+      "title": "超时空辉夜姬！",
+      "titleJa": "超かぐや姫！",
+      "status": "watching",
+      "rating": 4.5,
+      "review": "示例：把月光、歌声和天马行空的冒险，一起存进最闪亮的那一格。",
+      "cover": "/images/anime/kaguya.jpg",
+      "officialUrl": "https://www.cho-kaguyahime.com/",
+      "tags": [
+        "月面幻想",
+        "音乐"
+      ],
+      "progress": {
+        "current": 0,
+        "total": 1
+      },
+      "example": false
+    },
+    {
+      "id": "violet-evergarden",
+      "title": "紫罗兰永恒花园",
+      "titleJa": "ヴァイオレット・エヴァーガーデン",
+      "status": "favorite",
+      "rating": 5,
+      "review": "示例：有些无法说出口的心意，需要一封信、很长的旅途，和一点点时间。",
+      "cover": "/images/anime/violet.webp",
+      "officialUrl": "https://violet-evergarden.jp/",
+      "tags": [
+        "书信",
+        "成长"
+      ],
+      "progress": {
+        "current": 13,
+        "total": 13
+      },
+      "example": true
+    },
+    {
+      "id": "sound-euphonium",
+      "title": "吹响吧！上低音号",
+      "titleJa": "響け！ユーフォニアム",
+      "status": "completed",
+      "rating": 4.5,
+      "review": "示例：合奏之前先听见自己。那些认真练习的日子，本身就值得珍藏。",
+      "cover": "/images/anime/eupho.webp",
+      "officialUrl": "https://anime-eupho.com/",
+      "tags": [
+        "合奏",
+        "青春"
+      ],
+      "progress": {
+        "current": 13,
+        "total": 13
+      },
+      "example": true
+    },
+    {
+      "id": "lycoris-recoil",
+      "title": "莉可丽丝",
+      "titleJa": "リコリス・リコイル",
+      "status": "completed",
+      "rating": 4.5,
+      "review": "示例：把不寻常的日子过得鲜活。咖啡、笑容与并肩前进的默契都很可爱。",
+      "cover": "/images/anime/lycoris.jpg",
+      "officialUrl": "https://lycoris-recoil.com/",
+      "tags": [
+        "搭档",
+        "动作"
+      ],
+      "progress": {
+        "current": 13,
+        "total": 13
+      },
+      "example": true
+    },
+    {
+      "id": "laid-back-camp",
+      "title": "摇曳露营△",
+      "titleJa": "ゆるキャン△",
+      "status": "planned",
+      "rating": null,
+      "review": "示例：留给想慢下来的周末。准备好热可可，等一个适合出发的晴天。",
+      "cover": "/images/anime/yurucamp.jpg",
+      "officialUrl": "https://yurucamp.jp/third/",
+      "tags": [
+        "露营",
+        "治愈"
+      ],
+      "progress": {
+        "current": 0,
+        "total": 12
+      },
+      "example": true
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+/* Cyber Moon / phase one. Original CSS, no additional raster artwork or copied theme code.
+   The old --green name is a compatibility alias for readable moon-cyan, not a green hue.
+   Bright #ec4899 / #06b6d4 are decorative; text accents have separate AA-safe tokens. */
+html:root {
+  --bg:#fdfcf8; --surface:#fffafd; --text:#29263d; --muted:#655b73;
+  --soft:#51485f; --line:#e4dbea; --green:#0e7490; --green-dark:#155e75;
+  --pale:#f5ecf6; --warm:#a31b65; --card:#f7f1f8;
+  --cyber-pink:#ec4899; --cyber-cyan:#06b6d4;
+  --cyber-pink-text:#a31b65; --cyber-cyan-text:#0e7490;
+  --cyber-button:#9d174d; --cyber-button-ink:#ffffff;
+  --cyber-success:#17634c; --cyber-danger:#a3204f;
+  --cyber-line-pink:rgb(236 72 153 / .22); --cyber-line-cyan:rgb(6 182 212 / .23);
+  --cyber-glass:rgb(255 250 253 / .94); --cyber-mosa:rgb(255 250 253 / .98);
+  --cyber-sheet:rgb(247 241 248 / .96); --cyber-halo:rgb(236 72 153 / .08);
+  --cyber-shadow:0 12px 36px #43315c0a,0 1px 0 #ffffff inset;
+  --cyber-edge:linear-gradient(125deg,#ec48994d,#ffffffa8 46%,#06b6d445);
+  --cyber-blur:18px; --cyber-saturation:125%;
+  --cyber-hero:#0a0e1a; --cyber-hero-ink:#f4f7ff; --cyber-hero-muted:#c9d5f1;
+  --cyber-hero-pink:#f9a8d4; --cyber-hero-cyan:#a5f3fc;
+  --violet:var(--cyber-cyan-text); --pink:var(--cyber-pink-text); --mint:var(--cyber-cyan-text);
+  --shadow:var(--cyber-shadow); --glass-panel:var(--cyber-glass); --glass-card:var(--cyber-glass);
+  --glass-edge:var(--line); --glass-stroke:var(--cyber-line-pink); --glass-halo:var(--cyber-halo);
+  --glass-shadow:var(--cyber-shadow); --refined-paper:var(--surface); --refined-ink:var(--text);
+  color-scheme:light;
+}
+html:root[data-theme=dark] {
+  --bg:#0a0e1a; --surface:#10172a; --text:#eef2ff; --muted:#b2bcd7;
+  --soft:#cad4ed; --line:#303952; --green:#67e8f9; --green-dark:#a5f3fc;
+  --pale:#1b2039; --warm:#f9a8d4; --card:#151d32;
+  --cyber-pink-text:#f9a8d4; --cyber-cyan-text:#67e8f9;
+  --cyber-button:#f9a8d4; --cyber-button-ink:#0a0e1a;
+  --cyber-success:#86efc0; --cyber-danger:#fda4af;
+  --cyber-line-pink:rgb(249 168 212 / .23); --cyber-line-cyan:rgb(103 232 249 / .18);
+  --cyber-glass:rgb(16 23 42 / .94); --cyber-mosa:rgb(16 23 42 / .98);
+  --cyber-sheet:rgb(21 29 50 / .96); --cyber-halo:rgb(6 182 212 / .07);
+  --cyber-shadow:0 14px 42px #02050e47,0 1px 0 #ffffff0d inset;
+  --cyber-edge:linear-gradient(125deg,#ec48994f,#7184b529 46%,#06b6d44a);
+  color-scheme:dark;
+}
+html:root[data-material=mosa] { --glass-panel:var(--cyber-mosa); --glass-card:var(--cyber-mosa); --cyber-blur:28px; --cyber-saturation:108%; }
+html:root[data-material=mosa][data-theme=dark] { --glass-panel:var(--cyber-mosa); --glass-card:var(--cyber-mosa); }
+html:root[data-material=solid] { --glass-panel:var(--surface); --glass-card:var(--surface); --cyber-blur:0px; --cyber-saturation:100%; }
+
+html:root[data-theme] .next-layout { --refined-paper:var(--surface); --refined-ink:var(--text); background:var(--bg)!important; color:var(--text); }
+html:root[data-theme] .next-layout .material-atmosphere {
+  background:radial-gradient(ellipse at 5% 4%,#ec48990a,transparent 43%),radial-gradient(ellipse at 96% 46%,#06b6d40c,transparent 42%),var(--bg);
+}
+html:root[data-theme=dark] .next-layout .material-atmosphere {
+  background:radial-gradient(ellipse at 8% 3%,#af3a9510,transparent 40%),radial-gradient(ellipse at 93% 42%,#06b6d40a,transparent 44%),var(--bg);
+}
+html:root[data-theme] .next-layout ::selection { color:var(--text); background:var(--pale); }
+html:root[data-theme] .next-layout :is(a,button,input,textarea,select,summary):focus-visible { outline-color:var(--cyber-cyan-text); }
+html:root[data-theme] .next-layout :is(input,textarea,select) { accent-color:var(--cyber-pink-text); }
+html:root[data-theme] .next-layout :is(input,textarea)::placeholder { color:var(--muted); opacity:1; }
+
+/* Shared frosted sheets. Borders are gradients, not a neon glow over readable text. */
+html:root[data-theme] .next-layout:not(.moon-room) :is(.next-card,.next-room,.next-post-card.cosmic-post,.next-post-card.cosmic-post.featured-post,.next-post-card.next-archive-card,.related-card,.about-value,.project-card,.library-entry,.atelier-card,.gallery-card,.reading-toolbar,.studio-panel,.studio-stats>div) {
+  border:1px solid transparent;
+  background:linear-gradient(var(--glass-card),var(--glass-card)) padding-box,var(--cyber-edge) border-box;
+  box-shadow:var(--cyber-shadow);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  color:var(--text);
+}
+html:root[data-theme] .next-layout:not(.moon-room) :is(.next-card,.next-room,.next-post-card.cosmic-post,.related-card,.gallery-card):hover {
+  border-color:var(--cyber-line-pink); box-shadow:var(--cyber-shadow),0 0 20px var(--cyber-halo);
+}
+html:root[data-theme] .next-layout :is(.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,.appearance-dialog,#search-dialog,.studio-settings,.studio-confirm-dialog,.atelier-confirm,.library-confirm,.gallery-lightbox,.next-command-dialog) {
+  border-color:var(--cyber-line-pink); background:var(--glass-panel); color:var(--text); box-shadow:var(--cyber-shadow);
+  backdrop-filter:blur(var(--cyber-blur)) saturate(var(--cyber-saturation));
+  -webkit-backdrop-filter:blur(var(--cyber-blur)) saturate(var(--cyber-saturation));
+}
+html:root[data-theme] .next-layout .cosmic-header { border-bottom:1px solid var(--cyber-line-pink); box-shadow:0 1px 0 var(--cyber-line-cyan),0 8px 26px #070d1b08; }
+html:root[data-theme] .next-layout .moon-player { backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+html:root[data-theme] .next-layout :is(.cosmic-logo,.next-room-icon,.next-profile-link,.next-music-card>button,.next-journal-heading h2>span) {
+  color:var(--cyber-cyan-text); background:var(--pale);
+}
+html:root[data-theme] .next-layout .cosmic-logo { box-shadow:inset 0 0 0 1px var(--cyber-line-cyan); }
+html:root[data-theme] .next-layout :is(.brand-dot,.cosmic-logo>i,.next-note-icon,.next-goodbye>span,.next-profile>h2>span,.next-widget-heading>svg) { color:var(--cyber-pink-text); }
+html:root[data-theme] .next-layout .cosmic-header .desktop-nav a.active { color:var(--cyber-pink-text); background:var(--pale); box-shadow:inset 0 -2px 0 var(--cyber-line-pink); }
+html:root[data-theme] .next-layout .cosmic-header .desktop-nav a:hover { color:var(--cyber-cyan-text); background:var(--pale); }
+html:root[data-theme] .next-layout :is(.search-trigger,.next-more,kbd,.next-layout .sample-label) { border-color:var(--line); background:var(--card); color:var(--muted); }
+html:root[data-theme] .next-layout :is(.tag-cloud a,.next-filter .filter-chip,.archive-wrap .filter-chip) { color:var(--muted); background:var(--card); border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.tag-cloud a:hover,.next-filter .filter-chip.active,.archive-wrap .filter-chip.active,.category-label) { color:var(--cyber-pink-text); background:var(--pale); }
+html:root[data-theme] .next-layout .next-filter .filter-chip>span { opacity:1; }
+html:root[data-theme] .next-layout :is(.next-side-nav>a:hover,.next-command-items>a:hover,.next-command-items>button:hover) { color:var(--cyber-cyan-text); background:var(--pale); }
+html:root[data-theme] .next-layout .next-room:nth-child(even) .next-room-icon { color:var(--cyber-pink-text); background:var(--pale); }
+html:root[data-theme] .next-layout :is(.next-profile-stats b,.next-card h2,.next-card h3,.next-post-card h3,.next-room h2) { color:var(--text); }
+
+/* Cinematic ACG stage: the existing official anime portrait stays the focal point.
+   All orbit/grid layers are static, pointer-transparent CSS, not another canvas. */
+html:root[data-theme] .next-layout .next-banner {
+  background:var(--cyber-hero); border:1px solid #bd69ca3d; color:var(--cyber-hero-ink);
+  box-shadow:0 18px 65px #02061126,inset 0 1px 0 #f9a8d42b;
+}
+html:root[data-theme] .next-layout .next-banner-image { opacity:.68; filter:saturate(1.08) contrast(1.04); }
+html:root[data-theme] .next-layout .next-banner-shade {
+  background:linear-gradient(90deg,#0a0e1afd 0%,#10132bf2 29%,#131a35bb 52%,#0a0e1a20 78%),linear-gradient(0deg,#0a0e1ae8,transparent 62%),radial-gradient(ellipse at 86% 22%,#06b6d42c,transparent 52%);
+}
+html:root[data-theme] .next-layout .next-banner::before {
+  content:""; position:absolute; width:340px; height:340px; right:9%; top:8%; border-radius:50%; z-index:-1; pointer-events:none;
+  border:1px solid #67e8f947;
+  background:radial-gradient(circle,transparent 61%,#ec489917 62%,transparent 64%);
+  box-shadow:0 0 0 18px #67e8f905,0 0 0 19px #67e8f91a,0 0 0 43px #ec489905,0 0 0 44px #f9a8d41f,inset 0 0 70px #06b6d412;
+  transform:rotate(-22deg) scaleX(1.23);
+}
+html:root[data-theme] .next-layout .next-banner::after {
+  content:""; display:block; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.35;
+  background-image:linear-gradient(#a5f3fc12 1px,transparent 1px),linear-gradient(90deg,#a5f3fc12 1px,transparent 1px);
+  background-size:46px 46px; mask-image:linear-gradient(90deg,transparent 28%,#000 75%); -webkit-mask-image:linear-gradient(90deg,transparent 28%,#000 75%);
+}
+html:root[data-theme] .next-layout .next-banner h1 { color:var(--cyber-hero-ink); text-shadow:0 0 45px #ec48990a; }
+html:root[data-theme] .next-layout .next-banner h1 span { color:var(--cyber-hero-pink); text-shadow:0 0 28px #ec48991f; }
+html:root[data-theme] .next-layout :is(.next-online,.next-banner-copy>p,.next-character-id>small,.next-banner-credit) { color:var(--cyber-hero-muted); }
+html:root[data-theme] .next-layout .next-online .signal-led { background:var(--cyber-cyan); box-shadow:0 0 0 4px #06b6d414,0 0 15px #06b6d447; }
+html:root[data-theme] .next-layout :is(.next-character-id>span,.next-character-id>strong) { color:var(--cyber-hero-cyan); opacity:1; }
+html:root[data-theme] .next-layout .next-character-stage .refined-portrait {
+  filter:drop-shadow(-7px 0 12px #ec489927) drop-shadow(8px 0 13px #06b6d42e) drop-shadow(0 14px 28px #02061766);
+}
+html:root[data-theme] .next-layout .next-character-stage .refined-character-switcher { border-color:#67e8f942; background:#10172aeb; box-shadow:inset 0 1px 0 #ffffff10; }
+html:root[data-theme] .next-layout .next-character-stage .refined-character-switcher button { color:#d4def7; background:transparent; }
+html:root[data-theme] .next-layout .next-character-stage .refined-character-switcher button[aria-pressed=true] { color:#0a0e1a; background:#f9a8d4; }
+html:root[data-theme] .next-layout .next-banner-actions>a,html:root[data-theme] .next-layout .next-banner-actions>button { color:var(--cyber-hero-ink); background:#10172aeb; border-color:#8192b75c; }
+html:root[data-theme] .next-layout .next-banner-actions>a.next-primary { background:#f9a8d4; border-color:#f9a8d4; color:#0a0e1a; box-shadow:0 4px 22px #ec48991f; }
+html:root[data-theme] .next-layout .next-banner-actions>a.next-primary:hover { background:#fbcfe8; }
+html:root[data-theme] .next-layout .next-banner-actions>:not(.next-primary):hover { background:#1b2039; border-color:#67e8f97a; }
+html:root[data-theme] .next-layout .next-profile-scene { background-image:linear-gradient(115deg,#ec489925,#06b6d420),url('/images/cosmic/story.webp'); }
+html:root[data-theme] .next-layout .next-profile-scene::after { background:linear-gradient(0deg,#0a0e1aad,transparent); }
+html:root[data-theme] .next-layout .next-avatar { background:var(--pale); box-shadow:0 0 0 1px var(--cyber-line-pink),0 3px 20px #ec489913; }
+html:root[data-theme] .next-layout .next-post-cover::after { background:linear-gradient(transparent,#0a0e1a9c); }
+html:root[data-theme] .next-layout .next-cover-category { background:#fffafd; color:#9d174d; border-color:#f9a8d455; }
+html:root[data-theme] .next-layout .next-pinned { background:#10172a; color:#f9a8d4; border:1px solid #f9a8d433; }
+html:root[data-theme] .next-layout .next-record { background:repeating-radial-gradient(circle,#0d1325 0 2px,#24314e 3px 4px); box-shadow:0 7px 26px #06b6d416; }
+html:root[data-theme] .next-layout .next-record>span { background:#f9a8d4; color:#58103a; }
+html:root[data-theme] .next-layout .site-footer { background:var(--surface); border-top-color:var(--cyber-line-pink); box-shadow:inset 0 1px 0 var(--cyber-line-cyan); }
+
+/* Reading stays crisp: no glow, blur or filter is applied to the prose itself.
+   This is only stage-one skinning; callouts and syntax features belong to stage three. */
+html:root[data-theme] .next-layout :is(.page-intro,.article-end,.related-posts,.article-toc,.article-share,.next-post-tags) { border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.prose,.article-description,.page-intro p) { color:var(--soft); }
+html:root[data-theme] .next-layout :is(.prose a,.prose li::marker,.article-toc a:hover) { color:var(--cyber-cyan-text); }
+html:root[data-theme] .next-layout .prose blockquote { color:var(--text); background:var(--pale); border-left-color:var(--cyber-pink-text); }
+html:root[data-theme] .next-layout .prose code { color:inherit; background:var(--pale); }
+html:root[data-theme] .next-layout .prose pre code { background:none; }
+html:root[data-theme] .next-layout :is(.article-heading h1,.prose h2,.prose h3,.prose strong) { color:var(--text); text-shadow:none; }
+html:root[data-theme] .next-layout :is(.prose th,.prose td) { border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.sample-banner,.projects-note,.project-art,.project-preview,.project-art.rss-art,.rss-art .project-preview,.gallery-note,.library-summary,.library-filters) { color:var(--soft); background:var(--card); border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.prose a:hover,.article-toc a[aria-current=true]) { color:var(--cyber-pink-text); }
+
+/* Page-specific aliases must live on their component roots, where prior themes set them. */
+html:root[data-theme] .next-layout :is(.atelier-page,.atelier-confirm) {
+  --at-bg:var(--surface); --at-ink:var(--text); --at-muted:var(--muted); --at-line:var(--line);
+  --at-soft:var(--card); --at-pink:var(--cyber-pink-text); --at-pink-soft:var(--pale); --at-shadow:var(--cyber-shadow);
+}
+html:root[data-theme] .next-layout :is(.studio-shell,.studio-settings,.studio-confirm-dialog) {
+  --studio-accent:var(--cyber-button); --studio-accent-text:var(--cyber-button-ink); --studio-success:var(--cyber-success); --studio-danger:var(--cyber-danger); --studio-shadow:var(--cyber-shadow);
+}
+html:root[data-theme] .next-layout :is(.moon-companion,.companion-panel,.companion-restore) {
+  --pet-accent:var(--cyber-pink-text); --pet-soft:var(--pale); --pet-line:var(--line);
+  --pet-paper:var(--surface); --pet-ink:var(--text); --pet-muted:var(--muted);
+}
+html:root[data-theme] .next-layout .moon-player {
+  --music-accent:var(--cyber-cyan-text); --music-ink:var(--text); --music-muted:var(--muted); --music-paper:var(--surface); --music-line:var(--line);
+}
+html:root[data-theme] .next-layout :is(.studio-btn-primary,.atelier-button-primary) { background:var(--cyber-button); color:var(--cyber-button-ink); border-color:var(--cyber-button); }
+html:root[data-theme] .next-layout :is(.studio-btn-primary,.atelier-button-primary):hover:not(:disabled) { background:var(--cyber-button); color:var(--cyber-button-ink); box-shadow:0 0 0 3px var(--cyber-line-pink); }
+html:root[data-theme] .next-layout :is(.studio-textarea,.studio-input,.studio-select,.studio-field input,.studio-field select,.studio-field textarea,.moon-player__search-label input,.moon-player__lyric-settings input[type=number]) { color:var(--text); background:var(--card); border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.studio-state-badge.is-published,.studio-service[data-service-state=online]) { color:var(--cyber-success); }
+html:root[data-theme] .next-layout :is(.moon-player__metadata,.moon-player__candidates article) { background:var(--card); border-color:var(--line); color:var(--text); }
+html:root[data-theme] .next-layout :is(.moon-player__icon:hover,.moon-player__icon[aria-pressed=true],.moon-player__list button:hover,.moon-player__lyrics button:hover) { background:var(--pale); color:var(--cyber-cyan-text)!important; }
+html:root[data-theme] .next-layout :is(.moon-player__lyrics button[aria-current=true],.moon-player__list button[aria-current=true],.moon-player__candidates button) { background:var(--pale); color:var(--cyber-pink-text); border-color:var(--line); }
+html:root[data-theme] .next-layout :is(.moon-player__eyebrow,.moon-player__cover-source,.moon-player__import,.moon-player__candidates a,.moon-player__search-status) { color:var(--cyber-cyan-text); }
+html:root[data-theme] .next-layout .moon-player__search-actions button { color:var(--cyber-cyan-text); background:var(--surface); border-color:var(--line); }
+html:root[data-theme] .next-layout .moon-player__search-actions button:first-child { color:var(--cyber-button-ink); background:var(--cyber-button); border-color:var(--cyber-button); }
+html:root[data-theme] .next-layout .moon-player__play { color:var(--cyber-button-ink)!important; background:var(--cyber-button); box-shadow:0 5px 22px #ec489922; }
+html:root[data-theme] .next-layout .moon-player__disc { color:#0a0e1a; background:linear-gradient(130deg,#f9a8d4,#a5f3fc); }
+html:root[data-theme] .next-layout .moon-player__record { background:linear-gradient(145deg,#231a37,#173249 58%,#10172a); border:1px solid var(--cyber-line-cyan); }
+html:root[data-theme] .next-layout .moon-player__record>span { color:#a5f3fc; }
+html:root[data-theme] .next-layout .moon-player :focus-visible { outline-color:var(--cyber-cyan-text); }
+html:root[data-theme] .next-layout .moon-player__lyrics { scrollbar-color:var(--line) transparent; }
+html:root[data-theme] .next-layout :is(.appearance-dialog,#search-dialog,.studio-settings,.studio-confirm-dialog,.atelier-confirm,.library-confirm,.gallery-lightbox,.next-command-dialog)::backdrop { background:#070b17bd; backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); }
+
+/* If the existing liquid-glass renderer owns a surface, leave its SVG layer visible.
+   Its public component handles content; do not alter coordinates, z-index or pointer events. */
+html:root[data-theme] .next-layout [data-project-glass=active] { border-color:transparent; }
+html:root[data-theme][data-material=mosa] .next-layout:not(.moon-room) :is(.next-card,.next-room,.next-post-card.cosmic-post,.atelier-card,.library-entry) {
+  background:var(--glass-grain) padding-box,linear-gradient(var(--cyber-mosa),var(--cyber-mosa)) padding-box,var(--cyber-edge) border-box;
+}
+html:root[data-theme][data-material=mosa] .next-layout :is(.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,dialog) { background-image:var(--glass-grain); }
+/* Explicit, sufficiently specific opaque fallback shared by all material modes. */
+html:root[data-theme][data-material=solid] .next-layout :is(.next-card,.next-room,.next-post-card.cosmic-post,.related-card,.about-value,.project-card,.library-entry,.atelier-card,.gallery-card,.reading-toolbar,.studio-panel,.studio-stats>div,.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,dialog) {
+  background:var(--surface)!important; background-image:none!important; border:1px solid var(--line)!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; box-shadow:none!important;
+}
+html:root[data-theme][data-material=solid] .next-layout dialog::backdrop { background:#070b17!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
+  html:root[data-theme] .next-layout :is(.next-card,.next-room,.next-post-card.cosmic-post,.related-card,.about-value,.project-card,.library-entry,.atelier-card,.gallery-card,.reading-toolbar,.studio-panel,.studio-stats>div,.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,dialog) { background:var(--surface)!important; background-image:none!important; border:1px solid var(--line)!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+}
+@media (prefers-reduced-transparency:reduce) {
+  html:root[data-theme] .next-layout :is(.next-card,.next-room,.next-post-card.cosmic-post,.related-card,.about-value,.project-card,.library-entry,.atelier-card,.gallery-card,.reading-toolbar,.studio-panel,.studio-stats>div,.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,dialog) { background:var(--surface)!important; background-image:none!important; border:1px solid var(--line)!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; box-shadow:none!important; }
+  html:root[data-theme] .next-layout dialog::backdrop { background:#070b17!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+  html:root[data-theme] .next-layout .next-character-stage .refined-character-switcher { background:#10172a; backdrop-filter:none; -webkit-backdrop-filter:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html:root[data-theme] .next-layout :is(.next-banner,.next-banner::before,.next-banner::after,.next-card,.next-room,.next-post-card,.refined-portrait) { animation:none!important; transition:none!important; }
+}
+html:root[data-motion=quiet] .next-layout :is(.next-banner,.next-banner::before,.next-banner::after,.next-card,.next-room,.next-post-card,.refined-portrait) { animation:none!important; transition:none!important; }
+@media (forced-colors:active) {
+  html:root[data-theme] .next-layout :is(.next-card,.next-room,.next-post-card.cosmic-post,.related-card,.about-value,.project-card,.library-entry,.atelier-card,.gallery-card,.reading-toolbar,.studio-panel,.studio-stats>div,.cosmic-header,.moon-player,.moon-player__panel,.companion-panel,dialog,.next-banner,.next-banner-actions>a,.next-banner-actions>button) { color:CanvasText!important; background:Canvas!important; background-image:none!important; border:1px solid CanvasText!important; box-shadow:none!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+  html:root[data-theme] .next-layout :is(.material-atmosphere,.next-banner::before,.next-banner::after,.next-banner-image,.next-banner-shade) { display:none!important; }
+  html:root[data-theme] .next-layout :is(.next-banner h1,.next-banner h1 span,.next-banner-copy>p,.next-online,.next-banner-credit,.next-character-id>span,.next-character-id>strong,.next-character-id>small) { color:CanvasText!important; text-shadow:none!important; }
+  html:root[data-theme] .next-layout :is(.studio-btn-primary,.atelier-button-primary,.moon-player__play,.next-character-stage .refined-character-switcher button[aria-pressed=true]) { background:Highlight!important; color:HighlightText!important; border:1px solid Highlight!important; }
+  html:root[data-theme] .next-layout .next-character-stage .refined-portrait { filter:none; }
+  html:root[data-theme] .next-layout dialog::backdrop { background:Canvas!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+}

@@ -1,4 +1,6 @@
 ---
-import Layout from '../layouts/PublicLayout.astro';import {href} from '../lib/site';
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 ---
-<Layout title="这一页还没写完"><section class="inner-intro wrap"><p class="eyebrow">404 / LOST BETWEEN THE STARS</p><h1>这一页，<br/><em>还没写完。</em></h1><a class="text-link" href={href('')}>回到有灯光的地方 ↗</a></section></Layout>
+<Layout title={`这一页，暂时迷路了 · ${site.name}`}><section class="not-found container"><span>404<span style="font-size:35px">✳</span></span><h1>这一页，暂时迷路了。</h1><p>也许故事搬了家，也许这条小径还没有被写下。</p><a href="/" class="button button-primary">回到熟悉的地方 <Icon name="arrow" size={18}/></a></section></Layout>

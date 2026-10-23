@@ -1,0 +1,41 @@
+{
+  "package": "lrc-kit",
+  "version": "1.2.1",
+  "license": "MIT",
+  "repository": "https://github.com/weirongxu/lrc-kit",
+  "tarball": "https://registry.npmjs.org/lrc-kit/-/lrc-kit-1.2.1.tgz",
+  "integrity": "sha512-Ukfn5fleQEnl3ar5hmaI52HFrFQ6Xo5rM7gHcXpy9oXpdtxzZU50bN6EpO9wPeo9mFkJ4ojlKAWbuLijQUdjhg==",
+  "adaptation": "Only explicit .js import suffixes added for native browser ESM; no logic changes.",
+  "files": [
+    {
+      "file": "LICENSE",
+      "upstreamSha256": "eb6bcc0541443f2219329bbaec878f7fb78e40015a2d6855ef118d4a7eb53102",
+      "sha256": "eb6bcc0541443f2219329bbaec878f7fb78e40015a2d6855ef118d4a7eb53102",
+      "bytes": 1077
+    },
+    {
+      "file": "lrc-kit.js",
+      "upstreamSha256": "deb7c94c85e5305421a408fe7c8b707c3654832a612966492982c0f40da767b6",
+      "sha256": "91c57a6b8bb67fc966a592ac1100e9aec62cb1c7e3ae9bf8180f2a770f5ef380",
+      "bytes": 55
+    },
+    {
+      "file": "lrc.js",
+      "upstreamSha256": "46ded13043678d1ee0a640180f55e1b76ce5f0ea5270b1e77c40786f0d7cbe57",
+      "sha256": "feb700433b67667bc45e68ec693be7ace4587130a1f0d601eb1f35156cb791ef",
+      "bytes": 4417
+    },
+    {
+      "file": "runner.js",
+      "upstreamSha256": "549a79d7aa641abc0a73edc94c31d99b3bb7159f062a0ecb0845d2fd1db09f27",
+      "sha256": "f13929c3020d2b977359f24b493098a2fddf9a3100bc82b82e4feeb07ab2b6c3",
+      "bytes": 3280
+    },
+    {
+      "file": "line-parser.js",
+      "upstreamSha256": "b06378a9a2f22431fbd63ab094941fc3807454fce2b8e66530c51a4eb7a6a698",
+      "sha256": "b06378a9a2f22431fbd63ab094941fc3807454fce2b8e66530c51a4eb7a6a698",
+      "bytes": 4984
+    }
+  ]
+}

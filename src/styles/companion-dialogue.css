@@ -1,0 +1,29 @@
+/* Phase two: an original manga speech balloon, not model-generated dialogue. */
+html:root[data-theme] .next-layout .companion-bubble {
+  display:block; position:absolute; inset:auto; width:min(226px,var(--dialogue-max-width,226px));
+  max-height:var(--dialogue-max-height,calc(100dvh - 16px)); overflow:auto; padding:13px 29px 14px 15px;
+  border:1px solid var(--line); border-radius:17px 17px 6px 17px;
+  background:color-mix(in srgb,var(--surface) 96%,transparent); color:var(--text);
+  box-shadow:0 10px 30px #02061722,0 0 18px color-mix(in srgb,var(--cyber-pink-text) 8%,transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  text-align:left; line-height:1.85; font-size:12px; pointer-events:auto; user-select:text;
+  opacity:0; transform:translateY(5px); transition:opacity .18s,transform .18s;
+}
+html:root[data-theme] .next-layout .companion-bubble[hidden] { display:none!important; }
+html:root[data-theme] .next-layout .moon-companion.is-reacting .companion-bubble { opacity:1; transform:none; }
+.companion-bubble-label { display:block; margin-bottom:5px; color:var(--cyber-pink-text); font-size:9px; font-weight:700; letter-spacing:1px; }
+.companion-bubble-text { display:block; overflow-wrap:anywhere; }
+.companion-bubble-close { position:absolute; top:3px; right:3px; min-width:28px; min-height:28px; border-radius:50%; background:transparent; color:var(--muted); font-size:18px; line-height:1; }
+.companion-bubble-close:hover { color:var(--text); background:var(--pale); }
+.companion-dialogue-setting { padding:12px; border:1px solid var(--pet-line); border-radius:10px; margin-block:14px; }
+.companion-dialogue-setting label { display:flex; align-items:center; gap:8px; font-size:11px; font-weight:650; cursor:pointer; }
+.companion-dialogue-setting input { width:16px; height:16px; accent-color:var(--cyber-pink-text); }
+.companion-dialogue-setting p { font-size:10px; color:var(--muted); margin-top:6px; }
+html:root[data-theme][data-material=solid] .next-layout .companion-bubble { background:var(--surface); backdrop-filter:none; -webkit-backdrop-filter:none; }
+html:root[data-theme][data-material=mosa] .next-layout .companion-bubble { background-image:var(--glass-grain); }
+@supports not (backdrop-filter:blur(1px)) { html:root[data-theme] .next-layout .companion-bubble { background-color:var(--surface); } }
+@media (max-width:600px) { html:root[data-theme] .next-layout .companion-bubble { width:min(208px,var(--dialogue-max-width,208px)); font-size:11px; } }
+@media (prefers-reduced-motion:reduce) { html:root[data-theme] .next-layout .companion-bubble { transition:none; transform:none; } }
+html:root[data-theme][data-motion=quiet] .next-layout .companion-bubble { transition:none; transform:none; }
+@media (prefers-reduced-transparency:reduce) { html:root[data-theme] .next-layout .companion-bubble { background:var(--surface); backdrop-filter:none; -webkit-backdrop-filter:none; } }
+@media (forced-colors:active) { html:root[data-theme] .next-layout .companion-bubble { background:Canvas; color:CanvasText; border:1px solid CanvasText; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; } .companion-bubble-label,.companion-bubble-close { color:CanvasText; } }

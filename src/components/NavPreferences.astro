@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+interface Item { id:string; text:string; icon?:string; }
+interface Props { items:Item[]; }
+const {items}=Astro.props;
+---
+<fieldset class="nav-preferences" data-nav-preferences>
+  <legend>顶部导航</legend>
+  <div class="nav-preferences__choices">{items.map(item=><label><Icon name={item.icon||'arrow'} size={17}/><span>{item.text}</span><input type="checkbox" data-nav-choice={item.id} checked/></label>)}</div>
+  <div class="nav-preferences__actions"><button type="button" data-nav-select-all>全选</button><button type="button" data-nav-select-common>常用六项</button><span role="status" aria-live="polite" data-nav-count>已选 {items.length} 项</span></div>
+</fieldset>

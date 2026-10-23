@@ -1,0 +1,19 @@
+---
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+const pieces = [
+  {id:'kaguya',name:'辉夜',english:'KAGUYA',description:'把热爱带上舞台，把好奇留给每一天。',caption:'官方角色立绘 · ©コロリド・ツインエンジンパートナーズ'},
+  {id:'iroha',name:'彩叶',english:'IROHA',description:'在忙碌的日常里，也为喜欢的事留一点位置。',caption:'官方角色立绘 · ©コロリド・ツインエンジンパートナーズ'},
+  {id:'yachiyo',name:'八千代',english:'YACHIYO',description:'一束温柔的月光，一场不愿落幕的相遇。',caption:'官方角色立绘 · ©コロリド・ツインエンジンパートナーズ'},
+  {id:'story',name:'故事发生的地方',english:'LITTLE PARALLEL UNIVERSE',description:'当日常与想象交汇，新的故事就开始了。这里收藏四幅主题画面；点击图片放大，方向键切换。',caption:'官方剧情图片 · ©コロリド・ツインエンジンパートナーズ'}
+];
+---
+<Layout title={`月光画廊 · ${site.name}`} description="一间小小的非官方主题画廊，收藏辉夜、彩叶、八千代与故事发生的画面。">
+  <div class="gallery-shell container">
+    <header class="gallery-heading"><div><span class="eyebrow">THE MOONLIGHT COLLECTION</span><h1>把喜欢的画面，留在这里。</h1><p>文字之外，还有一些无需解释的心动。</p></div><span>04 FRAMES / 无限热爱</span></header>
+    <section class="gallery-grid" aria-label="主题画廊">{pieces.map(piece => <article class:list={['gallery-card',{'gallery-scene':piece.id==='story'}]}><button type="button" data-gallery-open data-gallery-src={`/images/cosmic/${piece.id}.webp`} data-gallery-title={piece.name} data-gallery-caption={piece.caption} aria-label={`放大查看：${piece.name}`}><img src={`/images/cosmic/${piece.id}.webp`} width={piece.id==='story'?1200:1920} height={piece.id==='story'?676:1800} alt={`${piece.name}官方主题图片`} loading="lazy"/><span><Icon name="search" size={12}/> 查看大图</span></button><div class="gallery-card-copy"><small>{piece.english}</small><h2>{piece.name}</h2><p>{piece.description}</p></div></article>)}</section>
+    <p class="gallery-notice">图片来源：<a href="https://www.cho-kaguyahime.com/" target="_blank" rel="noreferrer">作品官方网站 ↗</a> · <a href="/credits/">素材与许可说明</a></p>
+  </div>
+  <dialog class="gallery-lightbox" data-gallery-dialog aria-labelledby="gallery-lightbox-title"><header class="gallery-lightbox-head"><h2 id="gallery-lightbox-title" data-gallery-title>月光画廊</h2><button class="icon-button" type="button" data-gallery-close aria-label="关闭图片预览"><Icon name="close"/></button></header><div class="gallery-lightbox-image"><img data-gallery-image alt=""/></div><footer class="gallery-lightbox-foot"><p data-gallery-caption></p><span data-gallery-counter>1 / 4</span><div class="gallery-lightbox-controls"><button type="button" data-gallery-prev aria-label="上一张图片">← 上一张</button><button type="button" data-gallery-next aria-label="下一张图片">下一张 →</button></div></footer></dialog>
+</Layout>

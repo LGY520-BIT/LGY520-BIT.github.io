@@ -1,0 +1,10 @@
+---
+// Stage one only: decorative layers never contain interactive or private content.
+const home = Astro.url.pathname === '/';
+---
+<div class="cyber-effects-layer" data-cyber-layer aria-hidden="true" data-pagefind-ignore>
+  {home && <div class="cyber-stardust" data-cyber-stardust>
+    <i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>}
+  <div class="cyber-clicks" data-cyber-clicks></div>
+</div>

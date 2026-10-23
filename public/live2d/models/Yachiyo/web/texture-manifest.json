@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "resolution": 2048,
+  "textures": [
+    {
+      "source": "textures/texture_00.png",
+      "sourceBytes": 35232393,
+      "sourceSha256": "2d967602321fb48f66a2cd60f0b637f2bac2ff7885fc98aff720d7247e6f6439",
+      "sourceWidth": 8192,
+      "sourceHeight": 8192,
+      "output": "web/texture_00.2048.png",
+      "bytes": 2030533,
+      "sha256": "caa82c1fe1508f5810bbad5699ff5a0aeb334e60460c27bffd269756f4c13cc2",
+      "width": 2048,
+      "height": 2048,
+      "mode": "RGBA"
+    },
+    {
+      "source": "textures/texture_01.png",
+      "sourceBytes": 26409776,
+      "sourceSha256": "c8fb562c22a7f9d077c7138259251cc2a43cd77f15cdb7faaed9ead5098b429e",
+      "sourceWidth": 8192,
+      "sourceHeight": 8192,
+      "output": "web/texture_01.2048.png",
+      "bytes": 1131454,
+      "sha256": "037b77d2a5099baaa0d57f14b6eae25ec7a043dd985aa69846575349d68d3af9",
+      "width": 2048,
+      "height": 2048,
+      "mode": "RGBA"
+    }
+  ],
+  "generator": "Pillow 11.3.0; premultiplied-alpha LANCZOS; PNG level 9",
+  "originalsUnchanged": true,
+  "uvLayoutUnchanged": true,
+  "generatedArt": false
+}

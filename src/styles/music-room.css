@@ -1,0 +1,137 @@
+/* First-party listening room. Cream paper, pink labels, a real native player.
+   Scoped ID intentionally outranks the legacy floating-player glass cascade. */
+html:root[data-theme] body.moon-room :is(#music-room[data-music-location=room],[data-music-room]) {
+  --mr-paper:var(--surface);--mr-ink:var(--text);--mr-muted:var(--muted);--mr-line:var(--room-border,var(--line));
+  --mr-pink:var(--warm);--mr-pink-soft:var(--pale);--mr-blue:var(--green);--mr-blue-soft:color-mix(in srgb,var(--green) 8%,var(--surface));
+  width:min(1280px,calc(100% - 64px));max-width:1280px;margin:0 auto;padding:40px 0 12px;
+  color:var(--mr-ink);font-family:var(--sans,system-ui,sans-serif);
+}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro{display:flex;align-items:center;justify-content:space-between;gap:var(--room-gap,24px);padding:0 0 32px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__back{display:inline-block;color:var(--mr-muted);text-decoration:none;font-size:var(--room-meta-size,12px);margin-bottom:24px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__back:hover{color:var(--mr-pink)}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__eyebrow{display:block;color:var(--mr-pink);font-size:var(--room-meta-size,12px);letter-spacing:1.5px;font-weight:650;margin-bottom:14px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1{position:relative;font-size:var(--room-title-size,clamp(2rem,3.8vw,3.25rem));letter-spacing:-1.3px;line-height:1.25;font-weight:800;margin:0 0 18px;color:var(--mr-ink)}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1>span{position:relative;color:var(--mr-pink);isolation:isolate}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1>span::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:13px;background:var(--mr-pink-soft);transform:rotate(-2deg);z-index:-1}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1>i{position:absolute;right:-48px;top:5px;transform:rotate(12deg);font-size:35px;color:var(--mr-pink);font-style:normal}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro p{margin:0;color:var(--mr-muted);font-size:var(--room-body-size,14px);line-height:1.85}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket{position:relative;display:grid;grid-template-columns:1fr auto;gap:16px 34px;padding:22px 26px;border:1px solid var(--mr-line);border-radius:var(--room-radius-sm,10px);background:var(--mr-pink-soft);transform:rotate(2deg);box-shadow:none;color:var(--mr-pink);max-width:330px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket::after{content:'';position:absolute;width:46px;height:17px;background:#c1dce7b8;top:-8px;left:38px;transform:rotate(-15deg)}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket>span{grid-column:1/-1;font-size:8px;letter-spacing:3px;border-bottom:1px dashed currentColor;padding-bottom:10px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket strong{font-size:19px;line-height:1.6;letter-spacing:1px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket>div{font-size:8px;line-height:1.8;border-left:1px dashed currentColor;padding-left:22px;align-self:center;letter-spacing:1px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket b{font-size:12px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket small{grid-column:1/-1;font-size:7px;letter-spacing:2.5px}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player[data-music-view=page] {
+  --music-accent:var(--mr-pink);--music-ink:var(--mr-ink);--music-muted:var(--mr-muted);--music-paper:var(--mr-paper);--music-line:var(--mr-line);
+  position:relative;inset:auto;z-index:auto;width:100%;max-width:none;border:0;border-radius:0;background:none;box-shadow:none;
+  color:var(--mr-ink);backdrop-filter:none;-webkit-backdrop-filter:none;isolation:auto;
+}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__panel {
+  position:static;inset:auto;width:100%;max-width:none;max-height:none;overflow:visible;overscroll-behavior:auto;
+  padding:var(--room-pad,24px);border:1px solid var(--room-border,var(--line));border-radius:var(--room-radius,16px);background:var(--room-panel,var(--glass-panel,var(--surface)));
+  background-image:none;box-shadow:var(--room-shadow,0 12px 36px rgb(5 8 20 / .12)),inset 0 1px 0 rgb(255 255 255 / .05);backdrop-filter:blur(var(--room-blur,14px));-webkit-backdrop-filter:blur(var(--room-blur,14px));
+}
+#music-room[data-music-location=room] .moon-player__header{align-items:center;margin:0 0 var(--room-gap,24px);padding:0 0 20px;border-bottom:1px solid var(--mr-line)}
+#music-room[data-music-location=room] .moon-player__header h2{color:var(--mr-ink);font-size:20px;font-weight:750;letter-spacing:-.4px;line-height:1.5}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__eyebrow{color:var(--mr-pink);font-size:var(--room-meta-size,12px);letter-spacing:1.2px}
+#music-room[data-music-location=room] .moon-player__session{display:flex;align-items:center;gap:7px;max-width:45%;font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player__session>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#music-room[data-music-location=room] .moon-player__session i{display:block;width:6px;height:6px;border-radius:50%;background:var(--mr-blue);flex-shrink:0}
+#music-room[data-music-location=room] .moon-player__now-playing{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.96fr) minmax(235px,.9fr);gap:var(--room-gap,24px);align-items:stretch;margin:0}
+#music-room[data-music-location=room] .moon-player__deck{min-width:0}
+#music-room[data-music-location=room] .moon-player__turntable{position:relative;display:grid;justify-items:center;gap:17px;padding:19px 26px 15px;border-radius:var(--room-radius,16px);background:var(--mr-pink-soft);overflow:hidden}
+#music-room[data-music-location=room] .moon-player__record-label{display:flex;justify-content:space-between;width:100%;font-size:7px;letter-spacing:1.6px;color:var(--mr-pink);font-weight:650}
+#music-room[data-music-location=room] .moon-player__turntable-caption{font-size:6px;letter-spacing:1.4px;color:var(--mr-pink);white-space:nowrap}
+#music-room[data-music-location=room] .moon-player__tonearm{position:absolute;z-index:2;right:24px;top:39px;width:15px;height:43%;border:5px solid #f8f3e8;border-left:0;border-top:0;border-radius:0 0 19px 0;transform:rotate(-18deg);filter:drop-shadow(2px 3px 2px #32253b25);pointer-events:none}
+#music-room[data-music-location=room] .moon-player__tonearm::before{content:'';position:absolute;width:22px;height:22px;left:0;top:-13px;border-radius:50%;background:#fefcf5;box-shadow:inset 0 0 0 6px #e7d8d7}
+#music-room[data-music-location=room] .moon-player__tonearm::after{content:'';position:absolute;bottom:-9px;left:-8px;width:12px;height:24px;background:#51485c;border-radius:3px;transform:rotate(26deg)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__record{position:relative;width:100%;height:auto;aspect-ratio:1;max-width:264px;border:7px solid #343039;border-radius:50%;background:repeating-radial-gradient(circle,#29262e 0 2px,#37323b 2px 3px,#29262e 3px 5px);box-shadow:7px 11px 19px #38293a28;animation:music-room-vinyl 22s linear infinite;animation-play-state:paused}
+#music-room[data-music-location=room] .moon-player[data-playing=true] .moon-player__record{animation-play-state:running}
+#music-room[data-music-location=room] .moon-player__record::after{content:'';position:absolute;inset:47%;border:2px solid #fff9;border-radius:50%;background:#534357;z-index:1}
+#music-room[data-music-location=room] .moon-player__record img{position:absolute;inset:28%;width:44%;height:44%;border-radius:50%;object-fit:cover}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__record>span{position:absolute;inset:28%;display:grid;place-content:center;gap:2px;border-radius:50%;color:#573850;background:linear-gradient(140deg,#f3c1d4,#f0d6c6);font-size:27px;line-height:1;text-align:center}
+#music-room[data-music-location=room] .moon-player__record small{font-size:5px;line-height:1.4;letter-spacing:1.2px;margin:0}
+#music-room[data-music-location=room] .moon-player__track{gap:6px;margin-top:20px;text-align:center}
+#music-room[data-music-location=room] .moon-player__track strong{font-size:20px;color:var(--mr-ink);line-height:1.55}
+#music-room[data-music-location=room] .moon-player__track>span{font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__cover-source{display:block;margin:12px 0 -8px;font-size:var(--room-meta-size,12px);text-align:center;color:var(--mr-pink)}
+#music-room[data-music-location=room] .moon-player__timeline{margin-top:20px}
+#music-room[data-music-location=room] .moon-player__timeline>div{font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player input[type=range]{accent-color:var(--mr-pink);height:22px}
+#music-room[data-music-location=room] .moon-player__controls{gap:14px;margin:12px 0 13px}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__icon{min-height:var(--room-control-size,40px);color:var(--mr-muted)!important;width:var(--room-control-size,40px);height:var(--room-control-size,40px)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__icon:hover,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__icon[aria-pressed=true]{color:var(--mr-pink)!important;background:var(--mr-pink-soft)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__play{width:52px;height:52px;flex-shrink:0;background:var(--mr-pink);color:var(--bg)!important;box-shadow:0 5px 18px color-mix(in srgb,var(--mr-pink) 16%,transparent)}
+#music-room[data-music-location=room] .moon-player__volume{max-width:260px;margin:auto;font-size:var(--room-meta-size,12px);gap:10px;color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player__status{font-size:var(--room-meta-size,12px)!important;line-height:1.7!important;text-align:center;margin:12px 0 0!important;color:var(--mr-muted);min-height:35px}
+#music-room[data-music-location=room] .moon-player__lyric-room{position:relative;min-width:0;min-height:390px;border:1px solid var(--mr-line);border-radius:var(--room-radius,16px);padding:20px 18px;display:flex;flex-direction:column;background:var(--mr-paper)}
+#music-room[data-music-location=room] .moon-player__lyric-room::before{content:none;position:absolute;top:-8px;left:33%;width:70px;height:19px;background:#b8dce98c;transform:rotate(-4deg)}
+#music-room[data-music-location=room] .moon-player__lyric-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:15px;border-bottom:1px dashed var(--mr-line);color:var(--mr-pink)}
+#music-room[data-music-location=room] .moon-player__lyric-heading .moon-player__eyebrow{margin:0;font-size:var(--room-meta-size,12px)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyrics{height:310px;max-height:380px;min-height:200px;flex:1;padding-top:24px;white-space:pre-line;text-align:center;color:var(--mr-muted);font-size:14px;line-height:2.15;scrollbar-color:var(--mr-line) transparent}
+#music-room[data-music-location=room] .moon-player__lyrics p{font-size:14px!important;line-height:2.15!important;overflow-wrap:anywhere}
+#music-room[data-music-location=room] .moon-player__lyrics button{font-size:13px;line-height:1.95;padding:9px 6px;text-align:center;color:var(--mr-muted);overflow-wrap:anywhere}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyrics button[aria-current=true]{background:var(--mr-pink-soft);color:var(--mr-pink);font-weight:750}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyrics button:hover{background:var(--mr-blue-soft);color:var(--mr-blue)}
+#music-room[data-music-location=room] .moon-player__lyric-credit{font-size:var(--room-meta-size,12px);line-height:1.6;padding-top:14px;margin-top:8px;border-top:1px dashed var(--mr-line);color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player__lyric-footnote{font-size:6px!important;letter-spacing:1.7px!important;color:var(--mr-muted);margin:15px 0 0!important}
+#music-room[data-music-location=room] .moon-player__queue{min-width:0;display:flex;flex-direction:column;padding-top:3px}
+#music-room[data-music-location=room] .moon-player__list-heading{align-items:center;gap:8px;padding:0 0 13px;border:0;border-bottom:1px solid var(--mr-line)}
+#music-room[data-music-location=room] .moon-player__list-heading h3{font-size:16px;margin:0;color:var(--mr-ink)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__import{border-radius:var(--room-radius-sm,10px);padding:8px 12px;white-space:nowrap;background:var(--mr-blue-soft);font-size:var(--room-meta-size,12px);color:var(--mr-blue);min-height:var(--room-control-size,40px)}
+#music-room[data-music-location=room] .moon-player__list{flex:1;max-height:310px;min-height:140px;gap:7px;margin-top:14px;align-content:start;scrollbar-width:thin}
+#music-room[data-music-location=room] .moon-player__list button{gap:10px;padding:13px 9px;border-radius:var(--room-radius-sm,10px);min-height:61px}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__list button[aria-current=true]{background:var(--mr-pink-soft);border-color:var(--mr-line);color:var(--mr-pink)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__list button:hover{background:var(--mr-blue-soft);color:var(--mr-blue)}
+#music-room[data-music-location=room] .moon-player__list-copy strong{font-size:12px}
+#music-room[data-music-location=room] .moon-player__list-copy small{font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player__list-number{font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+#music-room[data-music-location=room] .moon-player__list-mark{font-size:13px;color:var(--mr-pink)}
+#music-room[data-music-location=room] .moon-player__queue-note{display:flex;align-items:center;gap:13px;padding:17px 13px;margin-top:16px;border:1px solid var(--mr-line);border-radius:var(--room-radius-sm,10px);background:var(--mr-blue-soft)}
+#music-room[data-music-location=room] .moon-player__queue-note>span{font-size:28px;color:var(--mr-blue);transform:rotate(-10deg)}
+#music-room[data-music-location=room] .moon-player__queue-note p{font-size:var(--room-meta-size,12px)!important;line-height:1.8!important;color:var(--mr-blue);margin:0!important}
+#music-room[data-music-location=room] .moon-player__note{font-size:var(--room-meta-size,12px)!important;line-height:1.8!important;margin-top:12px!important;color:var(--mr-muted)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__metadata{margin:var(--room-gap,24px) 0 0;border:1px solid var(--mr-line);border-radius:var(--room-radius,16px);background:var(--mr-paper);color:var(--mr-ink)}
+#music-room[data-music-location=room] .moon-player__metadata summary{position:relative;padding:18px 43px 18px 19px;font-size:12px;line-height:1.6;list-style:none}
+#music-room[data-music-location=room] .moon-player__metadata summary::-webkit-details-marker{display:none}
+#music-room[data-music-location=room] .moon-player__metadata summary>span{font-size:var(--room-meta-size,12px);color:var(--mr-muted);margin-left:12px}
+#music-room[data-music-location=room] .moon-player__metadata summary>b{position:absolute;right:18px;top:17px;font-size:17px;font-weight:400;color:var(--mr-pink)}
+#music-room[data-music-location=room] .moon-player__metadata[open] summary>b{transform:rotate(45deg)}
+#music-room[data-music-location=room] .moon-player__metadata-body{padding:0 19px 19px}
+#music-room[data-music-location=room] .moon-player__search-label{font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__search-label input,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyric-settings input[type=number]{border-color:var(--mr-line);background:var(--mr-paper);color:var(--mr-ink)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__search-actions button{background:var(--mr-blue-soft);color:var(--mr-blue);border-color:var(--mr-line);min-height:var(--room-control-size,40px);padding:9px 17px;border-radius:var(--room-radius-sm,10px);font-size:var(--room-meta-size,12px)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__search-actions button:first-child{background:var(--mr-pink);color:var(--bg);border-color:var(--mr-pink)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__privacy{color:var(--mr-muted);font-size:var(--room-meta-size,12px)!important;line-height:1.8!important}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__search-status{color:var(--mr-blue);font-size:var(--room-meta-size,12px)!important}
+#music-room[data-music-location=room] .moon-player__candidates{grid-template-columns:repeat(2,minmax(0,1fr));max-height:325px}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__candidates article{background:var(--mr-paper);border-color:var(--mr-line);color:var(--mr-ink);min-width:0}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__candidates a{color:var(--mr-pink)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__candidates button{background:var(--mr-blue-soft);color:var(--mr-blue);min-height:var(--room-control-size,40px)}
+#music-room[data-music-location=room] .moon-player__local-metadata{gap:13px}
+#music-room[data-music-location=room] .moon-player__lyric-settings{justify-content:flex-start;gap:30px;font-size:var(--room-meta-size,12px);color:var(--mr-muted)}
+html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player :focus-visible{outline:3px solid var(--mr-blue);outline-offset:3px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end{display:flex;align-items:center;justify-content:center;gap:26px;text-align:center;padding:45px 0 25px;color:var(--mr-pink)}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end>span{font-size:24px}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end p{font-size:var(--room-meta-size,12px);line-height:1.8;color:var(--mr-muted);margin:0}
+:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end small{display:block;font-size:6px;letter-spacing:1.9px;margin-top:7px}
+@keyframes music-room-vinyl{to{transform:rotate(360deg)}}
+@media(max-width:1100px){#music-room[data-music-location=room] .moon-player__now-playing{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--room-gap,24px)}#music-room[data-music-location=room] .moon-player__queue{grid-column:1/-1}#music-room[data-music-location=room] .moon-player__list{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0;max-height:205px}#music-room[data-music-location=room] .moon-player__queue-note{margin-top:12px;border:1px solid var(--mr-line);border-radius:var(--room-radius-sm,10px)}#music-room[data-music-location=room] .moon-player__record{max-width:265px}}
+@media(max-width:700px){html:root[data-theme] .next-layout #music-room[data-music-location=room]{width:calc(100% - 30px);padding-top:23px}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro{gap:var(--room-gap,24px);padding:0 0 32px}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1{font-size:var(--room-title-size,clamp(2rem,3.8vw,3.25rem));letter-spacing:-1.3px;line-height:1.25}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro h1>i{right:-31px;font-size:25px}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__intro p{font-size:var(--room-body-size,14px);line-height:1.85}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__eyebrow{font-size:var(--room-meta-size,12px);letter-spacing:1.5px;margin-bottom:14px}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__back{margin-bottom:24px;font-size:var(--room-meta-size,12px)}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__ticket{display:none;border-radius:var(--room-radius-sm,10px);transform:rotate(2deg);box-shadow:none;padding:22px 26px}html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__panel{padding:var(--room-pad,24px);border-radius:var(--room-radius,16px);border:1px solid var(--room-border,var(--line));background:var(--room-panel,var(--glass-panel,var(--surface)));box-shadow:var(--room-shadow,0 12px 36px rgb(5 8 20 / .12)),inset 0 1px 0 rgb(255 255 255 / .05);backdrop-filter:blur(var(--room-blur,14px));-webkit-backdrop-filter:blur(var(--room-blur,14px))}#music-room[data-music-location=room] .moon-player__header{display:block;padding-bottom:15px;margin-bottom:21px;margin:0 0 var(--room-gap,24px);padding:0 0 20px}#music-room[data-music-location=room] .moon-player__header h2{font-size:20px;letter-spacing:-.4px}#music-room[data-music-location=room] .moon-player__session{max-width:100%;margin-top:11px;font-size:var(--room-meta-size,12px)}#music-room[data-music-location=room] .moon-player__now-playing{grid-template-columns:minmax(0,1fr);gap:var(--room-gap,24px)}#music-room[data-music-location=room] .moon-player__deck{width:100%;max-width:370px;margin:auto}#music-room[data-music-location=room] .moon-player__turntable{padding:18px 28px 16px;border-radius:var(--room-radius,16px)}html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__record{max-width:250px}#music-room[data-music-location=room] .moon-player__lyric-room{min-height:310px;padding:20px 18px;border-radius:var(--room-radius,16px);background:var(--mr-paper)}html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyrics{height:240px;max-height:280px;min-height:180px}#music-room[data-music-location=room] .moon-player__queue{grid-column:auto}#music-room[data-music-location=room] .moon-player__list{grid-template-columns:minmax(0,1fr);max-height:250px}#music-room[data-music-location=room] .moon-player__metadata summary>span{display:block;margin:5px 0 0;font-size:var(--room-meta-size,12px)}#music-room[data-music-location=room] .moon-player__candidates{grid-template-columns:minmax(0,1fr)}#music-room[data-music-location=room] .moon-player__lyric-settings{gap:20px;align-items:center}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end{gap:15px}:is(#music-room[data-music-location=room],[data-music-room]) .music-room__end p{font-size:var(--room-meta-size,12px)}}
+@media(prefers-reduced-motion:reduce){#music-room[data-music-location=room] .moon-player__record{animation:none!important}#music-room[data-music-location=room] *{scroll-behavior:auto!important}}
+:root[data-motion=quiet] #music-room[data-music-location=room] .moon-player__record{animation:none!important}
+@media(forced-colors:active){html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__panel,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__lyric-room,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player__metadata,html:root[data-theme] .next-layout #music-room[data-music-location=room] .moon-player button{color:CanvasText!important;background:Canvas!important;border:1px solid CanvasText!important}#music-room[data-music-location=room] .moon-player__tonearm{display:none}#music-room[data-music-location=room] .moon-player__record{animation:none!important}#music-room[data-music-location=room] .moon-player__lyrics button[aria-current=true],#music-room[data-music-location=room] .moon-player__list button[aria-current=true]{outline:2px solid Highlight!important}}
+/* Read-only local library: compact paper controls, full-size touch targets. */
+#music-room[data-music-location=room] .moon-player__library-tools{padding:16px;border:1px solid var(--mr-line);border-radius:var(--room-radius,16px);background:var(--mr-paper);margin:0 0 14px;display:grid;gap:12px}
+#music-room[data-music-location=room] .moon-player__library-tools>div{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#music-room[data-music-location=room] .moon-player__library-tools button{min-height:var(--room-control-size,40px);padding:7px 10px;border:1px solid var(--mr-line);border-radius:var(--room-radius-sm,10px);color:var(--mr-blue);background:var(--mr-blue-soft);cursor:pointer;font:inherit;font-size:var(--room-meta-size,12px)}
+#music-room[data-music-location=room] .moon-player__library-tools label{display:grid;gap:5px;font-size:.73rem;color:var(--mr-ink)}
+#music-room[data-music-location=room] .moon-player__library-tools input[type=search]{width:100%;min-width:0;min-height:var(--room-control-size,40px);border:1px solid var(--mr-line);border-radius:var(--room-radius-sm,10px);padding:8px 10px;background:var(--mr-paper);color:var(--mr-ink);font:inherit;font-size:var(--room-body-size,14px)}
+#music-room[data-music-location=room] .moon-player__library-tools .moon-player__compat{display:flex;align-items:center;gap:8px;min-height:32px}
+#music-room[data-music-location=room] .moon-player__library-tools .moon-player__compat input{width:18px;height:18px;accent-color:var(--mr-blue)}
+#music-room[data-music-location=room] .moon-player__library-tools p{font-size:.7rem;line-height:1.7;color:var(--mr-muted);margin:0;overflow-wrap:anywhere}
+#music-room[data-music-location=room] .moon-player__library-tools :focus-visible{outline:3px solid var(--mr-blue);outline-offset:3px}
+html:root[data-theme][data-material=mosa] body.moon-room #music-room[data-music-location=room] .moon-player__panel{background-image:var(--glass-grain)}
+html:root[data-theme][data-material=solid] body.moon-room #music-room[data-music-location=room] .moon-player__panel{background:var(--surface);background-image:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:var(--room-shadow,0 12px 36px rgb(5 8 20 / .12))}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){html:root[data-theme] body.moon-room #music-room[data-music-location=room] .moon-player__panel{background:var(--surface);background-image:none}}

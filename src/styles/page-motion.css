@@ -1,0 +1,35 @@
+/* Content stays readable without JS. No overlay, scroll lock or artificial wait. */
+:root { --page-enter-duration:720ms; --page-enter-step:70ms; --page-ease:cubic-bezier(.22,1,.36,1); }
+:root[data-page-motion=snappy] { --page-enter-duration:380ms; --page-enter-step:35ms; }
+html:root .appearance-dialog .page-motion-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+html:root .appearance-dialog .page-motion-options > button { min-width:0; min-height:76px; padding:12px 10px; border-radius:12px; text-align:left; font-size:13px; line-height:1.5; }
+html:root .appearance-dialog .page-motion-options > button small { display:block; margin-top:5px; font-size:10px; line-height:1.6; font-weight:400; }
+html:root .appearance-dialog [data-page-motion-status]:empty { display:none; }
+@keyframes moon-page-arrive { from { opacity:.18; translate:0 18px; } to { opacity:1; translate:0 0; } }
+@keyframes moon-dialog-arrive { from { opacity:.5; translate:0 6px; } to { opacity:1; translate:0 0; } }
+@media(prefers-reduced-motion:no-preference) {
+  html:root:not([data-motion=quiet]):not([data-page-motion=off]) body.next-home .scrap-hero-center > * {
+    animation:moon-page-arrive var(--page-enter-duration) var(--page-ease) calc(var(--page-enter-step) * var(--page-enter-index,0)) both;
+  }
+  html:root body.next-home .scrap-hero-center > :nth-child(2) { --page-enter-index:1; }
+  html:root body.next-home .scrap-hero-center > :nth-child(3) { --page-enter-index:2; }
+  html:root body.next-home .scrap-hero-center > :nth-child(4) { --page-enter-index:3; }
+  html:root body.next-home .scrap-hero-center > :nth-child(5) { --page-enter-index:4; }
+  html:root:not([data-motion=quiet]):not([data-page-motion=off]) :is(.appearance-dialog,#search-dialog,.next-command-dialog)[open] {
+    animation:moon-dialog-arrive 180ms var(--page-ease);
+  }
+  html:root:not([data-motion=quiet]):not([data-page-motion=off]) :is(.scrap-hero-actions a,.scrap-hero-actions button,.shell-header .desktop-nav a) {
+    transition:color 160ms ease,background-color 180ms ease,translate 160ms var(--page-ease);
+  }
+  html:root:not([data-motion=quiet]):not([data-page-motion=off]) :is(.scrap-hero-actions a,.scrap-hero-actions button,.shell-header .desktop-nav a):active { translate:0 1px; }
+}
+/* Avoid a second whole-document crossfade over the persistent wallpaper/audio UI.
+   Route-local headings and cards animate independently; the background is untouched. */
+::view-transition-old(root) { animation:none!important; display:none; }
+::view-transition-new(root) { animation:none!important; mix-blend-mode:normal; }
+@media(prefers-reduced-motion:reduce),(forced-colors:active) {
+  html:root body.next-home .scrap-hero-center > *, html:root :is(.appearance-dialog,#search-dialog,.next-command-dialog)[open] { animation:none!important; }
+}
+html:root:is([data-motion=quiet],[data-page-motion=off]) body.next-home .scrap-hero-center > *,
+html:root:is([data-motion=quiet],[data-page-motion=off]) :is(.appearance-dialog,#search-dialog,.next-command-dialog)[open] { animation:none!important; }
+@media print { html:root body.next-home .scrap-hero-center > * { animation:none!important; } }

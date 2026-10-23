@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config';
+---
+<Layout title={`关于这个频道 · ${site.name}`} description="未完的月夜见频道：在星光与想象之间，为技术、阅读和日常记录留一个位置。">
+  <section class="page-intro container">
+    <span class="eyebrow">TSUKUYOMI · A PERSONAL CHANNEL</span>
+    <h1>收到信号，很高兴遇见你<span class="heading-dot">.</span></h1>
+    <p>借一束月光，把想象接入日常。<br/>这里是「{site.name}」，一个仍在书写的个人频道。</p>
+    <span class="intro-flower" aria-hidden="true">✦</span>
+  </section>
+  <section class="about-layout container">
+    <div>
+      <div class="prose">
+        <h2>为什么叫「{site.name}」？</h2>
+        <p>因为很多事情，不必急着给出结论。一本书还没读完，一个念头还没想清楚，一段路还没走到尽头——这些都值得被记录。</p>
+        <p>小站借来《超时空辉夜姬！》的月夜想象，为普通的思考，留一块可以发光的屏幕。</p>
+        <blockquote><p>保持好奇，信号在线，故事未完。</p></blockquote>
+        <h2>频道里，准备留下什么</h2>
+        <p>一些技术与创造的笔记，一些读书时想继续追问的问题，以及日常里那些看起来很小、却想认真收藏的发现。</p>
+        <p>把看见的写下来，把学到的讲明白，让灵感有地方落地，就是这里最简单的愿望。</p>
+        <h2>给每一次接入的你</h2>
+        <p>你可以打开<a href="/archive/">文章归档</a>，挑一个感兴趣的话题；也可以用 <a href="/rss.xml">RSS 订阅</a>，把更新交给自己的阅读器。无需追赶热度，也没有必须完成的阅读任务。</p>
+        <p>喜欢这片月夜的话，欢迎多停留一会儿。关于主题、参考项目和图片来源，已整理在<a href="/credits/">致谢与素材说明</a>中。</p>
+        {site.email && <p>如果想聊聊，可以写信到 <a href={`mailto:${site.email}`}>{site.email}</a>。</p>}
+        {site.github && <p>你也可以在 <a href={site.github} target="_blank" rel="noreferrer">GitHub</a> 找到我。</p>}
+      </div>
+      <div class="about-values">
+        <div class="about-value"><Icon name="book" size={23}/><h3>认真接收</h3><p>让阅读不只划过屏幕，也留下思考的回声。</p></div>
+        <div class="about-value"><Icon name="moon" size={23}/><h3>慢慢创造</h3><p>让想象有光，也让每一份记录真诚落地。</p></div>
+      </div>
+      {site.demo && <div class="sample-banner"><Icon name="feather" size={17}/><span>作者简介示例 · 待补充自己的故事。</span></div>}
+    </div>
+    <aside>
+      <img class="about-aside-image cosmic-about-art" src="/images/cosmic/yachiyo.webp" width="1920" height="1800" alt="《超时空辉夜姬！》的 Yachiyo 角色主题立绘" loading="lazy"/>
+      <p class="about-aside-caption">SIGNAL RECEIVED. STORY UNFINISHED.</p>
+      <div class="quote-note"><span class="quote-mark">“</span><p>让想象抵达月亮，<br/>让文字回到生活。</p><span>这个频道的小小约定</span><span class="quote-flower" aria-hidden="true">✦</span></div>
+    </aside>
+  </section>
+</Layout>

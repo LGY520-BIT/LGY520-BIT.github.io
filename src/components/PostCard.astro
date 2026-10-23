@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { dateLabel, readingTime } from '../lib/posts';
+import Icon from './Icon.astro';
+interface Props { post: CollectionEntry<'blog'>; index?: number; featured?: boolean; }
+const { post, index = 0, featured = false } = Astro.props;
+const home = Astro.url.pathname === '/';
+const icons: Record<string, string> = { '生活随笔': 'leaf', '技术笔记': 'code', '阅读记录': 'book', '设计与创造': 'feather' };
+const cover = post.data.cover || (index % 3 === 0 ? '/images/cosmic/story.webp' : '/images/quiet-mountains.webp');
+---
+<article class:list={['post-item next-post-card', { 'featured-post': featured, 'cosmic-post': home, 'next-archive-card': !home }]} data-category={post.data.category} data-tags={JSON.stringify(post.data.tags)}>
+  <a class:list={['next-post-cover', { 'cosmic-post-cover': home, 'next-archive-cover': !home }, `cover-${index % 3}`]} href={`/posts/${post.id}/`} tabindex="-1" aria-hidden="true"><img src={cover} alt="" loading="lazy" width="1200" height="676"/><span class="next-cover-category">{post.data.category}</span>{featured && <span class="next-pinned">✦ 精选</span>}</a>
+  <div class="post-copy"><div class="post-meta"><span class="category-label"><Icon name={icons[post.data.category] || 'feather'} size={14}/>{post.data.category}</span><span class="meta-dot">·</span><time datetime={post.data.date.toISOString()}>{dateLabel(post.data.date)}</time>{featured && <span class="featured-label">精选</span>}</div><h3><a href={`/posts/${post.id}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="post-bottom"><span>{readingTime(post.body)} 分钟阅读 {post.data.sample && <span class="sample-label">示例文章</span>}</span><a class="read-link" href={`/posts/${post.id}/`} aria-label={`阅读：${post.data.title}`}><span>{featured ? '读一读这篇' : '阅读'}</span><Icon name="arrow" size={18}/></a></div></div>
+  <div class="next-post-tags">{post.data.tags.slice(0,2).map(tag=><a href={`/archive/?tag=${encodeURIComponent(tag)}`}>#{tag}</a>)}</div>
+</article>

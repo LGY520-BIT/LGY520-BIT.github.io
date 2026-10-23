@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "repository": "LGY520-BIT/LGY520-BIT.github.io",
+  "source": "original blog static public edition",
+  "permission": "Owner confirmed artwork, wallpaper and Live2D public use on 2026-10-23",
   "files": [
     {
       "path": ".github/workflows/deploy.yml",
@@ -9,38 +9,48 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 50,
-      "sha256": "917c72fcf9cfc7f434d1b23a0aa5acc7672880a9b09b3520a4032c84dbbb9695"
-    },
-    {
-      "path": "ASSETS.md",
-      "bytes": 703,
-      "sha256": "108e6d17bafa95e8d5802c961ff6f95a42479029a9220829f6e8d3d38015c22f"
+      "bytes": 68,
+      "sha256": "c51dab41c1500194a195079c7154b08f83693d7c5539f22513ec3a125d11ecde"
     },
     {
       "path": "astro.config.mjs",
-      "bytes": 524,
-      "sha256": "622f2aa45bad58405ea0ba8a0cded50d214c7c0c1d2922c9e5a076ad91c81a46"
+      "bytes": 250,
+      "sha256": "43664a8d6b42240050913494d4b28177be5bd9fa39ddcc723feb8767c18e4a1d"
     },
     {
       "path": "package-lock.json",
-      "bytes": 134727,
-      "sha256": "6c44c74cae58a009266f2e57b3de3528d53b5729eca67a6f9311d30b4959f60f"
+      "bytes": 134728,
+      "sha256": "57283273741392e8a501ba8b207290df828746e6dc7fee01d625ae5d91ab0bf6"
     },
     {
       "path": "package.json",
-      "bytes": 532,
-      "sha256": "4261e34b81af15f47f0f799cc2baebe5cd482dd7c2483a1eb745de373c76bebc"
+      "bytes": 589,
+      "sha256": "5633af18caaba92071aec398d2ecaf3900bfb5d40e88cf4cf89c103a93189200"
     },
     {
-      "path": "public/art/moon-observatory-mobile.webp",
-      "bytes": 111236,
-      "sha256": "e8938d3b9c1d1b426c82bf53af24c48f4b0cf3048c644677a35a2a5beb5c4e05"
+      "path": "public/anime-recovery.mjs",
+      "bytes": 1881,
+      "sha256": "9eda1c5cd94d719767b73cf251d8c452eff2b45b9b9a49556777ecbd424fdd3d"
     },
     {
-      "path": "public/art/moon-observatory.webp",
-      "bytes": 321336,
-      "sha256": "84736c45e3acd93c888d1454b6fe637c0499d0bb112e5fa5cbaa23c172483972"
+      "path": "public/anime-room.js",
+      "bytes": 5812,
+      "sha256": "3a2b5d21e7c71b6426d41e4a50951a24e202300fc27474ea1cf8c6a28ae809db"
+    },
+    {
+      "path": "public/anime-shelf.mjs",
+      "bytes": 3670,
+      "sha256": "a3b1880dea64ecf94c9df0eb8ffc2ef91a4f6535056028e0748aba7b5e240a1a"
+    },
+    {
+      "path": "public/app.js",
+      "bytes": 16546,
+      "sha256": "47c5219d349f12a00bc9dd2e93d6e63b87d08b945643a45866a7c2881c9c562d"
+    },
+    {
+      "path": "public/atelier.js",
+      "bytes": 17956,
+      "sha256": "065622e0f1e4fb3483d90206ddbac94f3f0a028cb0f15f2e696f6b07b18faab8"
     },
     {
       "path": "public/audio/moonwalk.wav",
@@ -49,8 +59,13 @@
     },
     {
       "path": "public/audio/original-scores.json",
-      "bytes": 984,
-      "sha256": "a955db020c2526c9075ea55a9366455fbc365e4231299c3b1025d4dd07576199"
+      "bytes": 954,
+      "sha256": "2a7ba5eb386009c3b16d1f1dc9d4c9be85a2e4bb5188dc1492a33e8ada3e4df4"
+    },
+    {
+      "path": "public/audio/README.md",
+      "bytes": 1659,
+      "sha256": "98443ccca43f091fcfcd2e239892be1f6f8e411e9829080f44e89ad5e0eb8c68"
     },
     {
       "path": "public/audio/starlit-letter.wav",
@@ -58,107 +73,1404 @@
       "sha256": "15c69985666f269725cbfede735ce6d1ef3921dfc717fb5a8d9f253a838e8f40"
     },
     {
-      "path": "public/favicon.svg",
-      "bytes": 250,
-      "sha256": "3ac338bbe935e003c824f898dabf770d5f07afcdffd2cbee19462a5abbc704e6"
+      "path": "public/bookmark-library.mjs",
+      "bytes": 13455,
+      "sha256": "bc205d955fbcc2854c44bb0c1cc77b28e609c9bb6b4e074f2a98d5527417de27"
     },
     {
-      "path": "public/public-runtime.js",
-      "bytes": 7891,
-      "sha256": "4568539a046858c6662b413d2b24a682cef513e4dac814a851d3594e404b0bb4"
+      "path": "public/clean-view.js",
+      "bytes": 4845,
+      "sha256": "6be9f7c7fdf154dc7f675f5c3ba98c1cebe1326f7431b9089c6e546fa2223673"
+    },
+    {
+      "path": "public/companion-dialogue.js",
+      "bytes": 8591,
+      "sha256": "272531119ecf240dbd02c0d802c77df14d79c90eef2b82d400778513641ab42e"
+    },
+    {
+      "path": "public/companion.js",
+      "bytes": 41055,
+      "sha256": "fb15cf128e8cb26909b8ea6907267fb0d1302dc3000245baf0b5bd8f64660266"
+    },
+    {
+      "path": "public/cosmic.js",
+      "bytes": 14235,
+      "sha256": "98f89a4db3e46d771f007d29ef2c1df01503a3a3593554cba67e26618cbcf6ed"
+    },
+    {
+      "path": "public/cursors/moon-default.svg",
+      "bytes": 435,
+      "sha256": "042dfad358f14db6ac2af18dc19db4be95de6487e0ba0ed0bcf15fdda4c1bac6"
+    },
+    {
+      "path": "public/cursors/moon-link.svg",
+      "bytes": 470,
+      "sha256": "9598768bc6c12e2c71b601bd532a8dcc3bacafe9c8d88dd6840a99c5b9a439c5"
+    },
+    {
+      "path": "public/cyber-effects.js",
+      "bytes": 7897,
+      "sha256": "2ebfb7907be1904728ea16740eeeae975d41829692b88d0a48f8e6115a3c6696"
+    },
+    {
+      "path": "public/diary.js",
+      "bytes": 18284,
+      "sha256": "6a74ae1c21c7664fe2f39a28d99db31a6b44a690082df6581898b5ddd3458bb4"
+    },
+    {
+      "path": "public/dreamscape-host.js",
+      "bytes": 9328,
+      "sha256": "a41506c612a6e140d3e026c7e8984f4d06631b9f0d53941feecf7f08d6ed71f3"
+    },
+    {
+      "path": "public/dreamscape-utils.mjs",
+      "bytes": 1816,
+      "sha256": "65270be03bac6c7f2e7378202493d52432f0842c79f79df067f24cf7031c0a38"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 252,
+      "sha256": "d9ea17b312abc3a0290d6a7d8fcf04d17eb58c6490b6df0b3599466cf6597059"
+    },
+    {
+      "path": "public/floating-widgets.js",
+      "bytes": 9050,
+      "sha256": "cb10bbe53ddacf603c34a6130d910712a00e423b3f376bc87f651dd6a5fe3975"
+    },
+    {
+      "path": "public/fonts.css",
+      "bytes": 75,
+      "sha256": "8221498ab0995c7f05c1fe3c7eac656c46eed0b87151936700903a5b4ebb2c22"
+    },
+    {
+      "path": "public/image-picker.mjs",
+      "bytes": 6631,
+      "sha256": "74356d58d48d09cef93035963bb9a63d34031a5cb4eba75f3df9d3215c4eacb8"
+    },
+    {
+      "path": "public/images/anime/bangumi-248175-38e4ecd3217d.jpg",
+      "bytes": 421712,
+      "sha256": "38e4ecd3217d936dcbbf552251fa028ec82e9bce2cc8270004eabbec74176e6e"
+    },
+    {
+      "path": "public/images/anime/bangumi-622206-8ffcf99f2080.jpg",
+      "bytes": 115721,
+      "sha256": "8ffcf99f2080a487f2c3984ff24413b07ba03cb1218bea8d71423407bfd69458"
+    },
+    {
+      "path": "public/images/anime/bocchi.jpg",
+      "bytes": 270491,
+      "sha256": "82a63cdf20d85efd2a7274d38c014d13f085a89f26fe8acba093f00a3b34b30e"
+    },
+    {
+      "path": "public/images/anime/eupho.webp",
+      "bytes": 307172,
+      "sha256": "42db3124a4e5edd6c48b75cd5fc8b78b7c7c8c0bbb30b463d020cc5c1121d332"
+    },
+    {
+      "path": "public/images/anime/gwitch.jpg",
+      "bytes": 363943,
+      "sha256": "da8ac025b4d7afb77ad9bfeb13eed916db556d9b9b0a50283f49c00847caf687"
+    },
+    {
+      "path": "public/images/anime/kaguya.jpg",
+      "bytes": 471398,
+      "sha256": "4bb1b1b5bc4d2a1ef21a8a04cdfed4e5e9858ca2c32a87ac0175b7d41988de0e"
+    },
+    {
+      "path": "public/images/anime/lycoris.jpg",
+      "bytes": 721297,
+      "sha256": "dbb426de26cde87e673fc28aa385a6ea4c9fd0255eff34a8f901f8eaa6f77307"
+    },
+    {
+      "path": "public/images/anime/poster-fallback.svg",
+      "bytes": 1083,
+      "sha256": "f488ae338c9951dd13de0443f90be546460aa3a27224a08b0e5a1529fd83e239"
+    },
+    {
+      "path": "public/images/anime/skip.webp",
+      "bytes": 362790,
+      "sha256": "837936f89ffed63de188cd906965f179e1c1d2ae2ab74b66cb66e393c1614035"
+    },
+    {
+      "path": "public/images/anime/violet.webp",
+      "bytes": 116298,
+      "sha256": "d8427eebf0b492aec0e8a0432bd41850b51aebf44cdb1a71e4e9591c84ef1655"
+    },
+    {
+      "path": "public/images/anime/yorukura.webp",
+      "bytes": 332308,
+      "sha256": "a5c5b7e82bce16078b6d686b274201225fa4592936f01804b799a04501a9f199"
+    },
+    {
+      "path": "public/images/anime/yurucamp.jpg",
+      "bytes": 338263,
+      "sha256": "3681cd2a7b5613e0bb30a273247763e0817ee1afebea1fe0afde4b4d095e414c"
+    },
+    {
+      "path": "public/images/cosmic/asset-manifest.json",
+      "bytes": 3783,
+      "sha256": "c8cf823e7ac4dda26ab3db236dbc004935081205684489bfecdbadfafca4760a"
+    },
+    {
+      "path": "public/images/cosmic/iroha.webp",
+      "bytes": 134012,
+      "sha256": "7200fdf265f093e8dbbb12914d6502efcb1eff4c7146c2ab3987ada47f35ea88"
+    },
+    {
+      "path": "public/images/cosmic/kaguya.webp",
+      "bytes": 166428,
+      "sha256": "f10b33db4dcf798455df066d186e5ee66bd75468c4112716697f7355f1a85c10"
+    },
+    {
+      "path": "public/images/cosmic/originals/iroha.png",
+      "bytes": 156200,
+      "sha256": "7a59b0b41d5a99e1314343785d10ae3893c48a8ec2f21f768593b12e1a417597"
+    },
+    {
+      "path": "public/images/cosmic/originals/kaguya.png",
+      "bytes": 196186,
+      "sha256": "1aa36417ec5fde96a4d79bac9810e98073685b68b4c73422d0db9e98e9ffc11a"
+    },
+    {
+      "path": "public/images/cosmic/originals/story.jpg",
+      "bytes": 686310,
+      "sha256": "4e9f3e68b951cd882e8dd7779c88df6d0afb6094c49dda94ab3c949666cd1065"
+    },
+    {
+      "path": "public/images/cosmic/originals/yachiyo.png",
+      "bytes": 425681,
+      "sha256": "055ba635db8e9d9b37aa21897a9342424e66eba7b7c8c823e181e8deaf3a8035"
+    },
+    {
+      "path": "public/images/cosmic/story.webp",
+      "bytes": 287202,
+      "sha256": "ad880c9754de9b19154fcd7cdd762b826d4d40bbe3de3bf85c74ed95b9062701"
+    },
+    {
+      "path": "public/images/cosmic/yachiyo.webp",
+      "bytes": 363888,
+      "sha256": "9564dbbc30b292782dd1221f6f7119d39ce2336f329d28b8bb3a04d9ee5430b0"
+    },
+    {
+      "path": "public/images/dreamscape/preview.png",
+      "bytes": 2914780,
+      "sha256": "0de8b011b4719b3b544053a7d344e651756a5ce9a4e9ccad7e76834adb21d126"
+    },
+    {
+      "path": "public/images/material-grain.svg",
+      "bytes": 412,
+      "sha256": "d32f3f8a908de54054428f22c04991c6d8a7ca4afee75e74f0b7cf0b646cbae9"
+    },
+    {
+      "path": "public/images/quiet-mountains.png",
+      "bytes": 2857819,
+      "sha256": "3a4841435e52a5c1c502262345d177fcea5333c76a4472b60324a9d95469cdf0"
+    },
+    {
+      "path": "public/images/quiet-mountains.webp",
+      "bytes": 311202,
+      "sha256": "437cc3f74eb9cada0c0535886b90f50df5459c6bdf3a04d3e1277bc76d3491ed"
+    },
+    {
+      "path": "public/images/uploads/70062d4e2094c0b3468127a4e11971da01eb40e3398d2467651bef91ad4abbe7.webp",
+      "bytes": 201050,
+      "sha256": "70062d4e2094c0b3468127a4e11971da01eb40e3398d2467651bef91ad4abbe7"
+    },
+    {
+      "path": "public/images/uploads/c235d16f63d34aedae5df4712d066621959122178d95582f8ce969e60c59e01f.webp",
+      "bytes": 247328,
+      "sha256": "c235d16f63d34aedae5df4712d066621959122178d95582f8ce969e60c59e01f"
+    },
+    {
+      "path": "public/images/原始版本.png",
+      "bytes": 6690407,
+      "sha256": "2056ab34de25f07fd4c7309b1737601615c12c0ca798c0ef08e1ceb4bf93dbd2"
+    },
+    {
+      "path": "public/images/原始版本.webp",
+      "bytes": 413932,
+      "sha256": "da9d3e23788d2ef2619c41d9f7ee0a4d3bc6639141575476ca33b354c046d40f"
+    },
+    {
+      "path": "public/kaguya-rig-utils.mjs",
+      "bytes": 2698,
+      "sha256": "072d28a2c6352499903e027208192eb86cff0eb5da38c204cf35b50740a7174c"
+    },
+    {
+      "path": "public/kaguya-rig.js",
+      "bytes": 3830,
+      "sha256": "b545cc4151e627db8c8e365af1b91fd677c446c15c60432fddbaa7688881ca0a"
+    },
+    {
+      "path": "public/live2d/CHANGELOG-core5.md",
+      "bytes": 6044,
+      "sha256": "39cc1dc73b8a4b71d9d5d6c2d5648725f54bc798144ab19c08e09d880e0c1b70"
+    },
+    {
+      "path": "public/live2d/cubism4.min.js",
+      "bytes": 119922,
+      "sha256": "af1267e6d52759b245766c578d905bfa025b532d5c3cc727c370957c4409e21b"
+    },
+    {
+      "path": "public/live2d/LICENSE-core.md",
+      "bytes": 520,
+      "sha256": "b81e37048010ef1d336106151201a0323c3309cae44aecdedf57831fe88fa991"
+    },
+    {
+      "path": "public/live2d/LICENSE-core5.md",
+      "bytes": 520,
+      "sha256": "b81e37048010ef1d336106151201a0323c3309cae44aecdedf57831fe88fa991"
+    },
+    {
+      "path": "public/live2d/LICENSE-display.txt",
+      "bytes": 1061,
+      "sha256": "8ccace668a041e78ed525d091b0b5daf8b623ff447f912616de535415e4f302f"
+    },
+    {
+      "path": "public/live2d/LICENSE-framework.md",
+      "bytes": 2234,
+      "sha256": "7ed849bff1e6499aa7cd882e47d246ddbbe06817c1e84cb974df949488302614"
+    },
+    {
+      "path": "public/live2d/LICENSE-pixi-csp.txt",
+      "bytes": 1091,
+      "sha256": "ef9ae15b5a2b39f6e1445fb1e12ade9f000ebb19c173fb1e505879ba215d9c9d"
+    },
+    {
+      "path": "public/live2d/LICENSE-pixi.txt",
+      "bytes": 1092,
+      "sha256": "536a16e090f0b6c1454a7c0b47ee8414a39a2f1724a154f10ca1edc750a2dcfd"
+    },
+    {
+      "path": "public/live2d/LICENSE-samples.md",
+      "bytes": 2993,
+      "sha256": "425884684c746b46c0739f6f454e034bf6ee288d78405b8d9dc6f5ebfcaa53f6"
+    },
+    {
+      "path": "public/live2d/live2dcubismcore.min.js",
+      "bytes": 184856,
+      "sha256": "0a3ee3db125c9aeccdcd85fce81b1174f7af47b3b681f0e7cc9038a711076007"
+    },
+    {
+      "path": "public/live2d/live2dcubismcore5.min.js",
+      "bytes": 207155,
+      "sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F01.exp3.json",
+      "bytes": 124,
+      "sha256": "b143d37d24af8fa5d619e333e791facd87d6396ab75e09fa9051e760f8ff96e7"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F02.exp3.json",
+      "bytes": 464,
+      "sha256": "c0bd4f923b12f40f8ad778766cf48a260054ff346156aaee062dcad788053063"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F03.exp3.json",
+      "bytes": 739,
+      "sha256": "cdea71773205e6299155820c12afe20c15dcf53f0e73da7a30c364fe5d16d38c"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F04.exp3.json",
+      "bytes": 841,
+      "sha256": "354c58609b64a74daf8d7e37b4d28a365548aa5ba1bf941ec4d8db4bd3bb43bd"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F05.exp3.json",
+      "bytes": 474,
+      "sha256": "4f43af57229467492fab13a88f600b741f42887493e993b6ec9f558688d2dcea"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F06.exp3.json",
+      "bytes": 475,
+      "sha256": "1bf9ad6a640b8009d429d883718b2bf2d0091b380c63ca1c65326bdbc17105aa"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F07.exp3.json",
+      "bytes": 907,
+      "sha256": "77e3b941e2525aff0308ed82998e6b4356c896e97d9411c528f98fd4a753d685"
+    },
+    {
+      "path": "public/live2d/models/Haru/expressions/F08.exp3.json",
+      "bytes": 421,
+      "sha256": "be652831b79458fd3f9d55b28c15b0e93d551dd730c5e1053e23d238fe879a21"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.2048/texture_00.png",
+      "bytes": 1526786,
+      "sha256": "30fce81e6b2d69fb99e8d1b5f391a6e0240f671095e491e9bbe24ddd7c7f434d"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.2048/texture_01.png",
+      "bytes": 1188664,
+      "sha256": "e1e977447ee7e6e347f1b96b9103ae269e6f4e4a8cf38068d161537415cc51c8"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.cdi3.json",
+      "bytes": 5536,
+      "sha256": "f0b7b68e8404fb2a327f77515388f9f2418d038e3eb98a7ecff89818c3dd4e97"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.moc3",
+      "bytes": 384704,
+      "sha256": "aa59f7a3dc3b30b23b5f10afd9192ed755e4d01dc9a12442d99b972a418e2543"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.model3.json",
+      "bytes": 2280,
+      "sha256": "425a9d4f77cdcb1e80749a3d460dba28ee3be2d2646833e45b022268f0dcb3a5"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.physics3.json",
+      "bytes": 5914,
+      "sha256": "b09a654759a0a0a49998a263757b10f310377adab4b8a281ae5c70902a8a7d1f"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.pose3.json",
+      "bytes": 274,
+      "sha256": "cd1c1e2c0faac3bf0c42fdf1a4d5a064ebd5e1f2dc4116a9a7c723b948818ef6"
+    },
+    {
+      "path": "public/live2d/models/Haru/Haru.userdata3.json",
+      "bytes": 313,
+      "sha256": "6d001365965cdabd9fb36cffa9583c9e3eff20331d791c00064c4f9246ca2893"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_idle.motion3.json",
+      "bytes": 21183,
+      "sha256": "8a4fac459abf35dfb049188e4330d485a9fce54ae6111625f4ffae4d9b03abfb"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m01.motion3.json",
+      "bytes": 11944,
+      "sha256": "ed85c07795fba2e57d7701b706ba04516b83a0b7e4463752320c2c0a8bdca033"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m02.motion3.json",
+      "bytes": 12055,
+      "sha256": "8a187a9a830ddb62f5471dc974782af68f61dfeb12b31eb3858d3513cf2c035d"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m03.motion3.json",
+      "bytes": 16981,
+      "sha256": "8edba3952e0c45ce0bc3d20755ba212528b6450641e82dec162d7a327d48b82b"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m04.motion3.json",
+      "bytes": 23449,
+      "sha256": "9532599ea7c54452e1b2a689652a76e50fa1d261f0a5cd0adaaa01b1c567fbdf"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m05.motion3.json",
+      "bytes": 14198,
+      "sha256": "5015d14ffad99a9eb43f48dfaa6e400072b610467611ad72221b04a21e3252c6"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m06.motion3.json",
+      "bytes": 15118,
+      "sha256": "311c544c67282cbc40ac1e0287751b20a7f49a46f4eea989b7071efc3188053c"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m07.motion3.json",
+      "bytes": 14821,
+      "sha256": "faa3aa7ca9c05cc395003a4a072ea8d3397c9a3480c9220e486dd70beb32bda9"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m08.motion3.json",
+      "bytes": 15439,
+      "sha256": "8933e2e0db8818037db817d5e6aa4fd795c6f3e302fceae26f2b5a4b88889446"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m09.motion3.json",
+      "bytes": 25066,
+      "sha256": "d6c8abb01dcfee8246cccbe7a437f025cb31884f8408f3207e1a6e4139888e45"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m10.motion3.json",
+      "bytes": 34954,
+      "sha256": "27933b0363abda5c13a55cfea5f2968293abcbc8995140773ff2bf7186c631c1"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m11.motion3.json",
+      "bytes": 14475,
+      "sha256": "cd4afa96422f649cdf32782f6d79594a52fbc106717a4b4056caaddbec7538d3"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m12.motion3.json",
+      "bytes": 22441,
+      "sha256": "a512cf99c416ead14cd8bc89f2e3b021fce2bcf46f670f1d151d374d95476ab8"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m13.motion3.json",
+      "bytes": 11601,
+      "sha256": "cb59cafad6567b4dfe71f69d6fc19d17902f9a397badc4e4003491229fe744be"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m14.motion3.json",
+      "bytes": 20625,
+      "sha256": "a61765c485d61169b2dbd3a4b760d409964edd6f272f3ae26ef3069e8ebc7559"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m15.motion3.json",
+      "bytes": 13540,
+      "sha256": "4383147bd61a7bd2d990591512bfe29eea743f93868e8679ffed16e588628088"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m16.motion3.json",
+      "bytes": 18639,
+      "sha256": "7ab44f3e3e3258c4666fb3ed3643e947faf04a2c17b77bc0b12121ea983c9e23"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m17.motion3.json",
+      "bytes": 16109,
+      "sha256": "9be971760fb922e3dc3d588b7eca15c48655db721c3578d73e54daf55fc8677d"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m18.motion3.json",
+      "bytes": 13424,
+      "sha256": "4dbecfa60f081dc5ff63a08fbbf27889663f766b4c449df534a904528d2b7f36"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m19.motion3.json",
+      "bytes": 11302,
+      "sha256": "598c52b4068482ece9c1d6ddf1f0f0dd8b18eb625fa3e758a0acb677bb2eac9d"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m20.motion3.json",
+      "bytes": 23651,
+      "sha256": "536e467d6533c0883b2ad6c8915bc632b4d4188fc3d3abb19cc6b4f5fd12ddb9"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m21.motion3.json",
+      "bytes": 23906,
+      "sha256": "02efb8fc2296da6531d364dec7929c1685763046b744ba470326b7961c7123b3"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m22.motion3.json",
+      "bytes": 27408,
+      "sha256": "02f2bca00f22281966a86d6885dbdee67d725c7dc163e5b2bbbeb1ccf9fb5ec3"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m23.motion3.json",
+      "bytes": 16695,
+      "sha256": "24cef039138ce14c902807cf1a4d24ce48cfb4802c788a9a9fb8b5a6c4556444"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m24.motion3.json",
+      "bytes": 18090,
+      "sha256": "70c9f34193f3d9fd30f9ec204a333b0169bb290540e751cfa203de6611a9c8d7"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m25.motion3.json",
+      "bytes": 17528,
+      "sha256": "bef0fdcd9bc40d61eebb723234e00a5f87ba00d97f31f65dd215b862c3074245"
+    },
+    {
+      "path": "public/live2d/models/Haru/motions/haru_g_m26.motion3.json",
+      "bytes": 23275,
+      "sha256": "2b20fbbf31439a5792c808085ecd4c9dc5addeb6195c6d113a25e77f7acc0f4f"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/avatar.png",
+      "bytes": 335365,
+      "sha256": "a6f91ac94c053170184538930db1cd8e14962866b574e33f5f90edf32983d665"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/expressions/closed-eyes.exp3.json",
+      "bytes": 977,
+      "sha256": "6b3a0c80b6fb12f02e101eb6399ba185e2baff52d71340cd707cdeb55a0923b7"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/expressions/smile.exp3.json",
+      "bytes": 977,
+      "sha256": "78c672018c45a0406e78836d49e804591cae4579d1ef619a04e1c3292b3d7d91"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/expressions/tear-drops.exp3.json",
+      "bytes": 977,
+      "sha256": "33de5868d635e8b3eba4b2110e81fb43d4810262566072a827016d89d1501415"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/expressions/tears.exp3.json",
+      "bytes": 977,
+      "sha256": "1b70da871f6ca9ec664d07f48e95612bf104996387498a7fe078944a3ab803ad"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/NOTICES.txt",
+      "bytes": 1266,
+      "sha256": "9bcf21a2a6d1278aa9f2295ec0c4b17e5c243c16aa2c5b02aefc3c7e29f3b757"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/textures/texture_00.png",
+      "bytes": 35232393,
+      "sha256": "2d967602321fb48f66a2cd60f0b637f2bac2ff7885fc98aff720d7247e6f6439"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/textures/texture_01.png",
+      "bytes": 26409776,
+      "sha256": "c8fb562c22a7f9d077c7138259251cc2a43cd77f15cdb7faaed9ead5098b429e"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/web/NOTICES.txt",
+      "bytes": 532,
+      "sha256": "ece24b36e3211cbcc7aa6907ceff2646241ba9416edf09653573f00286e734c3"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/web/texture-manifest.json",
+      "bytes": 1113,
+      "sha256": "069a499f7f7691e909ce7ccf6169998e6819cdde7a4e51752c5c1b7ed764b5f5"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/web/texture_00.2048.png",
+      "bytes": 2030533,
+      "sha256": "caa82c1fe1508f5810bbad5699ff5a0aeb334e60460c27bffd269756f4c13cc2"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/web/texture_01.2048.png",
+      "bytes": 1131454,
+      "sha256": "037b77d2a5099baaa0d57f14b6eae25ec7a043dd985aa69846575349d68d3af9"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/Yachiyo.cdi3.json",
+      "bytes": 96004,
+      "sha256": "ab3a9952a9c086bd576c0969d01b6c9ec4533411bcc1dbb6cb375cf874f86df8"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/Yachiyo.moc3",
+      "bytes": 7427136,
+      "sha256": "5b669ba90aa97ed9fe7132253f537510b72d27a26c39983d8b0146c6b0320459"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/Yachiyo.model3.json",
+      "bytes": 883,
+      "sha256": "a4e02441f0b7b7b1a61d3a1161a7d8949c73c4853715241256cf1d1e8351feac"
+    },
+    {
+      "path": "public/live2d/models/Yachiyo/Yachiyo.physics3.json",
+      "bytes": 379065,
+      "sha256": "6ee089519838ed249d208e6fd3f01f88d401c0d33c988002b9605a2732796d38"
+    },
+    {
+      "path": "public/live2d/NOTICE-samples.md",
+      "bytes": 1509,
+      "sha256": "fa72aa00a7bf8b98a7617a9d67a3530a9fe23705808163cf54ca799398b22fbc"
+    },
+    {
+      "path": "public/live2d/pixi-csp.min.js",
+      "bytes": 3914,
+      "sha256": "6722d4ef7e371aed1576397c70cd1c47c6d3f27b53c73e676a13b610fba0a339"
+    },
+    {
+      "path": "public/live2d/pixi.min.js",
+      "bytes": 460333,
+      "sha256": "403f2f2ee8145fa17f60c5c89403056efe2680e5096ec2762036486914ed19c5"
+    },
+    {
+      "path": "public/live2d/README.md",
+      "bytes": 5919,
+      "sha256": "e3361defe7570c1ab856b600f32d60bfcf52dba1b47d027b3d4daeded23ab621"
+    },
+    {
+      "path": "public/live2d/RedistributableFiles-core.txt",
+      "bytes": 205,
+      "sha256": "d16c123688299e1e69a7f5ebc01b3bd75a8d408c024002a7d35b2aae94003f8c"
+    },
+    {
+      "path": "public/live2d/RedistributableFiles-core5.txt",
+      "bytes": 205,
+      "sha256": "d16c123688299e1e69a7f5ebc01b3bd75a8d408c024002a7d35b2aae94003f8c"
+    },
+    {
+      "path": "public/live2d-companion.js",
+      "bytes": 16481,
+      "sha256": "732afbc8eeb0683b359e5211468a3d154803de863bd353e88a5be3c22df42f1b"
+    },
+    {
+      "path": "public/live2d-model-utils.mjs",
+      "bytes": 3224,
+      "sha256": "654cc66ac618bb325229008ba6d2c87679219ba183bae3a6d194065a55e43d41"
+    },
+    {
+      "path": "public/live2d-texture-adapter.mjs",
+      "bytes": 3755,
+      "sha256": "3c68eff754396aab8aacdbcc287d449c94b38e3586ff92b4601a19e660428a49"
+    },
+    {
+      "path": "public/material.js",
+      "bytes": 3639,
+      "sha256": "d8867b5ab82394e604e9218b2da17792ffe84a8b02c5126d0701ad9250a3f94e"
+    },
+    {
+      "path": "public/media-picker.mjs",
+      "bytes": 122,
+      "sha256": "91b51d342b21adfeee521bd723073425367701e3ab13cdd9caeb1fc32f8ddc9f"
+    },
+    {
+      "path": "public/models/kaguya/assembly-preview.svg",
+      "bytes": 1315,
+      "sha256": "e0a9a3e1c16c95f6daa5e410d417149bb6a2db3b328af89a089ed6d6e7a45843"
+    },
+    {
+      "path": "public/models/kaguya/back-hair.svg",
+      "bytes": 1356,
+      "sha256": "2dd8a8bd71f398c92959ebb96d9c06ed180c6737b7653679601e961d18b43a66"
+    },
+    {
+      "path": "public/models/kaguya/body.svg",
+      "bytes": 2363,
+      "sha256": "b27df1ea9218bcb1bb6e52bf8b6591286f06017f2613347022fabbf0b1f24c3a"
+    },
+    {
+      "path": "public/models/kaguya/eyes-closed.svg",
+      "bytes": 296,
+      "sha256": "1d996a07c41a48597c4047fab8cf86cf4f4ee7d921c65d86260d5368f841c747"
+    },
+    {
+      "path": "public/models/kaguya/eyes.svg",
+      "bytes": 1073,
+      "sha256": "8c40a0fa2739bb0feee089bbb02dd649fdbfedabd7b8d09cd09a3aff647647f1"
+    },
+    {
+      "path": "public/models/kaguya/face.svg",
+      "bytes": 1262,
+      "sha256": "c85c2ca63488117258fadb63b8b7d0799db00e394a55a299ee719f3285b52c91"
+    },
+    {
+      "path": "public/models/kaguya/front-hair.svg",
+      "bytes": 1408,
+      "sha256": "b54ae6337868fd98814cdc32581aaaa0cdf199da32457e4a90ad5e9de3c474f3"
+    },
+    {
+      "path": "public/models/kaguya/kaguya-parts-v1.png",
+      "bytes": 1321654,
+      "sha256": "f962096ac41a1b45f5693058c01e5331f0c6cf0b9ea9f776e90432b9227924dd"
+    },
+    {
+      "path": "public/models/kaguya/mouth.svg",
+      "bytes": 356,
+      "sha256": "3451b45dbf87c628ee90012dfe8287341d7975e075895479da6eef305c95e644"
+    },
+    {
+      "path": "public/models/kaguya/rig-svg.json",
+      "bytes": 1731,
+      "sha256": "102f9968c9aae942ba7a687f63dc8a55c805b8ae1a5c20aafdb301ec5e85448d"
+    },
+    {
+      "path": "public/models/kaguya/rig.json",
+      "bytes": 3089,
+      "sha256": "61250b4c1b9074b2b49c84f9c29039d1154e80c9cae431d3f89de0430b2e6e7f"
+    },
+    {
+      "path": "public/models/kaguya/wave-arm.svg",
+      "bytes": 979,
+      "sha256": "f8cabcdd280b4f9edf895675e204cf0ed2ba6c18a687523525d2030221eddd64"
+    },
+    {
+      "path": "public/music-metadata-utils.mjs",
+      "bytes": 2848,
+      "sha256": "363191fb96cfed2d99b54351f1afafe258a874682fb6b55dfe46f60c1ca0b3e4"
+    },
+    {
+      "path": "public/music-player.js",
+      "bytes": 45047,
+      "sha256": "edfba14fd35d9b7b41b82c2fd7caecc228971255108b13e29732e4aba6bd7e0d"
+    },
+    {
+      "path": "public/music-session.js",
+      "bytes": 980,
+      "sha256": "50fc02e0572d36d148b6b37032ee3aa20c528cd4ebd9ed72838859024f24a4cc"
+    },
+    {
+      "path": "public/nav-fold.js",
+      "bytes": 4937,
+      "sha256": "7151a4e7bef5d75c5acf14287ce074bb02f0e1906179d351fb45b4b3a42355dc"
+    },
+    {
+      "path": "public/nav-preferences.js",
+      "bytes": 3975,
+      "sha256": "1ef834105fd0af320dfbe266bbb4f515842e423dcb52af19d0e6347d5312e2fa"
+    },
+    {
+      "path": "public/next-ui.js",
+      "bytes": 4765,
+      "sha256": "58749c466c82c6d0a2fa8bccc4c86bd5b195831aa6f4e22b0ef711b910829c58"
+    },
+    {
+      "path": "public/page-motion.js",
+      "bytes": 8655,
+      "sha256": "74d8d0f189674cc38c071a9615c0a0fda46472f499f1ac9df523d33ac7515add"
+    },
+    {
+      "path": "public/project-glass.mjs",
+      "bytes": 3629,
+      "sha256": "80048ad4e0ad67e542b0280b251d19c8e6061fe4e670fa2ff07271985289777d"
+    },
+    {
+      "path": "public/public-edition.css",
+      "bytes": 458,
+      "sha256": "a3cf3b4c5c1eafb72c40b8ca31af9e930a97c3c748c9990254fd92922b736e65"
+    },
+    {
+      "path": "public/reading-position.js",
+      "bytes": 8871,
+      "sha256": "22c36ac259a7ef82bc8d817562d6ff662f28fde34bde21145862b35a6b1e8cf3"
+    },
+    {
+      "path": "public/reading-tools.js",
+      "bytes": 6206,
+      "sha256": "4d63357205a9175ead329c1b0d9840c1ff636c1d4f16b527c6ea3182a3611d5b"
+    },
+    {
+      "path": "public/refined.js",
+      "bytes": 5845,
+      "sha256": "a6b3ba511c209a53c8bffee7a6a142504b07913f3bad1dae9f04fef8db79bb33"
+    },
+    {
+      "path": "public/route-lifecycle.js",
+      "bytes": 3536,
+      "sha256": "988ed08052491d11610e48762737cc2d22aa3a496cf34d92254126c8f4c11d6c"
+    },
+    {
+      "path": "public/scrapbook-ui.js",
+      "bytes": 4903,
+      "sha256": "8cd8ae680f41213aa50af8aafdffe84eb51c1293e570c475a499320d084769e4"
+    },
+    {
+      "path": "public/search-utils.mjs",
+      "bytes": 8278,
+      "sha256": "478c70493553a69bf4543abd320b9c52a0a52df21ca96be7f48216bbab584bc5"
+    },
+    {
+      "path": "public/space-editor.js",
+      "bytes": 33468,
+      "sha256": "4859d5f304e7e45d65476b2cc7dec5a315d92718a8ed207992e34c56bf3b44e0"
+    },
+    {
+      "path": "public/space-recovery.mjs",
+      "bytes": 2578,
+      "sha256": "3d0a32241be4328c4d6c2929f8c4c5c676ed46bb51909b2dae3c8aa2e12327c1"
+    },
+    {
+      "path": "public/studio-recovery.mjs",
+      "bytes": 6879,
+      "sha256": "e96fe282cb3773ca7bde5191393369987ce7449195c56c529a42a065de01db4a"
+    },
+    {
+      "path": "public/studio-tools.mjs",
+      "bytes": 8405,
+      "sha256": "c37de439740074b6644e48b4c75470e2285a804dbcb5db8e19f4441d625a3ee5"
+    },
+    {
+      "path": "public/vendor/firefly/layout-base.css.source",
+      "bytes": 9762,
+      "sha256": "14fc49f68f9120ebb609f9db8c02ecd05a4ae3bd938c304dce23099223c872ea"
+    },
+    {
+      "path": "public/vendor/firefly/LICENSE",
+      "bytes": 1093,
+      "sha256": "d403e8d1dc09f7088b029a65b37895cce1a5802c086321c2df3a28ba779399f6"
+    },
+    {
+      "path": "public/vendor/firefly/PostCard.astro.source",
+      "bytes": 14397,
+      "sha256": "83689fc7643f0c50ebf8b807dec3e91812b4bd8ef40a52c8aeb9a0e4ca211456"
+    },
+    {
+      "path": "public/vendor/firefly/README.md",
+      "bytes": 1254,
+      "sha256": "b18466fb8c9084b37c276a21b55bc282692dc267db0b0d6a6b418e6d28976603"
+    },
+    {
+      "path": "public/vendor/firefly/responsive-layout.mjs",
+      "bytes": 3708,
+      "sha256": "02e3c4d42195e58e38ec42d5ada2fe901f95007615b2af552797d7d75821b41f"
+    },
+    {
+      "path": "public/vendor/firefly/responsive-utils.ts",
+      "bytes": 6224,
+      "sha256": "d6367a3168e59236f82e42561c94a2275c253fddff625acee961360df8e2c73b"
+    },
+    {
+      "path": "public/vendor/glassy-liquid/glassy-liquid.min.js",
+      "bytes": 118861,
+      "sha256": "547ddd34fd30556f74ceb29a916bb20fb0a11efbe7126beb36d10b32aa381192"
+    },
+    {
+      "path": "public/vendor/glassy-liquid/LICENSE",
+      "bytes": 1067,
+      "sha256": "e1530db16f0929722dbb6df958d2f68d2df220fcdfdef01e558ce0bec712c289"
+    },
+    {
+      "path": "public/vendor/lrc-kit/LICENSE",
+      "bytes": 1077,
+      "sha256": "eb6bcc0541443f2219329bbaec878f7fb78e40015a2d6855ef118d4a7eb53102"
+    },
+    {
+      "path": "public/vendor/lrc-kit/line-parser.js",
+      "bytes": 4984,
+      "sha256": "b06378a9a2f22431fbd63ab094941fc3807454fce2b8e66530c51a4eb7a6a698"
+    },
+    {
+      "path": "public/vendor/lrc-kit/lrc-kit.js",
+      "bytes": 55,
+      "sha256": "91c57a6b8bb67fc966a592ac1100e9aec62cb1c7e3ae9bf8180f2a770f5ef380"
+    },
+    {
+      "path": "public/vendor/lrc-kit/lrc.js",
+      "bytes": 4417,
+      "sha256": "feb700433b67667bc45e68ec693be7ace4587130a1f0d601eb1f35156cb791ef"
+    },
+    {
+      "path": "public/vendor/lrc-kit/manifest.json",
+      "bytes": 1606,
+      "sha256": "224fd8eaf2f041b87a5ced0f9193b01813b7bfff68f828628ddc0fda23d5e495"
+    },
+    {
+      "path": "public/vendor/lrc-kit/runner.js",
+      "bytes": 3280,
+      "sha256": "f13929c3020d2b977359f24b493098a2fddf9a3100bc82b82e4feeb07ab2b6c3"
+    },
+    {
+      "path": "public/vendor/tsukuyomi-space/LICENSE",
+      "bytes": 1067,
+      "sha256": "3125380381dd14b0113ac6e8ad93da3b9c3a2202aa5bbd8627d71b6434907b8c"
+    },
+    {
+      "path": "public/vendor/tsukuyomi-space/tokens.css",
+      "bytes": 3112,
+      "sha256": "4502db65886dfd5327a04deb338e7aa9dd627bfb4b5a5e5247be8e4d188df4a9"
+    },
+    {
+      "path": "public/vinyl-controller.js",
+      "bytes": 7860,
+      "sha256": "7d858a0e1e9ff820860d3b394a289572c23d64d90d8a18fc55d476e344a65ed6"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/albedo.png",
+      "bytes": 4040190,
+      "sha256": "fb706d3a64541586dae701aa571009d848ec83e02c1fe2300ea7e326211a9a31"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/closed-eyes.png",
+      "bytes": 3985253,
+      "sha256": "26b07619bfb42acf74f3d54ffba5a63337466cc17a3a05c1cff90b5c2c0f2c33"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/depth-atlas.png",
+      "bytes": 2914553,
+      "sha256": "c16125adc9be98d5d5c01addb3146073253406079fb8a822566a3c21a0d7189c"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/material-mask.png",
+      "bytes": 87855,
+      "sha256": "3e171b6abac09103d2f5519dd11bab446aa77ac3bcf8947100e5f26f0045c62f"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/motion-mask.png",
+      "bytes": 98601,
+      "sha256": "c3331d383d511a937374dc67ea5d451e02dc403c53c0877d24aca15a7fe4d610"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/normal.png",
+      "bytes": 4530951,
+      "sha256": "8636373ef8a83ba65afc91aa6eae0439fbc77fb86f7bf93af0778b824451640d"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/ownership.png",
+      "bytes": 20766,
+      "sha256": "d2065a8f71b9b9d3fdffc283c1f7a68d3b4f7144f974793a0e064638a9d664d3"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/petal.png",
+      "bytes": 999838,
+      "sha256": "5c5b86186e21769d87679bce2701e98301c0e441dac0b00c3e129235f2d74214"
+    },
+    {
+      "path": "public/wallpapers/kumeng/art/registration.png",
+      "bytes": 56551,
+      "sha256": "243a76cc63d581fe4952bd862ebd9b4254fe39e6f7284b1b700130fde31800f1"
+    },
+    {
+      "path": "public/wallpapers/kumeng/assets/engine.css",
+      "bytes": 205045,
+      "sha256": "307535a15185aea74d606bdac744f88c8e7f99abef0fa3d28e8581893cd95a57"
+    },
+    {
+      "path": "public/wallpapers/kumeng/assets/refinement.css",
+      "bytes": 1120,
+      "sha256": "2394721ce192e080986c4f58a311b4b1418b9df5cc16f264b4db12d9a6d2b190"
+    },
+    {
+      "path": "public/wallpapers/kumeng/assets/scene.js",
+      "bytes": 304462,
+      "sha256": "ee1c943159c436e6d3ea4e6a64ebbb17d5a90e8e9922f586181a09cf81d07c6e"
+    },
+    {
+      "path": "public/wallpapers/kumeng/bridge.js",
+      "bytes": 4397,
+      "sha256": "de6ac2154aa6e29ccd4b0f3f4f36d72a56b9c7e38e1c1087a48113b137b05f84"
+    },
+    {
+      "path": "public/wallpapers/kumeng/frame.css",
+      "bytes": 567,
+      "sha256": "22ee80a1ae670b41564854970b43ccd909a76cffd97470cc3da58004a77bb400"
+    },
+    {
+      "path": "public/wallpapers/kumeng/index.html",
+      "bytes": 772,
+      "sha256": "f3dfaa7d41bb52861962113bf0ed0b1b0b4c1b588286b5b1c468bcf66d84e628"
+    },
+    {
+      "path": "public/wallpapers/kumeng/NOTICES.txt",
+      "bytes": 2205,
+      "sha256": "5bc7b0b187c85b2b50980b68584ca77940e99217c1e288f59bd998f6954b77a0"
+    },
+    {
+      "path": "public/widget-avoidance.js",
+      "bytes": 3821,
+      "sha256": "3df6b1d522a4f9792f91e2278a1f62ac71f2df5b20863fa9a801314463bd89a1"
+    },
+    {
+      "path": "public/widget-layout.mjs",
+      "bytes": 1840,
+      "sha256": "413b51502dd610b0f90e5087e2b9f13aa4a33749cc183132628a811b96bd6a4a"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "bytes": 497,
+      "sha256": "8ef561f851d686e9034db57fe87bcb37d833d832591ac56170ae961e48f8dd31"
     },
     {
       "path": "README.md",
-      "bytes": 2111,
-      "sha256": "cd32fa0a252029642a502f4f3722f5f2548d036a720b08c2f95ebe47aa1fd81e"
+      "bytes": 1370,
+      "sha256": "0ceba45d295591785b7517ffb26269dd1c485e91b0234f7101a05d5916f0867a"
     },
     {
-      "path": "scripts/audit.mjs",
-      "bytes": 1842,
-      "sha256": "a325a8581ea567648af6806bcd53d04137e200a57078e2a52e4a36770860fde8"
+      "path": "scripts/audit-public.mjs",
+      "bytes": 1749,
+      "sha256": "e171b39a9a3040e04367b45ba5a53b67dde1947e035dc933360e10759a629b21"
     },
     {
       "path": "scripts/test-public.mjs",
-      "bytes": 3280,
-      "sha256": "7814b58270187260f9dbc6a639792f0c4bdb42d5c29735770219ab5cb9330cb2"
+      "bytes": 2499,
+      "sha256": "1029d88ac026e5ada9575512ce61f1bfa2a5b94ab8dbf6878199696063883606"
     },
     {
-      "path": "src/content.config.ts",
-      "bytes": 402,
-      "sha256": "8ee1ddc2afb4379beabc72083941b8ac21ba197b998d6905ff4186dad9d1dfcf"
+      "path": "src/components/CleanViewControls.astro",
+      "bytes": 963,
+      "sha256": "e5875f3fd46e97083628616971808096e65fd5391e9dc0dd5175f9e502b8c3db"
     },
     {
-      "path": "src/layouts/PublicLayout.astro",
-      "bytes": 3562,
-      "sha256": "4e62bb31c2f65318c61a8ea3e521439e8fe8947c59dbe7c46f27554ceb5e59d5"
+      "path": "src/components/CollapsibleHeader.astro",
+      "bytes": 5773,
+      "sha256": "73870a26168ae430e695b85db0848b0a9468440b2a706d9041b7ea317a6c1f7b"
     },
     {
-      "path": "src/lib/site.ts",
-      "bytes": 770,
-      "sha256": "24cd6aa3eb731addedf832b70f8491b962653987536dab9901ccbbb9e6ea8676"
+      "path": "src/components/Companion.astro",
+      "bytes": 12119,
+      "sha256": "c3a35fb163860c3ffc6ec3cdf803a3fd9580da66f95cdebeb78f4d69deba7e3c"
     },
     {
-      "path": "src/pages/404.astro",
-      "bytes": 355,
-      "sha256": "5eb6ac8ba38082a12dbbf38ea08ca7e3c948fe7713c6133531b1c57ad2eee17c"
+      "path": "src/components/CyberEffects.astro",
+      "bytes": 400,
+      "sha256": "e5e206eb5b1630919c6a16f563e6ea016ddff954872468efb241448e59cb09b4"
     },
     {
-      "path": "src/pages/anime.astro",
-      "bytes": 589,
-      "sha256": "473776bb2e836130dede49000fc80bbb2a054b64e1095537af9593e851f4b758"
+      "path": "src/components/CyberEffectsControls.astro",
+      "bytes": 869,
+      "sha256": "8b9787cba9324a227697a62be053bb9d2fef72580d973532f7ead6e6c7a3ae53"
     },
     {
-      "path": "src/pages/archive.astro",
-      "bytes": 1284,
-      "sha256": "51e7db2c2b9a6c0b2df41086a01156ffb0cbe14e77b8458b70da779de4bd3593"
+      "path": "src/components/DreamscapeCard.astro",
+      "bytes": 669,
+      "sha256": "c7729580272afea2d49b8290f328c93b7fc91db163ae9ab9cec120ee7d26efcf"
     },
     {
-      "path": "src/pages/credits.astro",
-      "bytes": 1063,
-      "sha256": "141f3811f557e6332bd7f0822b00ec484ba0abe7eab1bc1e88ceea00cb7ec7ce"
+      "path": "src/components/Icon.astro",
+      "bytes": 1932,
+      "sha256": "61c259b1e7a216531a1eff51c6238b06844bcebb46cc247955798ecfda41a410"
     },
     {
-      "path": "src/pages/index.astro",
-      "bytes": 3748,
-      "sha256": "0f6c28b89778e40f78663617dcd61ea62b3b60dd5b683c19d0e791d2f4068470"
+      "path": "src/components/MusicPlayer.astro",
+      "bytes": 11045,
+      "sha256": "68456559665e90b1a8f641443617891a675ec35ad230e4aa29caece1d39ccef1"
     },
     {
-      "path": "src/pages/links.astro",
-      "bytes": 871,
-      "sha256": "9a6cb4692271e12ed7b64149b0612d23438df66f0530772e5c39499ff419345c"
+      "path": "src/components/NavPreferences.astro",
+      "bytes": 721,
+      "sha256": "f1c77430f36ea12574c1d002f8f212a74c8e8ea7e6525e0d51f097630c28b7c3"
     },
     {
-      "path": "src/pages/music.astro",
-      "bytes": 1521,
-      "sha256": "9d1f4e1e3848e8dad95158a6e2027d9714e2a2fe145903eed2e6bfa64d6f9c77"
+      "path": "src/components/PostCard.astro",
+      "bytes": 2094,
+      "sha256": "c53e4153d2783444b9bc512ef582589255f1f1a53d0322b37443bf1ec8b77169"
     },
     {
-      "path": "src/pages/posts/[...id].astro",
-      "bytes": 906,
-      "sha256": "b6dc25d51ce4c24ec64f3b26f13399ed0ffefba5bfe47d6acefc2bc77e2715b1"
+      "path": "src/components/WallpaperBackdrop.astro",
+      "bytes": 3626,
+      "sha256": "9adcc3892da132425cdb9f283669c8074a3e6fa83637984fc7c45f7b5556a361"
     },
     {
-      "path": "src/pages/space.astro",
-      "bytes": 861,
-      "sha256": "20ed97d7887dfed623dde593dec96a04775664f98d6e51d2bc9cc52528798793"
+      "path": "src/config.ts",
+      "bytes": 488,
+      "sha256": "933621a130f162164e8e55163afe0670048f6bdf586b2559ba51e68e1cacd834"
     },
     {
-      "path": "src/styles/public.css",
-      "bytes": 18269,
-      "sha256": "aa442904e47479d716e5658023bd53d07cad0a7469c09fec560d75ddc48642d4"
+      "path": "src/content/blog/a-place-for-words.md",
+      "bytes": 2034,
+      "sha256": "d98b51a32398d8f7997cacb6a6b0e2339070cce6820a993ce0bdff7bea6d6748"
+    },
+    {
+      "path": "src/content/blog/a-slower-weekend.md",
+      "bytes": 1846,
+      "sha256": "63dcde4a2a3c3d3806dd4b4519c7292503ed00266eaad0fd811ba3d90cf5294c"
+    },
+    {
+      "path": "src/content/blog/building-a-digital-garden.md",
+      "bytes": 1914,
+      "sha256": "05399a5d61002a511313040bf47a0123df02cb9b848b61d5f3b89c1655da4875"
     },
     {
       "path": "src/content/blog/dd.md",
-      "bytes": 173,
-      "sha256": "b4f90bdf6807b694542d8c75f352a3a1defaa5a532ee9416ebc7b657cbfec9fd"
+      "bytes": 231,
+      "sha256": "694e651482e0762ecf686f020c01db1bc7f04ff91b8b74a2ab1066e7e145c367"
+    },
+    {
+      "path": "src/content/blog/less-but-better.md",
+      "bytes": 1890,
+      "sha256": "f0b1eee9b4282dc47359b96bc46586668d5aa211a55cdc3acf65f8302f7c8b71"
+    },
+    {
+      "path": "src/content/blog/notes-on-reading.md",
+      "bytes": 1906,
+      "sha256": "f2395a1b104e3ff7dfe38c7e7509f45a2c0ecba89bd4b9bb1f24072084160006"
+    },
+    {
+      "path": "src/content/blog/small-rituals.md",
+      "bytes": 1869,
+      "sha256": "023979494803f7c4033e29c21ee5fb031ff342f2a7cbc13e64c6809047b2942e"
+    },
+    {
+      "path": "src/content.config.ts",
+      "bytes": 562,
+      "sha256": "d00f641246258c7429fbba44e30403cdb75f5499ed2d26239bfcf26d00156e7f"
+    },
+    {
+      "path": "src/data/anime.json",
+      "bytes": 4469,
+      "sha256": "7ada184e70e36a8e123c870520e15c0f6475debe32893cfdb45eece254742327"
+    },
+    {
+      "path": "src/data/links.json",
+      "bytes": 749,
+      "sha256": "83f4bbd5a0b0609812c0b21038738cbe3bd893d08aebf1071210fbb39553d859"
+    },
+    {
+      "path": "src/data/profile.json",
+      "bytes": 551,
+      "sha256": "5ac16a7d742cae607e40aa878a02725ee5899a009d4ced39c6cfd2f16d66ba4d"
+    },
+    {
+      "path": "src/layouts/Layout.astro",
+      "bytes": 20206,
+      "sha256": "e583dd2622a46b899084533722810cc89928fc614204416db4be72ba79c1f4ba"
+    },
+    {
+      "path": "src/lib/anime.mjs",
+      "bytes": 4111,
+      "sha256": "995d3cff4140cbc4b8974ea43c6c50a475ad92a0c60a6eb1c33f1eca18c0ec96"
+    },
+    {
+      "path": "src/lib/posts.ts",
+      "bytes": 716,
+      "sha256": "8e0988e16786147e7f647ded948fe092d73a9d4978a6feb76a05ef6118bc4a1a"
+    },
+    {
+      "path": "src/lib/public-urls.mjs",
+      "bytes": 1333,
+      "sha256": "6a38dc713ede767496d1864e22dee906385dbbf53be3ccd2aac87b97fbbacfa6"
+    },
+    {
+      "path": "src/pages/404.astro",
+      "bytes": 514,
+      "sha256": "434dccf2c9bbd69f0e468834a35f941a900505ca86b1e9e9d243dbea682abc2e"
+    },
+    {
+      "path": "src/pages/about.astro",
+      "bytes": 3326,
+      "sha256": "61a20c9442f36c1579e557db4aed01911aaced2ec62a9eafd0aa2e5b55447ed1"
+    },
+    {
+      "path": "src/pages/anime.astro",
+      "bytes": 14176,
+      "sha256": "bf119042ea4a7230b3523efca8c660e0253b919e8eb0e0bbc4fe9dee2f8f309e"
+    },
+    {
+      "path": "src/pages/archive.astro",
+      "bytes": 1354,
+      "sha256": "3fbf34b53a73060212d0b9598af59a4fad1ab87c38dc9c59e919c776908cee4a"
+    },
+    {
+      "path": "src/pages/atelier.astro",
+      "bytes": 7588,
+      "sha256": "bdcd67f78121cb803bc4a7edb5deb70677f5a7d57dc2095f75d4e40c9f1403cd"
+    },
+    {
+      "path": "src/pages/credits.astro",
+      "bytes": 6824,
+      "sha256": "6b35299c5db8187ce5d9d82c21ab3e83a4b0fb277e2febb7ec18208eb8f8c536"
+    },
+    {
+      "path": "src/pages/dreamscape.astro",
+      "bytes": 754,
+      "sha256": "41d1b5c23ef0e33b2d125f8197f142dfbaafc4808d0b0a0d8358d585280107ff"
+    },
+    {
+      "path": "src/pages/gallery.astro",
+      "bytes": 3256,
+      "sha256": "4b429cf9e2f71573a39ea98a49d5e1eec7b9236bd9c422cf329d1b993c8cfb5d"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "bytes": 10086,
+      "sha256": "608d3b9d4b40d08266f60823ffe9da28d46c879e6092f3a5b9f8ba7d56bbaa7b"
+    },
+    {
+      "path": "src/pages/library.astro",
+      "bytes": 2360,
+      "sha256": "87a85edd6ed2fa3dd957fc6c2fe7f897e831421f171fd1fe6da752086290b11b"
+    },
+    {
+      "path": "src/pages/links.astro",
+      "bytes": 9118,
+      "sha256": "ccc2da28fce8e977e39e5bbbd6d5ca4993801b044f646caa2d27bc323d4cb666"
+    },
+    {
+      "path": "src/pages/music.astro",
+      "bytes": 960,
+      "sha256": "0b4523e4407bc5c39c6b8bc82a105da4f5c3d640774ee1169b8878560eace899"
+    },
+    {
+      "path": "src/pages/posts/[...id].astro",
+      "bytes": 10467,
+      "sha256": "a00265dd773badd6345f72278f924760af6f18b4f44ddf9c9451e317e8aee9f2"
+    },
+    {
+      "path": "src/pages/projects.astro",
+      "bytes": 3580,
+      "sha256": "c770e1aa0f1ce28d9931ee9d819f0fe1c5adab724307c849bb969379fe2c1e48"
+    },
+    {
+      "path": "src/pages/robots.txt.ts",
+      "bytes": 223,
+      "sha256": "0b9bc4954c56a737e74fe25d27b88f9ac53d954f4425890e63ebd3a57a0aa1ff"
+    },
+    {
+      "path": "src/pages/rss.xml.ts",
+      "bytes": 1137,
+      "sha256": "aa41f5495244046e84ace6966f8d4673d071d25ebd290186070a5e71008a0b80"
+    },
+    {
+      "path": "src/pages/search-index.json.ts",
+      "bytes": 467,
+      "sha256": "0489b48076374b61a555032d2da0cf14ca521e49c2b68fd7657c5f38953a8e0f"
+    },
+    {
+      "path": "src/pages/sitemap.xml.ts",
+      "bytes": 595,
+      "sha256": "9e39c0264691cb639e1d8e0864460ed7bcc1f884f754e890b578a01c55c89f1b"
+    },
+    {
+      "path": "src/pages/space.astro",
+      "bytes": 5181,
+      "sha256": "c7e00fc07883bf7e4fc8494662ab34577004cc36eb55085565f5be9090bf8b66"
+    },
+    {
+      "path": "src/styles/anime.css",
+      "bytes": 29162,
+      "sha256": "3787545f374ae56e72747d4cc1cc535bfe66890276d50bc4360fecc470c817e6"
+    },
+    {
+      "path": "src/styles/atelier.css",
+      "bytes": 16433,
+      "sha256": "7f126d78e14e8b2ac1aafbbb39a921f5d64db67b8ac226e66a45e471f25acc2b"
+    },
+    {
+      "path": "src/styles/bookmark-library.css",
+      "bytes": 10899,
+      "sha256": "aeee6b74ea623c6cfa8d2c5aa82f5dc024ddbbb29cf7b6bc6b7489c311f00069"
+    },
+    {
+      "path": "src/styles/bookmark-transfer.css",
+      "bytes": 638,
+      "sha256": "36f6f1ebdfed3a8932e00333d99f72001c168730f896d44be7548c60a733912b"
+    },
+    {
+      "path": "src/styles/clean-view.css",
+      "bytes": 3369,
+      "sha256": "550fd5d747cd3d3e906257f86a3a83707dddf5cbb7476ce11987fe7d48384340"
+    },
+    {
+      "path": "src/styles/companion-dialogue.css",
+      "bytes": 3229,
+      "sha256": "fd40b3add5f8f8a690e1fde3094b7c441977c076f5d177525364a3e7fcac15c2"
+    },
+    {
+      "path": "src/styles/companion.css",
+      "bytes": 20894,
+      "sha256": "95c46c3fea6a4f7db0b626c6628b916567bb46fc9a21c578fad36d5214927c5d"
+    },
+    {
+      "path": "src/styles/cosmic.css",
+      "bytes": 43573,
+      "sha256": "1a743b0c5c4c7039436668218aa8d38def5b905176e00e5521e08db0c978a65f"
+    },
+    {
+      "path": "src/styles/cyber-effects.css",
+      "bytes": 5632,
+      "sha256": "6df3d96bca06c60aee21971282bf419e0d13e1d7240fe3c5127319dcc96a6f2f"
+    },
+    {
+      "path": "src/styles/cyber-moon.css",
+      "bytes": 22948,
+      "sha256": "75cc9192972264fa4f02c2aff7ecef944d3be030b1df9b751d524fef18835610"
+    },
+    {
+      "path": "src/styles/diary.css",
+      "bytes": 10997,
+      "sha256": "9bd3939f5b9dd98f2a667aee1f21c841398b0e1204324a94d055f831908db1de"
+    },
+    {
+      "path": "src/styles/dreamscape.css",
+      "bytes": 11601,
+      "sha256": "f4362f3a7e2c33f3e0a0a2241a955a147a5cc9b5dd2fc1d27f675122845860b8"
+    },
+    {
+      "path": "src/styles/floating-widgets.css",
+      "bytes": 7742,
+      "sha256": "830f48606e687b6a51431f974d735e173c3fd92295a437a288a56d831f46116c"
+    },
+    {
+      "path": "src/styles/global.css",
+      "bytes": 56432,
+      "sha256": "bf209887bd72c67cf9a0f4dd7f81699a5ac9b8dd8a47b635d4d2676eddd6d01d"
+    },
+    {
+      "path": "src/styles/history-center.css",
+      "bytes": 4891,
+      "sha256": "486e1088477bc9e236a84e894deef2bc179e1ae497b7d2539dadf03a6c3a09a1"
+    },
+    {
+      "path": "src/styles/home-opaque.css",
+      "bytes": 1128,
+      "sha256": "bf0d9e45288ff1d485b5fb95c517b1bca0b76bf6392fbcca09f004791c0a223d"
+    },
+    {
+      "path": "src/styles/image-picker.css",
+      "bytes": 1809,
+      "sha256": "3450c11daac6f793af601578fcb70fee7a9b5b42db74c6f706eecff992ff03bc"
+    },
+    {
+      "path": "src/styles/material.css",
+      "bytes": 12295,
+      "sha256": "548a2e722e38776f1cbd5597109d6280aaf15119769d4a93c37cefe69b4e7604"
+    },
+    {
+      "path": "src/styles/media-library.css",
+      "bytes": 7660,
+      "sha256": "e65e8629369c28b7d41d93a7084d8a4225bb2cec4205c2a25146c4d1c4aa58c5"
+    },
+    {
+      "path": "src/styles/media-picker.css",
+      "bytes": 1279,
+      "sha256": "b0763cec05dd8fafed9d5456e3fe4a1c4fc9a356ce6e2ee4c9521c3343e5508a"
+    },
+    {
+      "path": "src/styles/music-player.css",
+      "bytes": 14754,
+      "sha256": "2f3d271be13d72bb04f6b790264cc6fd64594f563d092a69d4d17c50880585f2"
+    },
+    {
+      "path": "src/styles/music-room.css",
+      "bytes": 27220,
+      "sha256": "84d1b161444019314109c24ce3fdaef8829c1289cf4b3b2751ab7d13eee2cb97"
+    },
+    {
+      "path": "src/styles/music-session.css",
+      "bytes": 3862,
+      "sha256": "5cb1eb25e4c5c3dcf8cbce7a9d3259487c87387e77ee05224a589694eeb767fa"
+    },
+    {
+      "path": "src/styles/next-ui.css",
+      "bytes": 51945,
+      "sha256": "c7db68211f78849d6e12161430c52cbb176d055b2514125f3ca9a2c35317d487"
+    },
+    {
+      "path": "src/styles/page-motion.css",
+      "bytes": 3177,
+      "sha256": "73e15b59b84c9e97334e9e5b0c385f343dd04f741f4ae2a055626eeb995b6628"
+    },
+    {
+      "path": "src/styles/phase2-shell.css",
+      "bytes": 1032,
+      "sha256": "f757668e2cf009830061c21bb66b420fcac9701b1578f7d81559731bdef2705b"
+    },
+    {
+      "path": "src/styles/refined.css",
+      "bytes": 34112,
+      "sha256": "8faec3b3a2fda7660ac533313733b8668c6dcdd9e6da26a270834e9b84fe9bae"
+    },
+    {
+      "path": "src/styles/scrapbook.css",
+      "bytes": 37374,
+      "sha256": "3ee3fef7d9c30a0ad57e7c9b8b94f367995de9e7f44866d2b6722cb16c289a12"
+    },
+    {
+      "path": "src/styles/shell-header.css",
+      "bytes": 15806,
+      "sha256": "f0e9360276abaf9dcc54898c24026678ee1c4870bc3fded2660684cf9476335c"
+    },
+    {
+      "path": "src/styles/space.css",
+      "bytes": 18715,
+      "sha256": "de66d36a8e676f6c203cff80a8ec8c2e6544111f1a5c123352d702231f871bd9"
+    },
+    {
+      "path": "src/styles/studio-recovery.css",
+      "bytes": 785,
+      "sha256": "ccff760c5ff266c246a7ee357713a989aa54783a288b1153e67867455c02ef4a"
+    },
+    {
+      "path": "src/styles/studio-workbench.css",
+      "bytes": 10997,
+      "sha256": "ff7d1f4cb02434eb6f9eacb28d7774eed74f9397494ae39d2021c89a92813413"
+    },
+    {
+      "path": "src/styles/studio.css",
+      "bytes": 31655,
+      "sha256": "0e60f29bce68d9cbd02a9c66f01fc3c90839552f8d7b7c98c36d7bf155d4f2be"
+    },
+    {
+      "path": "src/styles/vinyl.css",
+      "bytes": 1886,
+      "sha256": "d09035fb76bf7dfa347403584abe875087096c0cfa71132f395b65dc5764ed6f"
+    },
+    {
+      "path": "src/styles/wallpaper-shell.css",
+      "bytes": 6363,
+      "sha256": "037ff637106459ee7d0ed1aa5893c9228397ae428a20fdba12edb99770eb910d"
+    },
+    {
+      "path": "src/styles/widget-avoidance.css",
+      "bytes": 922,
+      "sha256": "4a2318de7fd4152ac2c7119a7c1baa2d54a137245a105db12a3a7d896e30fcfa"
+    },
+    {
+      "path": "src/styles/yachiyo.css",
+      "bytes": 655,
+      "sha256": "1a08ce2b0a2d4f870f649f581a12a64c810e914b8800a7acae2789106ec79f20"
     }
-  ],
-  "exclusions": [
-    "original Git history",
-    "local backend and secrets",
-    "private drafts and personal datasets",
-    "Live2D models and wallpaper originals",
-    "local song library",
-    "verification evidence and backups"
   ]
 }

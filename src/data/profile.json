@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "revision": 2,
+  "updatedAt": "2026-10-20T10:30:42.566Z",
+  "siteName": "往事.未完",
+  "displayName": "TOURISTJPLR",
+  "signature": "保持好奇，信号在线，故事未完。",
+  "bio": "收藏一点日常，创造一点有趣。在代码与幻想之间，写下还没结束的故事。",
+  "location": "地球 · 偶尔神游月面",
+  "avatar": "/images/cosmic/kaguya.webp",
+  "cover": "/images/anime/kaguya.jpg",
+  "interests": [
+    "动漫",
+    "音乐",
+    "代码",
+    "生活记录"
+  ],
+  "sampleMode": false
+}

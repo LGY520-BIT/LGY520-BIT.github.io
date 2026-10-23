@@ -1,0 +1,15 @@
+---
+interface Props { view?: 'settings' | 'restore'; }
+const { view = 'settings' } = Astro.props;
+---
+{view === 'restore' ? (
+  <button type="button" class="clean-view-restore" data-clean-restore aria-label="恢复界面（F8）" title="恢复界面 · F8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M8 8h8v8H8Z"/></svg></button>
+) : (
+  <fieldset class="clean-view-settings">
+    <legend>界面留白</legend>
+    <label><span>装饰小字</span><input type="checkbox" data-clean-hints/></label>
+    <label><span>阅读进度条</span><input type="checkbox" data-clean-progress/></label>
+    <label><span>首页时钟显示秒</span><input type="checkbox" data-clock-seconds/></label>
+    <button type="button" data-clean-toggle aria-pressed="false"><span data-clean-label>一键隐藏界面</span><kbd>F8</kbd></button>
+  </fieldset>
+)}

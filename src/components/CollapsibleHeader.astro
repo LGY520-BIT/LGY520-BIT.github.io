@@ -1,0 +1,44 @@
+---
+import Icon from './Icon.astro';
+interface NavItem { id: string; href: string; text: string; icon?: string; active?: boolean; }
+interface Props { siteName: string; nav: NavItem[]; }
+const { siteName, nav } = Astro.props;
+---
+<script is:inline data-header-bootstrap>(()=>{const r=document.documentElement,names=['brand','nav','tools'];let s=null;try{const p=JSON.parse(localStorage.getItem('fieldnotes-header-fold-v1')||'null');if(p&&typeof p==='object'&&!Array.isArray(p))s=Object.fromEntries(names.map(n=>[n,p[n]===true]))}catch{}if(!s){let all=r.dataset.navCollapsed==='yes';try{all=localStorage.getItem('scrapbook-nav-collapsed')==='yes'}catch{}s=Object.fromEntries(names.map(n=>[n,all]))}for(const n of names)r.dataset['shell'+n[0].toUpperCase()+n.slice(1)+'Collapsed']=s[n]?'yes':'no';r.dataset.navCollapsed=names.every(n=>s[n])?'yes':'no'})()</script>
+<header class="site-header cosmic-header shell-header" id="site-navigation" data-foldable-nav data-pagefind-ignore>
+  <div class="header-inner shell-header__inner">
+    <div class="shell-header__group shell-header__brand" id="site-brand-panel" data-shell-group="brand">
+      <a class="brand" href="/" aria-label={`${siteName}，返回首页`}><span class="cosmic-logo" aria-hidden="true">☾<i>✦</i></span><span class="brand-name">{siteName}</span><span class="brand-en">MEMORIES<br/>CONTINUE</span></a>
+      <button class="shell-header__fold" type="button" data-nav-fold-group="brand" aria-controls="site-brand-panel" aria-expanded="true" aria-label="收起网站标题" title="收起标题"><span aria-hidden="true">⌃</span></button>
+    </div>
+
+    <div class="shell-header__group shell-header__nav" id="site-nav-panel" data-shell-group="nav">
+      <nav class="desktop-nav" id="main-nav" aria-label="主导航">{nav.map(item => <a href={item.href} data-nav-item={item.id} class:list={[{ active: item.active }]} aria-current={item.active ? 'page' : undefined}><Icon name={item.icon || 'arrow'} size={16}/><span>{item.text}</span></a>)}</nav>
+      <details class="nav-more" data-nav-more>
+        <summary aria-label="更多页面与导航设置"><Icon name="menu" size={16}/><span>更多</span></summary>
+        <div class="nav-more__panel">
+          <nav class="nav-more__grid" aria-label="全部页面">{nav.map(item=><a href={item.href} data-nav-catalog-link aria-current={item.active?'page':undefined}><Icon name={item.icon||'arrow'} size={17}/><span>{item.text}</span></a>)}</nav>
+          <button type="button" data-appearance-open data-nav-settings><Icon name="check" size={15}/>自定义顶部导航</button>
+        </div>
+      </details>
+      <button class="shell-header__fold" type="button" data-nav-fold-group="nav" aria-controls="site-nav-panel" aria-expanded="true" aria-label="收起页面导航" title="收起导航"><span aria-hidden="true">⌃</span></button>
+    </div>
+
+    <div class="shell-header__group shell-header__tools" id="site-tools-panel" data-shell-group="tools">
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-open-search aria-label="搜索文章"><Icon name="search" size={18}/><span>搜索</span><kbd>Ctrl K</kbd></button>
+        
+        <button class="icon-button next-command-trigger" type="button" data-next-open aria-label="打开快捷中心，Alt K" title="快捷中心 · Alt K"><span aria-hidden="true">⌘</span></button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换深浅色模式" title="切换深浅色模式"><span class="sun-icon"><Icon name="sun" size={19}/></span><span class="moon-icon"><Icon name="moon" size={19}/></span></button>
+      </div>
+      <button class="shell-header__fold" type="button" data-nav-fold-group="tools" aria-controls="site-tools-panel" aria-expanded="true" aria-label="收起顶部工具" title="收起工具"><span aria-hidden="true">⌃</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="shell-header-edge" data-header-restore-rail role="group" aria-label="顶部栏收起与展开" data-pagefind-ignore>
+  <div class="shell-header-edge__brand"><button type="button" data-nav-restore-group="brand" aria-controls="site-brand-panel" aria-expanded="false" aria-label="展开网站标题" hidden><span aria-hidden="true">⌄</span> 标题</button></div>
+  <div class="shell-header-edge__nav"><button type="button" data-nav-restore-group="nav" aria-controls="site-nav-panel" aria-expanded="false" aria-label="展开页面导航" hidden><span aria-hidden="true">⌄</span> 导航</button><button type="button" class="nav-restore-tab" data-nav-restore aria-controls="site-navigation" aria-expanded="false" aria-label="展开全部顶部栏" hidden><span aria-hidden="true">⌄</span> 全部展开</button></div>
+  <div class="shell-header-edge__tools"><button type="button" data-nav-restore-group="tools" aria-controls="site-tools-panel" aria-expanded="false" aria-label="展开顶部工具" hidden><span aria-hidden="true">⌄</span> 工具</button><button type="button" class="nav-fold-button" data-nav-fold aria-controls="site-navigation" aria-expanded="true" aria-label="收起全部顶部栏" title="收起全部顶部栏"><span aria-hidden="true">⌃</span><span class="shell-header-edge__all-label"> 全部收起</span></button></div>
+</div>
+<script is:inline data-nav-items-bootstrap>(()=>{const links=[...document.querySelectorAll('[data-nav-item]')],ids=links.map(n=>n.dataset.navItem);let chosen=ids;try{const p=JSON.parse(localStorage.getItem('fieldnotes-nav-items-v1')||'null');if(p&&p.version===1&&Array.isArray(p.items)){const clean=ids.filter(id=>p.items.includes(id));if(p.items.length===0||clean.length)chosen=clean}}catch{}for(const link of links)link.hidden=!chosen.includes(link.dataset.navItem)})();</script>

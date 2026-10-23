@@ -1,4 +1,49 @@
 ---
-import Layout from '../layouts/PublicLayout.astro';
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 ---
-<Layout title="素材与致谢"><section class="reading-page"><p class="eyebrow">BEHIND THE MOONLIGHT</p><h1>每一束光，<br/>都有来处。</h1><div class="prose"><h2>设计参考</h2><p>场景式首页、漫画分镜导航与章节节奏参考 <a href="https://github.com/Yuimi-chaya/Yuimi-chaya.github.io">Yuimi Lab</a>。本站界面和交互独立编写，没有复制该站的文章、角色图、音乐或演出脚本。</p><h2>主视觉</h2><p>月夜观测台插画为本项目使用 AI 生成的原创角色场景，不是八千代的官方立绘，也不是 Live2D 模型。不以此宣称获得任何作品方背书。</p><h2>音乐</h2><p>《月沿散步》《星间来信》为本站程序化创作的合成短曲，采用 CC0-1.0，不含第三方歌曲或采样。</p><h2>公开与本机</h2><p>这是博客的静态公开展示版。本机的模型、动态壁纸、歌曲文件、AI 密钥、草稿、后台数据与私人收藏不随此站点上传。</p></div></section></Layout>
+<Layout title={`致谢与素材说明 · ${site.name}`} description="未完的非官方粉丝主题说明、设计参考、作品媒体来源与使用边界。">
+  <section class="page-intro container">
+    <span class="eyebrow">CREDITS · BEHIND THE MOONLIGHT</span>
+    <h1>让每一束光，都有出处<span class="heading-dot">.</span></h1>
+    <p>感谢创造这些故事与作品的人。<br/>也认真说明，这个个人频道与它们的边界。</p>
+    <span class="intro-flower" aria-hidden="true">✦</span>
+  </section>
+  <section class="about-layout container credits-layout">
+    <div class="prose">
+      <h2>非官方的个人博客主题</h2>
+      <p>「{site.name}」是个人博客，不是《超时空辉夜姬！》的官方网站、角色官方账号或官方社群。当前月夜见频道的表达是粉丝主题布景，与 Netflix、作品制作方和权利方均无关联，也不代表其立场或获得其背书。</p>
+      <p>本站尚未填写站长的真实个人身份，现有博客文章为明确标记的排版示例；作品角色与视觉不构成站长身份、原创作品或真实履历的证明。</p>
+
+      <h2>作品与角色视觉</h2>
+      <p>角色立绘与场景视觉用于当前本地主题展示。角色画版权标识：<strong>©コロリド・ツインエンジンパートナーズ</strong>。作品名称、角色及相关媒体的权利归各自权利方所有。</p>
+      <p>这份来源说明不等于获得通用再发布许可，也不把媒体素材纳入本项目或参考项目的代码许可。公开部署、分发或用于其他用途前，需要独立核对相关素材的使用条款与许可；无法确认时，应替换为自有或已获授权的视觉。</p>
+      <ul>
+        <li><a href="https://www.cho-kaguyahime.com/" target="_blank" rel="noreferrer">《超时空辉夜姬！》作品官方网站 <Icon name="diagonal" size={14}/></a></li>
+        <li><a href="https://www.netflix.com/tw/title/81756595" target="_blank" rel="noreferrer">Netflix 作品页面 <Icon name="diagonal" size={14}/></a></li>
+      </ul>
+
+      <h2>设计参考与独立实现</h2>
+      <p>本次改版参考了 <a href="https://github.com/Yuimi-chaya/Yuimi-chaya.github.io" target="_blank" rel="noreferrer">Yuimi-chaya 的开源博客项目 <Icon name="diagonal" size={14}/></a>，借鉴其中 Fuyukawa 的分层 Hero、卡片编排等设计组织方式，在本地现有 Astro 博客上独立实现页面与样式。</p>
+      <p>没有复制参考站点的文章、私人资料或音乐。参考项目的 MIT 软件许可与媒体权利是两件不同的事；MIT 原文及其范围条款保留在源码的 <code>THIRD_PARTY_NOTICES.md</code> 中，不延伸为作品角色、图片、音频或其他媒体的许可。</p>
+      <p>本轮优先采用现成项目：借用 <a href="https://github.com/redchenk/tsukuyomi-space" target="_blank" rel="noreferrer">月读空间 Tsukuyomi Space</a> 的 MIT 设计令牌与房间组织思路，并本地固定 <a href="https://github.com/9und30/glassy-liquid" target="_blank" rel="noreferrer">glassy-liquid</a> 的无框架玻璃折射实现。不是安装了整个原项目；第三方模型、文章和音乐没有随代码许可一并复制。</p>
+
+      <h2>真实 Live2D 与角色边界</h2>
+      <p>网页伙伴默认使用你提供的「【雪熊企划】八千代辉夜姬」真实 Cubism 模型，角色为月见八千代；AI 性格卡是非官方原创角色扮演，不是辉夜、官方角色账号或声音克隆。原始模型、8K 纹理、物理与四个表情保持原件不变，网页默认读取确定性缩小的 2K 纹理副本，隐藏时延后首次加载。Cubism Core 5.1.0 已通过该 MOC 格式 5 的原生解析与网格参数验证，但尚未完成浏览器 GPU 画面验收，也不代表获得模型再发布许可。</p>
+      <p>旧版辉夜自制分层网格 2D 仍是可选实验，使用 AI 辅助同人分层图与本站参数实现，<strong>不是 Cubism 模型，也没有导出辉夜 .moc3</strong>。Haru 仅保留为手动技术演示。授权目录导入继续使用本机 Blob URL 与既有显示适配，不执行目录脚本、不上传文件；是否能显示仍取决于模型格式、纹理与当前运行库兼容性。</p>
+      <p lang="en">This content uses sample data owned and copyrighted by Live2D Inc. The sample data are utilized in accordance with terms and conditions set by Live2D Inc. This content itself is created at the author's sole discretion.</p>
+      <p>Core、框架和样例模型各有独立条款，不能统称 MIT。版本、来源与许可全文见 <a href="/live2d/README.md">Live2D 说明</a>；公开部署前须再次核对你的具体使用范围。</p>
+
+      <h2>月面音乐</h2>
+      <p>播放器保留两首为本站程序化谱写的原创短曲，不是动画原声；本地启动还会只读扫描 <code>[local source omitted]</code>，目前为 40 首本机歌曲，按需流式播放，不上传外部服务、不改动原音频。音乐馆与浮动音乐条使用同一个 audio 元素，站内切页延续曲目和进度，默认不自动播放。临时「本地选曲」另有文件数量与大小限制，不限制扫描曲库为 12 首。曲目、限制范围与生成方式见 <a href="/audio/README.md">音频说明</a>。</p>
+      <p>歌词解析实际采用 <a href="https://github.com/weirongxu/lrc-kit" target="_blank" rel="noreferrer">lrc-kit 1.2.1（MIT）</a>。封面与歌词由你搜索、选择或导入；iTunes / Apple Music 封面保留对应歌曲来源，LRCLIB 社区歌词保留来源提示。解析库许可不代替歌曲、封面与歌词各自的权利。</p>
+      <p>新版三列 / 两列 / 单列布局实际改编了 <a href="https://github.com/CuteLeaf/Firefly" target="_blank" rel="noreferrer">Firefly</a> 的 MIT 响应式几何函数，固定源码与许可证保存在本站 vendor 目录。没有搬运它的个人资料或文章。</p>
+
+      <h2>内容仍然属于真实的生活</h2>
+      <p>月光是布景，记录才是正文。未来新增的文章与项目应保留真实来源，不借角色替代个人身份，也不把参考内容当作自己的经历。发现素材来源或说明需要修正时，应先更正记录，再继续使用。</p>
+      <p><a href="/about/">返回频道介绍</a>，或去<a href="/archive/">文章归档</a>继续阅读。</p>
+    </div>
+    <aside><div class="quote-note"><span class="quote-mark">“</span><p>喜欢一部作品，<br/>也尊重创造它的人。</p><span>来源、边界与感谢</span><span class="quote-flower" aria-hidden="true">✦</span></div></aside>
+  </section>
+</Layout>

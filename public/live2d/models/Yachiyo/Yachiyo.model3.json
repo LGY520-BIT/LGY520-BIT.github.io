@@ -1,0 +1,45 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "Yachiyo.moc3",
+    "Textures": [
+      "textures/texture_00.png",
+      "textures/texture_01.png"
+    ],
+    "Physics": "Yachiyo.physics3.json",
+    "DisplayInfo": "Yachiyo.cdi3.json",
+    "Expressions": [
+      {
+        "Name": "泪珠",
+        "File": "expressions/tear-drops.exp3.json"
+      },
+      {
+        "Name": "眯眯眼",
+        "File": "expressions/closed-eyes.exp3.json"
+      },
+      {
+        "Name": "笑咪咪",
+        "File": "expressions/smile.exp3.json"
+      },
+      {
+        "Name": "眼泪",
+        "File": "expressions/tears.exp3.json"
+      }
+    ]
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": []
+    }
+  ]
+}

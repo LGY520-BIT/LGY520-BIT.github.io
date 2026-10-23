@@ -1,0 +1,12 @@
+---
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import '../styles/dreamscape.css';
+---
+<Layout title={`枯梦 · 梦隙 · ${site.name}`} description="我的第一款壁纸，如今是这本手账的背景。">
+ <section class="container" aria-labelledby="dreamscape-title"><article class="dreamscape-worknote">
+ <small>MY FIRST WORK / KUMENG DREAMSCAPE</small><h1 id="dreamscape-title">枯梦 · 梦隙</h1>
+ <p>我的第一款壁纸。<br/>光影留在身后，故事继续向前。</p>
+ <div><button type="button" data-wallpaper-open>调整背景</button><button type="button" data-wallpaper-fullscreen>只看壁纸 ↗</button><a href="/projects/#dreamscape">作品手记</a></div>
+ </article></section>
+</Layout>

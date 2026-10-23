@@ -1,0 +1,29 @@
+---
+---
+<div id="site-wallpaper" class="site-wallpaper" data-site-wallpaper aria-hidden="true" transition:persist="site-wallpaper" transition:animate="none">
+ <img class="site-wallpaper__still" src="/images/dreamscape/preview.png" width="1920" height="1080" alt="" decoding="async" fetchpriority="low"/>
+ <div class="site-wallpaper__live" data-wallpaper-frame></div><div class="site-wallpaper__veil"></div>
+</div>
+<dialog class="wallpaper-settings" data-wallpaper-dialog aria-labelledby="wallpaper-title" data-pagefind-ignore>
+ <header><div><small>KUMENG / PERSONAL BACKDROP</small><h2 id="wallpaper-title">让梦，铺满每一页。</h2></div><button type="button" data-wallpaper-close aria-label="关闭背景设置">×</button></header>
+ <fieldset><legend class="sr-only">背景设置</legend>
+ <label><span>枯梦背景</span><input type="checkbox" data-wallpaper-setting="enabled" checked/></label>
+ <label for="wallpaper-gray">灰调 <output data-wallpaper-output="gray">72%</output></label><input id="wallpaper-gray" type="range" min="0" max="100" value="72" data-wallpaper-setting="gray"/>
+ <label for="wallpaper-veil">阅读遮罩 <output data-wallpaper-output="veil">88%</output></label><input id="wallpaper-veil" type="range" min="40" max="94" value="88" data-wallpaper-setting="veil"/>
+ <label for="wallpaper-dissolve">消融</label><select id="wallpaper-dissolve" data-wallpaper-setting="dissolve"><option value="none">保持原画</option><option value="hover">指尖消融</option><option value="auto">梦境循环</option><option value="slider">手动消融</option></select>
+ <label for="wallpaper-amount">消融程度 <output data-wallpaper-output="amount">40%</output></label><input id="wallpaper-amount" type="range" min="0" max="100" value="40" data-wallpaper-setting="amount"/>
+ </fieldset>
+ <details class="wallpaper-settings__advanced"><summary>更多光影设置</summary><div>
+ <label><span>动态背景</span><input type="checkbox" data-wallpaper-setting="dynamic" checked/></label>
+ <label><span>人物微动</span><input type="checkbox" data-wallpaper-setting="motion" checked/></label>
+ <label><span>花瓣</span><input type="checkbox" data-wallpaper-setting="petals" checked/></label>
+ <label><span>原作时钟</span><input type="checkbox" data-wallpaper-setting="clock"/></label>
+ <label for="wallpaper-time">一日光影</label><select id="wallpaper-time" data-wallpaper-setting="time"><option value="auto">随此刻</option><option value="dawn">晨曦</option><option value="day">日光</option><option value="sunset">黄昏</option><option value="night">夜色</option><option value="custom">自选时刻</option></select>
+ <label for="wallpaper-hour">时针 <output data-wallpaper-output="hour">12:00</output></label><input id="wallpaper-hour" type="range" min="0" max="24" step="0.25" value="12" data-wallpaper-setting="hour"/>
+ <label for="wallpaper-radius">指尖范围</label><input id="wallpaper-radius" type="range" min="0.08" max="0.35" step="0.01" value="0.22" data-wallpaper-setting="radius"/>
+ <label for="wallpaper-quality">画布质量</label><select id="wallpaper-quality" data-wallpaper-setting="quality"><option value="low">流畅 · 1080p</option><option value="high">精细 · 1440p</option></select>
+ <button type="button" data-wallpaper-retry>重新加载画面</button>
+ </div></details>
+ <p class="wallpaper-settings__status" data-wallpaper-status role="status" aria-live="polite">原画已就位</p>
+ <footer><button type="button" data-wallpaper-reset>恢复默认</button><button type="button" data-wallpaper-fullscreen>只看壁纸 ↗</button></footer>
+</dialog>

@@ -1,8 +1,89 @@
 ---
-import Layout from '../../layouts/PublicLayout.astro';
-import {getCollection,render} from 'astro:content';
-import {href} from '../../lib/site';
-export async function getStaticPaths(){return (await getCollection('blog',({data})=>!data.draft&&!data.sample)).map(post=>({params:{id:post.id},props:{post}}))}
-const {post}=Astro.props;const {Content}=await render(post);
+import { render } from 'astro:content';
+
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import { getPosts, dateLabel, readingTime } from '../../lib/posts';
+import { site } from '../../config';
+export async function getStaticPaths() {
+  return (await getPosts()).map(post => ({ params: { id: post.id }, props: { post } }));
+}
+// During local writing, resolve the current collection entry per request.
+// Production builds retain static getStaticPaths and never emit draft pages.
+const post = Astro.props.post;
+const missing = !post || post.data.draft;
+if (missing) Astro.response.status = 404;
+const fresh = null;
+const production = !missing ? await render(post) : null;
+const Content = production?.Content;
+const headings = fresh?.headings || production?.headings || [];
+const related = missing ? [] : (await getPosts()).filter(p=>p.id !== post.id).sort((a,b)=>Number(b.data.category===post.data.category)-Number(a.data.category===post.data.category)).slice(0,2);
 ---
-<Layout title={post.data.title} description={post.data.description} article><article class="reading-page" data-pagefind-body><header><a class="text-link" href={href('archive/')}>← 回到手账</a><p class="eyebrow">{post.data.category} / {post.data.date.toISOString().slice(0,10)}</p><h1>{post.data.title}</h1><p>{post.data.description}</p></header><div class="prose"><Content/></div><footer class="article-end"><span>— 未完，待续 —</span><a href={href('archive/')}>翻阅其他文章 ↗</a></footer></article></Layout>
+{missing ? <Layout title="这一页，暂时迷路了 · 未完"><section class="not-found container"><span>404<span style="font-size:35px">✳</span></span><h1>这一页，暂时迷路了。</h1><p>文章尚未发布，或者这个故事还没有被写下。</p><a href="/" class="button button-primary">回到熟悉的地方 <Icon name="arrow" size={18}/></a></section></Layout> : <Layout title={`${post.data.title} · 未完`} description={post.data.description} article>
+  <div class="article-shell container"><nav class="breadcrumb" aria-label="面包屑"><a href="/">首页</a><span>/</span><a href="/archive/">文章</a><span>/</span><a href={`/archive/?category=${encodeURIComponent(post.data.category)}`}>{post.data.category}</a></nav>
+    <article data-pagefind-body data-article-info data-title={post.data.title} data-description={post.data.description} data-category={post.data.category} data-date={dateLabel(post.data.date)}><header class="article-heading"><div class="post-meta"><span class="category-label">{post.data.category}</span><span>·</span><time datetime={post.data.date.toISOString()}>{dateLabel(post.data.date)}</time><span>·</span><span>{readingTime(post.body)} 分钟阅读</span></div><h1 data-pagefind-meta="title">{post.data.title}</h1><p class="article-description">{post.data.description}</p><div class="article-author"><span class="small-avatar" aria-hidden="true">✳</span><span>{site.author}</span><span> / </span><span>慢慢写，认真生活。</span></div></header>
+      <div class="reading-toolbar" data-pagefind-ignore>
+        <button type="button" class="diary-button" data-bookmark aria-pressed="false">✧ 收藏文章</button>
+        <button type="button" class="diary-button" data-reading-focus aria-pressed="false">专注阅读</button>
+        <div class="reading-font-controls" role="group" aria-label="正文字号">
+          <button type="button" class="diary-button" data-font-change="-1" aria-label="缩小正文字号">A−</button>
+          <output data-reading-size-output aria-label="当前正文字号">16 px</output>
+          <button type="button" class="diary-button" data-font-change="1" aria-label="增大正文字号">A＋</button>
+        </div>
+        <details class="reading-settings">
+          <summary class="diary-button">阅读设置</summary>
+          <div class="reading-settings-panel">
+            <fieldset><legend>字号</legend>
+              <div class="reading-adjustment-controls">
+                <input id="reading-size-range" type="range" data-reading-value="size" min="12" max="36" step="0.1" value="16" aria-label="拖动调整正文字号"/>
+                <input id="reading-size-number" type="number" data-reading-value="size" min="12" max="36" step="0.1" value="16" inputmode="decimal" autocomplete="off" aria-label="正文字号（像素）"/>
+                <span class="reading-unit" aria-hidden="true">px</span>
+              </div>
+            </fieldset>
+            <fieldset><legend>行距</legend>
+              <div class="reading-adjustment-controls">
+                <input id="reading-leading-range" type="range" data-reading-value="leading" min="1.2" max="3" step="0.01" value="1.95" aria-label="拖动调整正文行距"/>
+                <input id="reading-leading-number" type="number" data-reading-value="leading" min="1.2" max="3" step="0.01" value="1.95" inputmode="decimal" autocomplete="off" aria-label="正文行距倍数"/>
+                <span class="reading-unit" aria-hidden="true">倍</span>
+              </div>
+              <div class="reading-choice-group"><button type="button" class="diary-button" data-reading-leading="1.7" aria-pressed="false">紧凑</button><button type="button" class="diary-button" data-reading-leading="1.95" aria-pressed="true">舒展</button><button type="button" class="diary-button" data-reading-leading="2.2" aria-pressed="false">宽松</button></div>
+            </fieldset>
+            <fieldset><legend>版心</legend>
+              <div class="reading-adjustment-controls">
+                <input id="reading-width-range" type="range" data-reading-value="width" min="480" max="3200" step="1" value="850" aria-label="拖动调整正文宽度"/>
+                <input id="reading-width-number" type="number" data-reading-value="width" min="480" max="3200" step="1" value="850" inputmode="numeric" autocomplete="off" aria-label="正文最大宽度（像素）"/>
+                <span class="reading-unit" aria-hidden="true">px</span>
+              </div>
+              <div class="reading-choice-group"><button type="button" class="diary-button" data-reading-width="narrow" aria-pressed="false">窄</button><button type="button" class="diary-button" data-reading-width="standard" aria-pressed="true">标准</button><button type="button" class="diary-button" data-reading-width="wide" aria-pressed="false">宽</button></div>
+            </fieldset>
+            <fieldset><legend>字体</legend><div class="reading-choice-group"><button type="button" class="diary-button" data-reading-font="sans" aria-pressed="true">清晰黑体</button><button type="button" class="diary-button" data-reading-font="serif" aria-pressed="false">书页宋体</button></div></fieldset>
+            <fieldset><legend>背景</legend>
+              <div class="reading-choice-group"><button type="button" class="diary-button" data-reading-surface="transparent" aria-pressed="true">透明</button><button type="button" class="diary-button" data-reading-surface="glass" aria-pressed="false">磨砂</button><button type="button" class="diary-button" data-reading-surface="solid" aria-pressed="false">纯色</button></div>
+              <label class="reading-adjustment-label" for="reading-opacity-range">背景不透明度</label>
+              <div class="reading-adjustment-controls">
+                <input id="reading-opacity-range" type="range" data-reading-value="opacity" min="0" max="100" step="1" value="0" aria-label="拖动调整背景不透明度"/>
+                <input id="reading-opacity-number" type="number" data-reading-value="opacity" min="0" max="100" step="1" value="0" inputmode="numeric" autocomplete="off" aria-label="背景不透明度（百分比）"/>
+                <span class="reading-unit" aria-hidden="true">%</span>
+              </div>
+              <label class="reading-adjustment-label" for="reading-blur-range">背景模糊</label>
+              <div class="reading-adjustment-controls">
+                <input id="reading-blur-range" type="range" data-reading-value="blur" min="0" max="24" step="1" value="0" aria-label="拖动调整背景模糊"/>
+                <input id="reading-blur-number" type="number" data-reading-value="blur" min="0" max="24" step="1" value="0" inputmode="numeric" autocomplete="off" aria-label="背景模糊（像素）"/>
+                <span class="reading-unit" aria-hidden="true">px</span>
+              </div>
+            </fieldset>
+            <button type="button" class="diary-button reading-reset" data-reading-reset>恢复默认</button>
+          </div>
+        </details>
+        <a href="/library/">我的星标 ↗</a>
+        <output class="reading-percent" data-reading-percent aria-label="阅读进度" aria-live="off">0%</output>
+      </div>
+      <p class="reading-feedback" data-reading-feedback role="status" data-pagefind-ignore></p>
+      <div class="reading-resume" data-reading-resume data-pagefind-ignore hidden><button type="button" class="diary-button" data-resume-reading>继续上次阅读</button><button type="button" class="diary-button" data-dismiss-resume aria-label="关闭阅读进度提示">×</button></div>
+      {post.data.sample && <div class="sample-banner" data-pagefind-ignore><Icon name="feather" size={16}/><span>示例文章 · 用于展示版式与阅读体验，不代表博主的真实经历。</span></div>}
+      {post.data.cover && <img class="article-cover" src={post.data.cover} width="1536" height="1024" alt={`${post.data.title} 的文章封面`}/>}
+      <div class="article-grid"><div class="article-body">{fresh ? <div class="prose" set:html={fresh.html}/> : Content && <div class="prose"><Content/></div>}<div class="article-end"><div class="tag-cloud" data-pagefind-weight="2">{post.data.tags.map(tag=><a href={`/archive/?tag=${encodeURIComponent(tag)}`}># {tag}</a>)}</div><div class="article-share" data-pagefind-ignore><span>感谢读到这里。愿这些文字，给你一点陪伴。</span><button class="copy-link" data-copy-link><Icon name="copy" size={15}/>复制文章链接</button></div></div></div><aside class="article-toc" aria-label="文章目录" data-pagefind-ignore><details class="reading-toc-details" data-reading-toc open><summary><span>文章目录</span><span aria-hidden="true">⌄</span></summary><nav class="reading-toc-links" aria-label="文章章节">{headings.filter(h=>h.depth===2||h.depth===3).map(h=><a href={`#${h.slug}`} class:list={{'reading-toc-sub':h.depth===3}}>{h.text}</a>)}<a href="#top">↑ 回到文章开头</a></nav></details></aside></div>
+    </article>
+    <section class="related-posts" data-pagefind-ignore><h2>也许，你还想读<span class="heading-dot">.</span></h2><div class="related-grid">{related.map(p=><a class="related-card" href={`/posts/${p.id}/`}><span>{p.data.category} · {dateLabel(p.data.date)}</span><h3>{p.data.title}</h3><Icon name="arrow" size={18}/></a>)}</div></section>
+  </div>
+</Layout>}

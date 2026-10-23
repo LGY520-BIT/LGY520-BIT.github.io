@@ -1,0 +1,5 @@
+/* The supplied square avatar is a truthful static fallback, never a full-body model. */
+[data-character-profile=yachiyo] .companion-portrait-stage{width:100%;aspect-ratio:1;inset:42px auto auto 0;border-radius:45% 45% 42% 42%;animation:none;box-shadow:0 12px 30px #19213224;overflow:hidden}
+[data-character-profile=yachiyo] .companion-doll{position:static;width:100%;max-width:100%;height:100%;left:auto;top:auto;object-fit:cover;filter:none}
+[data-character-profile=yachiyo] .companion-face img{inset:0;width:100%;max-width:100%;height:100%;object-fit:cover}
+@media(max-width:600px){[data-character-profile=yachiyo] .companion-portrait-stage{top:28px}}

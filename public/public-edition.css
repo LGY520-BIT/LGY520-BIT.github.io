@@ -1,0 +1,7 @@
+/* Public-only capability adaptation; original visual styles remain byte-identical. */
+[data-companion-tab="observe"], [data-companion-form], [data-companion-observe-tab],
+.companion-connection a, [data-anime-editor], [data-anime-editor-open],
+.moon-player__search-actions, .moon-player__search-label, .moon-player__compat,
+[data-edit-profile], [data-add-link], [data-links-import] { display:none!important; }
+
+#companion-observe { display:none!important; }

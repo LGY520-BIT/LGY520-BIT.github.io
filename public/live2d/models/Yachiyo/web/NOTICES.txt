@@ -1,0 +1,3 @@
+Yachiyo local web texture derivatives
+
+These two 2048-square RGBA PNGs are deterministic uniformly resized derivatives of the user's original 8192-square atlases. No UV, mesh, expressions, physics, character art or original file is edited. Alpha is premultiplied for LANCZOS filtering then saved as normal RGBA PNG. The original model's rights and ../NOTICES.txt still apply; these derivatives do not grant publication rights. No generative AI, remote image service, scripts from the model folder or new package dependency is used.

@@ -1,0 +1,7 @@
+八千代 / Yachiyo — user-supplied local model
+
+Source folder: 【雪熊企划】八千代辉夜姬. The model, physics, display info, four expressions and two texture PNGs are exact-byte copies supplied by the user. Only the model3 reference manifest is adapted to ASCII resource names and adds the supplied expressions. VTube Studio/xyplugin/items configuration files are not copied or executed. No model-specific redistribution license was supplied; this private local use does not establish a right to republish, resell or claim authorship.
+
+Character inspiration: 月見ヤチヨ from 超かぐや姫！ — https://www.cho-kaguyahime.com/ . The AI persona is unofficial original role-play, not the character's official account, voice performer or rights holder. No voice cloning or audio assets are used.
+
+Runtime: official Cubism SDK for Web 5 R4 Core (proprietary; LICENSE-core5.md and RedistributableFiles-core5.txt apply), PixiJS 6.5.10 and pixi-live2d-display 0.4.0 (their existing notices remain). The original textures stay unmodified on disk. A browser-only ImageBitmap/canvas texture sizing adapter produces temporary memory URLs capped at 4096 or 2048 according to MAX_TEXTURE_SIZE, then releases them. This is not proof of browser/GPU rendering.

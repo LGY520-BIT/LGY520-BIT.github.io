@@ -1,0 +1,12 @@
+/* Opaque base only: preserve the original collage's weights, artwork and composition. */
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home main#main .scrap-hero{
+ background:var(--home-first-screen-surface,var(--bg))!important;
+ opacity:1;isolation:isolate;
+}
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home .scrap-comic{opacity:var(--home-comic-opacity)}
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home .scrap-hero-person{opacity:var(--home-character-opacity)}
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home .scrap-hero-paper{display:none!important}
+/* Cover copy keeps a real surface even with highly transparent material selected. */
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home .scrap-terminal{display:var(--home-terminal-display);background:var(--surface)}
+/* Keep the right-hand frames as breathing room; do not affect the Live2D companion. */
+html:root[data-visual-phase][data-theme] body.scrapbook-layout.next-home .scrap-comic :is(.panel-2,.panel-7)>img{display:var(--home-right-panel-art)}

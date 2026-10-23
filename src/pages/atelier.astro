@@ -1,0 +1,58 @@
+---
+import { site } from '../config';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import '../styles/atelier.css';
+const links = [
+  { href: '/atelier/', icon: 'feather', label: '记下一点灵感', hint: '便签 · 只留在你的浏览器', number: '01' },
+  { href: '/archive/', icon: 'book', label: '文字放映室', hint: '找回某篇触动你的文字', number: '02' },
+  { href: '/library/', icon: 'leaf', label: '我的星标', hint: '收藏与最近阅读', number: '03' },
+  { href: '/projects/', icon: 'code', label: '小小创造', hint: '把想法变成一个个作品', number: '04' },
+];
+---
+<Layout title={`灵感工坊 · ${site.name}`} description="安静地专注，把待办与灵感留在自己的浏览器里。">
+  <div class="atelier-page container" data-atelier>
+    <header class="atelier-intro">
+      <div><a class="atelier-back" href="/">{site.name} / 私人工作角</a><p class="atelier-kicker">A LITTLE SPACE TO MAKE THINGS</p><h1>灵感工坊<span>Atelier.</span></h1><p class="atelier-lead">把纷乱的想法收好，给认真生活留一小块空白。</p></div>
+      <div class="atelier-stamp" aria-hidden="true"><span>少一点分心</span><Icon name="feather" size={29}/><span>多一点完成</span></div>
+    </header>
+    <div class="atelier-grid">
+      <section class="atelier-card atelier-focus" id="focus" aria-labelledby="focus-title">
+        <div class="atelier-card-heading"><div><span class="atelier-index">01 / SLOW DOWN</span><h2 id="focus-title">专注一小会儿</h2></div><Icon name="clock" size={21}/></div>
+        <div class="atelier-clock-face">
+          <svg class="atelier-clock-ring" viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="98"/><circle cx="110" cy="110" r="98" data-timer-ring/></svg>
+          <div><span class="atelier-clock-label" data-timer-label>尚未开始</span><output class="atelier-clock" data-timer-display role="timer" aria-label="剩余时间" aria-live="off">25:00</output><span class="atelier-clock-foot">只做眼前这一件事</span></div>
+        </div>
+        <div class="atelier-presets" aria-label="专注时长"><button type="button" data-timer-preset="25" aria-pressed="true">25 分钟</button><button type="button" data-timer-preset="45" aria-pressed="false">45 分钟</button><button type="button" data-timer-preset="5" aria-pressed="false">小憩 5 分钟</button></div>
+        <label class="atelier-duration">自定义时长 <span><input type="number" min="1" max="120" step="1" value="25" inputmode="numeric" data-timer-duration aria-label="自定义计时分钟数"/> 分钟</span></label>
+        <div class="atelier-timer-actions"><button type="button" class="atelier-button atelier-button-primary" data-timer-toggle><span data-timer-toggle-label>开始专注</span><Icon name="arrow" size={15}/></button><button type="button" class="atelier-button" data-timer-reset>重新计时</button></div>
+        <p class="atelier-timer-status" data-timer-status role="status">选一个时长，慢慢来。</p>
+        <div class="atelier-session-counter"><span>累计完成</span><strong data-timer-sessions>0</strong><span>次计时</span></div>
+      </section>
+      <section class="atelier-card atelier-todos" aria-labelledby="todos-title">
+        <div class="atelier-card-heading"><div><span class="atelier-index">02 / ONE THING AT A TIME</span><h2 id="todos-title">今天，想做的事</h2></div><span class="atelier-count" data-todo-count>0 / 0</span></div>
+        <form class="atelier-add-task" data-todo-form><label class="atelier-sr-only" for="atelier-task">添加待办事项</label><input id="atelier-task" type="text" maxlength="200" placeholder="记下一件小事，按 Enter 添加…" autocomplete="off" data-todo-input/><button type="submit" class="atelier-add-button" aria-label="添加待办">＋</button></form>
+        <div class="atelier-task-filters" aria-label="筛选待办"><button type="button" data-todo-filter="all" aria-pressed="true">全部</button><button type="button" data-todo-filter="active" aria-pressed="false">待完成</button><button type="button" data-todo-filter="done" aria-pressed="false">已完成</button></div>
+        <ul class="atelier-task-list" data-todo-list aria-label="待办事项"></ul>
+        <div class="atelier-task-empty" data-todo-empty><span aria-hidden="true">✧</span><h3>先从一件小事开始。</h3><p>写下来，就已经离完成近了一点。</p></div>
+        <div class="atelier-task-footer"><div><button type="button" class="atelier-text-button" data-todo-export>导出 JSON</button><label class="atelier-text-button atelier-import-label">导入 JSON<input type="file" accept="application/json,.json" data-todo-import/></label></div><button type="button" class="atelier-text-button" data-todo-clear>清理已完成</button></div>
+        <p class="atelier-status" data-todo-status role="status"></p>
+      </section>
+      <section class="atelier-card atelier-notes" aria-labelledby="notes-title">
+        <div class="atelier-card-heading"><div><span class="atelier-index">03 / SAVE A SPARK</span><h2 id="notes-title">没写完的灵感</h2></div><span class="atelier-note-saved" data-note-saved>本地便签</span></div>
+        <label class="atelier-sr-only" for="atelier-note">灵感便签，支持纯文本与 Markdown，最多两万字符</label><textarea id="atelier-note" data-note-input maxlength="20000" spellcheck="false" placeholder="一个突然出现的念头、一句未写完的话，或者下一篇文章的开头。&#10;&#10;可以随手写 Markdown。"></textarea>
+        <div class="atelier-note-footer"><span data-note-count>0 / 20,000 字符</span><button type="button" class="atelier-button" data-note-download><Icon name="feather" size={14}/>下载为 Markdown</button></div>
+      </section>
+      <section class="atelier-card atelier-shortcuts" aria-labelledby="shortcuts-title">
+        <div class="atelier-card-heading"><div><span class="atelier-index">04 / KEEP EXPLORING</span><h2 id="shortcuts-title">把想法继续下去</h2></div><span class="atelier-orbit" aria-hidden="true">✦</span></div>
+        <div class="atelier-links">{links.map(link => <a href={link.href}><span class="atelier-link-icon"><Icon name={link.icon} size={19}/></span><span><strong>{link.label}</strong><small>{link.hint}</small></span><Icon name="diagonal" size={15}/></a>)}</div>
+        <p class="atelier-small-note">准备好了，就把灵感带到「写作台」。</p>
+      </section>
+    </div>
+    <details class="atelier-privacy"><summary>备份与存储</summary><p>待办与便签保存在此浏览器。清理浏览器数据前，请导出 JSON 与 Markdown；同一份内容建议在一个标签页编辑。</p></details>
+    <p class="atelier-storage-status" data-storage-status role="status">浏览器工作区已就绪。</p>
+    <noscript><p class="atelier-privacy">这些本地工具需要 JavaScript。快捷入口与其他文章仍然可以正常访问。</p></noscript>
+    <dialog class="atelier-confirm" data-atelier-dialog aria-labelledby="atelier-dialog-title"><span class="atelier-index">A QUICK CHECK</span><h2 id="atelier-dialog-title" data-dialog-title>确认导入待办？</h2><p data-dialog-description></p><div><button type="button" class="atelier-button" data-dialog-cancel>取消</button><button type="button" class="atelier-button atelier-button-primary" data-dialog-confirm>确认</button></div></dialog>
+  </div>
+  <script is:inline type="module" src="/atelier.js"></script>
+</Layout>
