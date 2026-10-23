@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/PublicLayout.astro';
+import {getCollection} from 'astro:content';
+import {href} from '../lib/site';
+const posts=(await getCollection('blog',({data})=>!data.draft&&!data.sample)).sort((a,b)=>b.data.date.getTime()-a.data.date.getTime());
+---
+<Layout title="文字的回声"><section class="inner-intro wrap"><p class="eyebrow">THE JOURNAL / 01</p><h1>写下的，<br/><em>都是经过。</em></h1><p>在时间里，留下一点自己的痕迹。</p></section><section class="wrap archive-content"><label class="search-field"><span>⌕</span><input type="search" data-archive-search placeholder="寻找一个标题、一段文字…" aria-label="搜索文章"/></label><p data-search-status role="status">{posts.length} 篇文字</p><div class="journal-list">{posts.map((post,i)=><a class="journal-entry" href={href(`posts/${post.id}/`)} data-search-entry data-search-text={`${post.data.title} ${post.data.description} ${post.body} ${post.data.tags.join(' ')}`} data-reveal><span class="entry-index">{String(i+1).padStart(2,'0')}</span><div><small>{post.data.date.toISOString().slice(0,10)} · {post.data.category}</small><h2>{post.data.title}</h2><p>{post.data.description}</p></div><span class="entry-arrow">↗</span></a>)}</div></section></Layout>

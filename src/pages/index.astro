@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/PublicLayout.astro';
+import {getCollection} from 'astro:content';
+import {href,rooms} from '../lib/site';
+const posts=(await getCollection('blog',({data})=>!data.draft&&!data.sample)).sort((a,b)=>b.data.date.getTime()-a.data.date.getTime());
+---
+<Layout home>
+  <section class="opening" aria-labelledby="opening-title">
+    <picture class="opening-art"><source media="(max-width:700px)" srcset={href('art/moon-observatory-mobile.webp')}/><img src={href('art/moon-observatory.webp')} alt="月夜观测台，一位银发旅人俯瞰城市与星河" width="1672" height="941" fetchpriority="high"/></picture>
+    <div class="opening-shade" aria-hidden="true"></div><div class="orbital-line" aria-hidden="true"></div>
+    <div class="opening-copy"><p class="eyebrow"><span class="signal-dot"></span> A PERSONAL UNIVERSE / VOL. 01</p><h1 id="opening-title">往事<span class="punctuation">.</span><br/><em>未完</em><span class="title-star" aria-hidden="true">✧</span></h1><p class="opening-line">有些故事，<br/>值得在星光下慢慢写完。</p><a class="text-link" href="#chapters">翻开这一页 <span>↘</span></a></div>
+    <div class="opening-caption"><span>夜色正好。</span><small>STAY A LITTLE LONGER.</small></div>
+    <a class="scroll-cue" href="#chapters">SCROLL TO EXPLORE <span>↓</span></a>
+    <span class="scene-number" aria-hidden="true">01 — ∞</span>
+  </section>
+  <section class="chapter-section wrap" id="chapters" aria-labelledby="chapters-title">
+    <div class="section-top" data-reveal><p class="eyebrow">01 / BETWEEN THE PAGES</p><span class="chapter-note">把喜欢的，都留在这里。</span></div>
+    <h2 class="section-title" id="chapters-title" data-reveal>我的小宇宙<span>不止一面。</span></h2>
+    <div class="comic-grid">{rooms.map((room,i)=><a class={`comic-frame frame-${i}`} href={href(room.path)} data-reveal><img src={href('art/moon-observatory.webp')} alt="" width="1672" height="941" loading="lazy"/><span class="frame-index">{room.number} / {room.en}</span><div class="frame-label"><small>{room.description}</small><h3>{room.label}</h3><span aria-hidden="true">↗</span></div></a>)}</div>
+  </section>
+  <section class="letter-scene" aria-labelledby="letter-title"><div class="letter-orbit" aria-hidden="true">☾</div><div class="wrap letter-layout"><div data-reveal><p class="eyebrow">02 / A LETTER FROM THE MOON</p><h2 id="letter-title">不是每颗星，<br/>都要成为<span>太阳。</span></h2><p>收藏一点日常，创造一点有趣。<br/>在代码与幻想之间，写下还没结束的故事。</p><a class="text-link" href={href('space/')}>认识这个小世界 <span>↗</span></a></div><div class="letter-paper" data-reveal><span class="paper-stamp">☾</span><small>TO: THE ONE WHO STOPS HERE</small><p>今天也辛苦了。<br/><br/>不必急着去往下一站。<br/>听一首歌，翻一页手账，<br/>或者，只是看看月亮。</p><span class="paper-signature">往事.未完</span></div></div></section>
+  <section class="journal-section wrap" aria-labelledby="journal-title"><div class="section-top" data-reveal><p class="eyebrow">03 / RECENT ENTRIES</p><a href={href('archive/')}>全部文章 ↗</a></div><h2 class="section-title" id="journal-title" data-reveal>时间的折页<span>写下的，都是经过。</span></h2><div class="journal-list">{posts.slice(0,3).map((post,i)=><a class="journal-entry" href={href(`posts/${post.id}/`)} data-reveal><span class="entry-index">0{i+1}</span><div><small>{post.data.date.toISOString().slice(0,10)} · {post.data.category}</small><h3>{post.data.title}</h3><p>{post.data.description}</p></div><span class="entry-arrow">↗</span></a>)}</div></section>
+</Layout>

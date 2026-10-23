@@ -1,0 +1,15 @@
+{
+  "name": "unfinished-memories-public",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4322",
+    "build": "astro build && pagefind --site dist && node scripts/audit.mjs dist",
+    "preview": "astro preview --host 127.0.0.1 --port 4322",
+    "test": "node --test scripts/test-public.mjs",
+    "audit": "node scripts/audit.mjs ."
+  },
+  "dependencies": {"astro": "7.4.1", "@astrojs/markdown-satteri": "0.4.4"},
+  "devDependencies": {"pagefind": "1.5.0"}
+}

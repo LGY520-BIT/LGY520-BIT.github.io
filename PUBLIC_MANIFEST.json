@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "repository": "LGY520-BIT/LGY520-BIT.github.io",
+  "files": [
+    {
+      "path": ".github/workflows/deploy.yml",
+      "bytes": 822,
+      "sha256": "7475299daebce47359e09572da4b320c3a469960e3d83ded8d8a64e69c7953d0"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 50,
+      "sha256": "917c72fcf9cfc7f434d1b23a0aa5acc7672880a9b09b3520a4032c84dbbb9695"
+    },
+    {
+      "path": "ASSETS.md",
+      "bytes": 703,
+      "sha256": "108e6d17bafa95e8d5802c961ff6f95a42479029a9220829f6e8d3d38015c22f"
+    },
+    {
+      "path": "astro.config.mjs",
+      "bytes": 524,
+      "sha256": "622f2aa45bad58405ea0ba8a0cded50d214c7c0c1d2922c9e5a076ad91c81a46"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 134727,
+      "sha256": "6c44c74cae58a009266f2e57b3de3528d53b5729eca67a6f9311d30b4959f60f"
+    },
+    {
+      "path": "package.json",
+      "bytes": 532,
+      "sha256": "4261e34b81af15f47f0f799cc2baebe5cd482dd7c2483a1eb745de373c76bebc"
+    },
+    {
+      "path": "public/art/moon-observatory-mobile.webp",
+      "bytes": 111236,
+      "sha256": "e8938d3b9c1d1b426c82bf53af24c48f4b0cf3048c644677a35a2a5beb5c4e05"
+    },
+    {
+      "path": "public/art/moon-observatory.webp",
+      "bytes": 321336,
+      "sha256": "84736c45e3acd93c888d1454b6fe637c0499d0bb112e5fa5cbaa23c172483972"
+    },
+    {
+      "path": "public/audio/moonwalk.wav",
+      "bytes": 2143304,
+      "sha256": "13ef926df175444d87ce7e6d071957c8d38179567630e4148089797ce8e65b36"
+    },
+    {
+      "path": "public/audio/original-scores.json",
+      "bytes": 984,
+      "sha256": "a955db020c2526c9075ea55a9366455fbc365e4231299c3b1025d4dd07576199"
+    },
+    {
+      "path": "public/audio/starlit-letter.wav",
+      "bytes": 1908104,
+      "sha256": "15c69985666f269725cbfede735ce6d1ef3921dfc717fb5a8d9f253a838e8f40"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 250,
+      "sha256": "3ac338bbe935e003c824f898dabf770d5f07afcdffd2cbee19462a5abbc704e6"
+    },
+    {
+      "path": "public/public-runtime.js",
+      "bytes": 7891,
+      "sha256": "4568539a046858c6662b413d2b24a682cef513e4dac814a851d3594e404b0bb4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2111,
+      "sha256": "cd32fa0a252029642a502f4f3722f5f2548d036a720b08c2f95ebe47aa1fd81e"
+    },
+    {
+      "path": "scripts/audit.mjs",
+      "bytes": 1842,
+      "sha256": "a325a8581ea567648af6806bcd53d04137e200a57078e2a52e4a36770860fde8"
+    },
+    {
+      "path": "scripts/test-public.mjs",
+      "bytes": 3280,
+      "sha256": "7814b58270187260f9dbc6a639792f0c4bdb42d5c29735770219ab5cb9330cb2"
+    },
+    {
+      "path": "src/content.config.ts",
+      "bytes": 402,
+      "sha256": "8ee1ddc2afb4379beabc72083941b8ac21ba197b998d6905ff4186dad9d1dfcf"
+    },
+    {
+      "path": "src/layouts/PublicLayout.astro",
+      "bytes": 3562,
+      "sha256": "4e62bb31c2f65318c61a8ea3e521439e8fe8947c59dbe7c46f27554ceb5e59d5"
+    },
+    {
+      "path": "src/lib/site.ts",
+      "bytes": 770,
+      "sha256": "24cd6aa3eb731addedf832b70f8491b962653987536dab9901ccbbb9e6ea8676"
+    },
+    {
+      "path": "src/pages/404.astro",
+      "bytes": 355,
+      "sha256": "5eb6ac8ba38082a12dbbf38ea08ca7e3c948fe7713c6133531b1c57ad2eee17c"
+    },
+    {
+      "path": "src/pages/anime.astro",
+      "bytes": 589,
+      "sha256": "473776bb2e836130dede49000fc80bbb2a054b64e1095537af9593e851f4b758"
+    },
+    {
+      "path": "src/pages/archive.astro",
+      "bytes": 1284,
+      "sha256": "51e7db2c2b9a6c0b2df41086a01156ffb0cbe14e77b8458b70da779de4bd3593"
+    },
+    {
+      "path": "src/pages/credits.astro",
+      "bytes": 1063,
+      "sha256": "141f3811f557e6332bd7f0822b00ec484ba0abe7eab1bc1e88ceea00cb7ec7ce"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "bytes": 3748,
+      "sha256": "0f6c28b89778e40f78663617dcd61ea62b3b60dd5b683c19d0e791d2f4068470"
+    },
+    {
+      "path": "src/pages/links.astro",
+      "bytes": 871,
+      "sha256": "9a6cb4692271e12ed7b64149b0612d23438df66f0530772e5c39499ff419345c"
+    },
+    {
+      "path": "src/pages/music.astro",
+      "bytes": 1521,
+      "sha256": "9d1f4e1e3848e8dad95158a6e2027d9714e2a2fe145903eed2e6bfa64d6f9c77"
+    },
+    {
+      "path": "src/pages/posts/[...id].astro",
+      "bytes": 906,
+      "sha256": "b6dc25d51ce4c24ec64f3b26f13399ed0ffefba5bfe47d6acefc2bc77e2715b1"
+    },
+    {
+      "path": "src/pages/space.astro",
+      "bytes": 861,
+      "sha256": "20ed97d7887dfed623dde593dec96a04775664f98d6e51d2bc9cc52528798793"
+    },
+    {
+      "path": "src/styles/public.css",
+      "bytes": 18070,
+      "sha256": "42c01094ea28ed1d445e9dc20e7f2693ca6b7fc100b02036be54adc57d349e3f"
+    },
+    {
+      "path": "src/content/blog/dd.md",
+      "bytes": 173,
+      "sha256": "b4f90bdf6807b694542d8c75f352a3a1defaa5a532ee9416ebc7b657cbfec9fd"
+    }
+  ],
+  "exclusions": [
+    "original Git history",
+    "local backend and secrets",
+    "private drafts and personal datasets",
+    "Live2D models and wallpaper originals",
+    "local song library",
+    "verification evidence and backups"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "format": "PCM WAV",
+  "license": "CC0-1.0 dedication for these original compositions and recordings",
+  "tracks": [
+    {
+      "file": "/audio/moonwalk.wav",
+      "title": "月沿散步",
+      "bpm": 80,
+      "seconds": 48.6,
+      "channels": 1,
+      "sampleRate": 22050,
+      "bits": 16,
+      "bytes": 2143304,
+      "sha256": "13ef926df175444d87ce7e6d071957c8d38179567630e4148089797ce8e65b36",
+      "provenance": "Original algorithmic composition and synthesized recording; no third-party samples or score."
+    },
+    {
+      "file": "/audio/starlit-letter.wav",
+      "title": "星间来信",
+      "bpm": 90,
+      "seconds": 43.267,
+      "channels": 1,
+      "sampleRate": 22050,
+      "bits": 16,
+      "bytes": 1908104,
+      "sha256": "15c69985666f269725cbfede735ce6d1ef3921dfc717fb5a8d9f253a838e8f40",
+      "provenance": "Original algorithmic composition and synthesized recording; no third-party samples or score."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/PublicLayout.astro';
+const links=[{title:'Bangumi 番组计划',url:'https://bgm.tv/',tag:'ANIME',text:'与故事相遇，给喜欢留个位置。'},{title:'GitHub',url:'https://github.com/',tag:'CREATE',text:'从一个想法开始，做一点有趣的东西。'},{title:'Yuimi Lab',url:'https://yuimi-chaya.github.io/',tag:'INSPIRATION',text:'这次场景式博客设计的灵感来源。'}];
+---
+<Layout title="网址收藏夹"><section class="inner-intro wrap"><p class="eyebrow">SOMEWHERE WORTH RETURNING</p><h1>喜欢的地方，<br/><em>下次还来。</em></h1></section><section class="wrap link-collection">{links.map((link,i)=><a href={link.url} target="_blank" rel="noopener noreferrer" data-reveal><span>0{i+1} / {link.tag}</span><h2>{link.title}</h2><p>{link.text}</p><b aria-hidden="true">↗</b></a>)}</section></Layout>

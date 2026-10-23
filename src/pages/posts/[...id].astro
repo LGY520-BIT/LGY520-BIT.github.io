@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/PublicLayout.astro';
+import {getCollection,render} from 'astro:content';
+import {href} from '../../lib/site';
+export async function getStaticPaths(){return (await getCollection('blog',({data})=>!data.draft&&!data.sample)).map(post=>({params:{id:post.id},props:{post}}))}
+const {post}=Astro.props;const {Content}=await render(post);
+---
+<Layout title={post.data.title} description={post.data.description} article><article class="reading-page" data-pagefind-body><header><a class="text-link" href={href('archive/')}>← 回到手账</a><p class="eyebrow">{post.data.category} / {post.data.date.toISOString().slice(0,10)}</p><h1>{post.data.title}</h1><p>{post.data.description}</p></header><div class="prose"><Content/></div><footer class="article-end"><span>— 未完，待续 —</span><a href={href('archive/')}>翻阅其他文章 ↗</a></footer></article></Layout>
