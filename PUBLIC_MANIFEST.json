@@ -144,8 +144,8 @@
     },
     {
       "path": "src/styles/public.css",
-      "bytes": 18070,
-      "sha256": "42c01094ea28ed1d445e9dc20e7f2693ca6b7fc100b02036be54adc57d349e3f"
+      "bytes": 18269,
+      "sha256": "aa442904e47479d716e5658023bd53d07cad0a7469c09fec560d75ddc48642d4"
     },
     {
       "path": "src/content/blog/dd.md",
